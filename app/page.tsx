@@ -1,17 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import {
@@ -21,78 +14,18 @@ import {
   BarChart3,
   CheckCircle,
   Sparkles,
-  Bell,
   ExternalLink,
+  FileText,
+  Download,
 } from "lucide-react";
 import { mentors } from "@/lib/data";
 
 export default function HomePage() {
-  const [showCETPopup, setShowCETPopup] = useState(false);
-
-  // Show CET Cell popup after 2 seconds on load
-  useEffect(() => {
-    const timer = setTimeout(() => setShowCETPopup(true), 2000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* ✅ CET Cell Official Announcement Popup */}
-      <Dialog open={showCETPopup} onOpenChange={setShowCETPopup}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <div className="flex items-center gap-2 mb-1">
-              <Bell className="h-5 w-5 text-primary" />
-              <DialogTitle>Official CET Cell Update</DialogTitle>
-            </div>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
-              <p className="text-sm font-semibold text-foreground mb-1">
-                MHTCET 2025 — Important Notice
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                MHT-CET 2025 registration is now open. Last date to apply is
-                <span className="font-semibold text-foreground"> April 30, 2025</span>.
-                Exam scheduled for May–June 2025.
-              </p>
-            </div>
-            <div className="p-4 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 rounded-lg">
-              <p className="text-sm font-semibold text-amber-800 dark:text-amber-300 mb-1">
-                CAP Round Dates
-              </p>
-              <p className="text-sm text-amber-700 dark:text-amber-400 leading-relaxed">
-                CAP Round 1 expected in August 2025. Keep your documents ready.
-                Check cetcell.mahacet.org for latest updates.
-              </p>
-            </div>
-            <Button
-              asChild
-              variant="outline"
-              className="w-full"
-              onClick={() => setShowCETPopup(false)}
-            >
-              <a
-                href="https://cetcell.mahacet.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit CET Cell Official Site
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              variant="ghost"
-              className="w-full text-muted-foreground"
-              onClick={() => setShowCETPopup(false)}
-            >
-              Close
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#0f172a] pt-16">
@@ -274,6 +207,103 @@ export default function HomePage() {
                 </Card>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ MHTCET Official Announcement Section */}
+      <section className="py-16 bg-gradient-to-b from-background to-primary/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <Badge className="bg-amber-500/15 text-amber-600 dark:text-amber-400 border-0 mb-4 py-1.5 px-4">
+              <FileText className="h-3.5 w-3.5 mr-1.5" />
+              Official CET Cell Information
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-balance">
+              MHTCET 2026 Information Brochures
+            </h2>
+            <p className="mt-3 text-muted-foreground text-lg">
+              Download the official information brochures for PCM and PCB groups from the State CET Cell
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {/* PCM Brochure Card */}
+            <a
+              href="https://cetcell.mahacet.org/wp-content/uploads/2023/12/CET-Registration-Notice_-MHT-CET-2026-final-with-late-fees-17-03-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="See official web of CET Cell — Home - State Common Entrance Test Cell"
+              className="group"
+            >
+              <Card className="h-full border border-blue-200 dark:border-blue-500/30 bg-blue-50/50 dark:bg-blue-500/5 transition-all duration-300 hover:border-blue-400 dark:hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 h-14 w-14 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                      <FileText className="h-7 w-7 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        MHTCET PCM Group
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                        Physics, Chemistry & Mathematics — Information Brochure for Engineering & Technology admissions
+                      </p>
+                      <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400">
+                        <Download className="h-4 w-4" />
+                        Download PDF
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
+
+            {/* PCB Brochure Card */}
+            <a
+              href="https://cetcell.mahacet.org/cet-3/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="See official web of CET Cell — Home - State Common Entrance Test Cell"
+              className="group"
+            >
+              <Card className="h-full border border-emerald-200 dark:border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-500/5 transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 h-14 w-14 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+                      <FileText className="h-7 w-7 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        MHTCET PCB Group
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                        Physics, Chemistry & Biology — Information Brochure for Pharmacy, Agriculture & Medical admissions
+                      </p>
+                      <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                        <Download className="h-4 w-4" />
+                        Download PDF
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
+          </div>
+
+          {/* CET Cell Official Link — shown on hover tooltip is on the cards above */}
+          <div className="mt-8 text-center">
+            <a
+              href="https://cetcell.mahacet.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+            >
+              <ExternalLink className="h-4 w-4" />
+              See official web of CET Cell — Home - State Common Entrance Test Cell
+            </a>
           </div>
         </div>
       </section>
