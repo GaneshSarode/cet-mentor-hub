@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Star, MessageSquare, BadgeCheck, Sparkles,MessageCircle } from "lucide-react";
+import { Star, MessageSquare, BadgeCheck, Sparkles, MessageCircle } from "lucide-react";
 
 interface MentorCardProps {
   mentor: {
@@ -86,10 +86,14 @@ export function MentorCard({ mentor, onBook, onViewProfile }: MentorCardProps) {
         </p>
 
         <div className="mt-4 flex items-center gap-4 text-sm">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-500/10">
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-            <span className="font-semibold text-amber-600 dark:text-amber-400">{mentor.rating}</span>
-          </div>
+          {mentor.rating ? (
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-500/10">
+              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+              <span className="font-semibold text-amber-600 dark:text-amber-400">{mentor.rating}</span>
+            </div>
+          ) : (
+            <Badge variant="secondary" className="text-xs">New Mentor</Badge>
+          )}
           <div className="flex items-center gap-1.5 text-muted-foreground">
             <MessageSquare className="h-4 w-4" />
             <span>{mentor.sessionCount} sessions</span>
@@ -97,13 +101,26 @@ export function MentorCard({ mentor, onBook, onViewProfile }: MentorCardProps) {
         </div>
 
         <div className="mt-5 flex items-center gap-3">
-          <Button
-            className="flex-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30"
-            onClick={onBook}
-            disabled={!mentor.available}
-          >
-            Book @ ₹{mentor.price}
-          </Button>
+          {mentor.whatsappLink ? (
+            <Button
+              className="flex-1 bg-[#25D366] hover:bg-[#1EBE57] text-white shadow-lg shadow-green-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/30"
+              asChild
+              disabled={!mentor.available}
+            >
+              <a href={mentor.whatsappLink} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Join Free
+              </a>
+            </Button>
+          ) : (
+            <Button
+              className="flex-1 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30"
+              onClick={onBook}
+              disabled={!mentor.available}
+            >
+              {mentor.price === 0 ? "Join Free" : `Book @ ₹${mentor.price}`}
+            </Button>
+          )}
           <Button 
             variant="outline" 
             onClick={onViewProfile}
