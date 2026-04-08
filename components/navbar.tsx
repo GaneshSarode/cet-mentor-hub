@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, GraduationCap, X } from "lucide-react";
+import { Menu, GraduationCap, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { href: "/colleges", label: "Colleges" },
@@ -16,6 +17,12 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +31,10 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <header
@@ -63,7 +74,27 @@ export function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2">
+            {/* Dark Mode Toggle */}
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className={`rounded-lg transition-colors ${
+                  isScrolled
+                    ? "text-foreground hover:bg-muted"
+                    : "text-white hover:bg-white/10"
+                }`}
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            )}
             <Button
               variant="ghost"
               className={`${
@@ -80,50 +111,69 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            {/* Mobile Dark Mode Toggle */}
+            {mounted && (
               <Button
                 variant="ghost"
                 size="icon"
-                className={isScrolled ? "text-foreground" : "text-white"}
+                onClick={toggleTheme}
+                className={`rounded-lg ${
+                  isScrolled ? "text-foreground" : "text-white"
+                }`}
               >
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-sm">
-              <div className="flex flex-col gap-6 pt-6">
-                <div className="flex items-center justify-between">
-                  <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                      <GraduationCap className="h-5 w-5" />
-                    </div>
-                    <span className="font-bold text-lg">CET Mentor Hub</span>
-                  </Link>
-                </div>
-                <nav className="flex flex-col gap-2">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors"
-                    >
-                      {link.label}
+            )}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={isScrolled ? "text-foreground" : "text-white"}
+                >
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full max-w-sm">
+                <div className="flex flex-col gap-6 pt-6">
+                  <div className="flex items-center justify-between">
+                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                        <GraduationCap className="h-5 w-5" />
+                      </div>
+                      <span className="font-bold text-lg">CET Mentor Hub</span>
                     </Link>
-                  ))}
-                </nav>
-                <div className="flex flex-col gap-3 pt-4 border-t">
-                  <Button variant="outline" className="w-full">
-                    Sign In
-                  </Button>
-                  <Button className="w-full bg-primary hover:bg-primary/90">
-                    Get Started
-                  </Button>
+                  </div>
+                  <nav className="flex flex-col gap-2">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className="px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </nav>
+                  <div className="flex flex-col gap-3 pt-4 border-t">
+                    <Button variant="outline" className="w-full">
+                      Sign In
+                    </Button>
+                    <Button className="w-full bg-primary hover:bg-primary/90">
+                      Get Started
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
     </header>
