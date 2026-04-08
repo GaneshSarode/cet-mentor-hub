@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, GraduationCap, Sun, Moon } from "lucide-react";
@@ -19,6 +20,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { isSignedIn } = useUser();
 
   useEffect(() => {
     setMounted(true);
@@ -95,19 +97,31 @@ export function Navbar() {
                 <span className="sr-only">Toggle theme</span>
               </Button>
             )}
-            <Button
-              variant="ghost"
-              className={`${
-                isScrolled
-                  ? "text-foreground hover:bg-muted"
-                  : "text-white hover:bg-white/10"
-              }`}
-            >
-              Sign In
-            </Button>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Get Started
-            </Button>
+
+            {/* Auth Buttons */}
+            {!isSignedIn ? (
+              <>
+                <SignInButton mode="modal">
+                  <Button
+                    variant="ghost"
+                    className={`${
+                      isScrolled
+                        ? "text-foreground hover:bg-muted"
+                        : "text-white hover:bg-white/10"
+                    }`}
+                  >
+                    Sign In
+                  </Button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Get Started
+                  </Button>
+                </SignUpButton>
+              </>
+            ) : (
+              <UserButton />
+            )}
           </div>
 
           {/* Mobile Menu */}
@@ -163,12 +177,25 @@ export function Navbar() {
                     ))}
                   </nav>
                   <div className="flex flex-col gap-3 pt-4 border-t">
-                    <Button variant="outline" className="w-full">
-                      Sign In
-                    </Button>
-                    <Button className="w-full bg-primary hover:bg-primary/90">
-                      Get Started
-                    </Button>
+                    {!isSignedIn ? (
+                      <>
+                        <SignInButton mode="modal">
+                          <Button variant="outline" className="w-full">
+                            Sign In
+                          </Button>
+                        </SignInButton>
+                        <SignUpButton mode="modal">
+                          <Button className="w-full bg-primary hover:bg-primary/90">
+                            Get Started
+                          </Button>
+                        </SignUpButton>
+                      </>
+                    ) : (
+                      <div className="flex items-center gap-3 px-1">
+                        <UserButton />
+                        <span className="text-sm text-muted-foreground">My Account</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </SheetContent>
