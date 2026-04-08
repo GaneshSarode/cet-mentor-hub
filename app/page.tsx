@@ -74,7 +74,7 @@ export default function HomePage() {
               className="w-full"
               onClick={() => setShowCETPopup(false)}
             >
-              
+              <a
                 href="https://cetcell.mahacet.org"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -332,32 +332,30 @@ export default function HomePage() {
       {/* ✅ Testimonials section DELETED — add back when you have real ones */}
 
       {/* CTA Section — updated copy */}
-      <section className="py-20 bg-[#0f172a]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white text-balance">
-              Ready to get real guidance for MHTCET?
-            </h2>
-            <p className="mt-4 text-slate-300 text-lg">
-              Talk directly to a VJTI student who has been through exactly what you are facing.
-              Free, honest, no sales pitch.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8">
-                <Link href="/mentors">
-                  Book Free Session
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="bg-transparent border-slate-600 text-white hover:bg-white/10 h-12 px-8">
-                <Link href="/predict">Try College Predictor</Link>
-              </Button>
-            </div>
-          </div>
+      <><section className="py-20 bg-[#0f172a]">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="text-center max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white text-balance">
+          Ready to get real guidance for MHTCET?
+        </h2>
+        <p className="mt-4 text-slate-300 text-lg">
+          Talk directly to a VJTI student who has been through exactly what you are facing.
+          Free, honest, no sales pitch.
+        </p>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8">
+            <Link href="/mentors">
+              Book Free Session
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="bg-transparent border-slate-600 text-white hover:bg-white/10 h-12 px-8">
+            <Link href="/predict">Try College Predictor</Link>
+          </Button>
         </div>
-      </section>
-
-      <Footer />
+      </div>
+    </div>
+  </section><Footer /></>
     </div>
   );
 }
