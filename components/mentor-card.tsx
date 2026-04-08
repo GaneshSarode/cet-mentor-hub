@@ -16,9 +16,10 @@ interface MentorCardProps {
     year: string;
     achievement: string;
     bio: string;
-    rating: number;
+    rating: number | null;
     sessionCount: number;
     price: number;
+    whatsappLink?: string;
     available: boolean;
     verified?: boolean;
   };
