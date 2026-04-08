@@ -111,7 +111,7 @@ export default function HomePage() {
                   {mentor.achievement}
                 </Badge>
                 <p className="mt-2 text-xs text-slate-400">
-                  2nd Year • Available for free sessions
+                  2nd Year EXTC • Available for free sessions
                 </p>
               </div>
             ))}
