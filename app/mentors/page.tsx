@@ -34,9 +34,8 @@ import {
   SlidersHorizontal,
   Star,
   MessageSquare,
-  Calendar,
   CheckCircle,
-  X,
+  MessageCircle,
 } from "lucide-react";
 
 export default function MentorsPage() {
@@ -259,7 +258,7 @@ export default function MentorsPage() {
               available
             </p>
             <Badge className="bg-accent/10 text-accent border-0">
-              All sessions @ ₹49
+              Free Sessions
             </Badge>
           </div>
 
@@ -320,10 +319,14 @@ export default function MentorsPage() {
                 </Badge>
 
                 <div className="flex items-center gap-6 text-sm">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                    <span className="font-medium">{selectedMentor.rating}</span>
-                  </div>
+                  {selectedMentor.rating ? (
+                    <div className="flex items-center gap-1">
+                      <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+                      <span className="font-medium">{selectedMentor.rating}</span>
+                    </div>
+                  ) : (
+                    <Badge variant="secondary" className="text-xs">New Mentor</Badge>
+                  )}
                   <div className="flex items-center gap-1 text-muted-foreground">
                     <MessageSquare className="h-4 w-4" />
                     <span>{selectedMentor.sessionCount} sessions</span>
@@ -350,30 +353,19 @@ export default function MentorsPage() {
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="font-medium text-foreground mb-2">
-                    Available Slots
-                  </h4>
-                  <div className="grid grid-cols-3 gap-2">
-                    {["10:00 AM", "2:00 PM", "6:00 PM", "8:00 PM"].map((slot) => (
-                      <Button
-                        key={slot}
-                        variant="outline"
-                        size="sm"
-                        className="text-xs"
-                      >
-                        {slot}
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-
                 <Button
-                  className="w-full bg-primary hover:bg-primary/90"
-                  onClick={() => setShowBookingModal(true)}
+                  className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
+                  asChild
                   disabled={!selectedMentor.available}
                 >
-                  Book Session @ ₹{selectedMentor.price}
+                  <a
+                    href={selectedMentor.whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Join WhatsApp Group — Free
+                  </a>
                 </Button>
               </div>
             </>
@@ -381,13 +373,13 @@ export default function MentorsPage() {
         </DialogContent>
       </Dialog>
 
-      {/* Booking Modal */}
+      {/* Booking Modal — WhatsApp redirect */}
       <Dialog open={showBookingModal} onOpenChange={setShowBookingModal}>
         <DialogContent className="max-w-md">
           {selectedMentor && (
             <>
               <DialogHeader>
-                <DialogTitle>Book a Session</DialogTitle>
+                <DialogTitle>Connect with {selectedMentor.firstName}</DialogTitle>
               </DialogHeader>
 
               <div className="space-y-6 mt-4">
@@ -400,60 +392,53 @@ export default function MentorsPage() {
                   <div>
                     <p className="font-medium">{selectedMentor.name}</p>
                     <p className="text-sm text-muted-foreground">
-                      {selectedMentor.college}
+                      {selectedMentor.college} • {selectedMentor.branch}
                     </p>
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="font-medium text-foreground mb-3">
-                    Select Date & Time
-                  </h4>
-                  <div className="grid grid-cols-2 gap-2 mb-3">
-                    {["Today", "Tomorrow", "Wed, 8 Apr", "Thu, 9 Apr"].map((date) => (
-                      <Button key={date} variant="outline" size="sm">
-                        {date}
-                      </Button>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {["10:00 AM", "2:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM"].map(
-                      (time) => (
-                        <Button key={time} variant="outline" size="sm" className="text-xs">
-                          {time}
-                        </Button>
-                      )
-                    )}
-                  </div>
+                <div className="p-4 bg-[#25D366]/10 border border-[#25D366]/30 rounded-lg">
+                  <p className="text-sm font-medium text-foreground mb-1">
+                    Join our WhatsApp Group
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Get free guidance on CET strategy, college selection, CAP rounds, and more. Ask your doubts directly!
+                  </p>
                 </div>
 
                 <div className="border-t pt-4">
-                  <div className="flex justify-between mb-2">
-                    <span className="text-muted-foreground">Session Fee</span>
-                    <span className="font-medium">₹{selectedMentor.price}</span>
-                  </div>
                   <div className="flex justify-between mb-4">
-                    <span className="text-muted-foreground">Platform Fee</span>
-                    <span className="font-medium">₹0</span>
-                  </div>
-                  <div className="flex justify-between text-lg font-semibold border-t pt-2">
-                    <span>Total</span>
-                    <span>₹{selectedMentor.price}</span>
+                    <span className="text-muted-foreground">Session Fee</span>
+                    <span className="font-medium text-accent">FREE</span>
                   </div>
                 </div>
 
-                <Button className="w-full bg-primary hover:bg-primary/90 h-12">
-                  Pay ₹{selectedMentor.price} with Razorpay
+                <Button
+                  className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
+                  asChild
+                >
+                  <a
+                    href={selectedMentor.whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Join WhatsApp Group
+                  </a>
                 </Button>
 
                 <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <CheckCircle className="h-3 w-3 text-accent" />
-                    <span>Secure Payment</span>
+                    <span>100% Free</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <CheckCircle className="h-3 w-3 text-accent" />
-                    <span>100% Refund if cancelled</span>
+                    <span>Real VJTI Student</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <CheckCircle className="h-3 w-3 text-accent" />
+                    <span>No Spam</span>
                   </div>
                 </div>
               </div>
