@@ -228,7 +228,7 @@ export const mentors = [
     college: "VJTI Mumbai",
     collegeId: "vjti-mumbai",
     branch: "Engineering",
-    year: "2nd Year",
+    year: "SY Btech EXTC",
     achievement: "99.21%ile MHTCET",
     bio: "Currently at VJTI Mumbai. Happy to guide CET aspirants on strategy, college selection, and what engineering life is actually like.",
     fullBio: "I scored 99.21 percentile in MHTCET and joined VJTI Mumbai. I built this platform because I know how confusing the CET process can be — wrong college choices, no real guidance, just noise. I want to give you honest, practical advice based on my real experience. No scripts, no fake promises.",
@@ -236,6 +236,7 @@ export const mentors = [
     rating: null,
     sessionCount: 0,
     price: 0,
+    whatsappLink: "https://chat.whatsapp.com/FT9zIkNqsbt4yNQDDkEGaU",
     available: true,
   },
 ];
