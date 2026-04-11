@@ -73,9 +73,15 @@ export default function PredictPage() {
         const { supabase } = await import('@/lib/supabase');
         if (!supabase) throw new Error("Supabase is not initialized");
 
-        // Fetch from Supabase with joins: cutoffs -> branches -> colleges
-        // We filter round=3 for final cutoffs, and category matches user
-        const { data, error } = await supabase
+        // Category mapping logic to match MHT-CET exact strings
+        // "open" -> "OPENS", "obc" -> "OBCS", "sc" -> "SCS" 
+        let mappedCategory = category.toUpperCase();
+        if (mappedCategory === "OPEN") mappedCategory = "OPENS";
+        else if (mappedCategory === "OBC") mappedCategory = "OBCS";
+        else if (mappedCategory === "SC") mappedCategory = "SCS";
+        else if (mappedCategory === "ST") mappedCategory = "STS";
+
+        let query = supabase
           .from('cutoffs')
           .select(`
             percentile,
@@ -86,9 +92,18 @@ export default function PredictPage() {
             )
           `)
           .eq('cap_round', 3)
-          // we match the mapped category (open -> GOPENS in db, etc)
-          // For now, we'll fetch all and filter in JS to handle complex sub-category matching
-          // But ideally, we do: .eq('category', category.toUpperCase())
+          // Filter by category roughly (e.g. GOPENS, LOPENS)
+          .ilike('category', `%${mappedCategory}%`)
+          // Give them some reach colleges (+3 percentile) 
+          .lte('percentile', percentile[0] + 3)
+          .limit(1000);
+
+        // Filter by branches if not empty
+        if (selectedBranches.length > 0) {
+            query = query.in('branch.name', selectedBranches);
+        }
+
+        const { data, error } = await query;
           
         let results: PredictionResult[] = [];
         const userPercentile = percentile[0];
@@ -99,10 +114,9 @@ export default function PredictPage() {
             const branchName = row.branch.name;
             const cutoff = row.percentile;
             
-            // Filters
-            if (govtOnly && college.type !== "Government") return;
-            if (cityPreference !== "any" && college.city !== cityPreference) return;
-            if (!selectedBranches.includes(branchName)) return;
+            // Apply strict filters locally since DB handles the heavy lifting
+            if (govtOnly && college.type !== "Government" && college.type !== "Government Autonomous") return;
+            if (cityPreference !== "any" && college.city && !college.city.includes(cityPreference)) return;
 
             const diff = userPercentile - cutoff;
             let probability: number;
@@ -112,7 +126,7 @@ export default function PredictPage() {
               probability = Math.min(95, 80 + diff * 2);
               status = "safe";
             } else if (diff >= -1) {
-              probability = 50 + diff * 15;
+              probability = Math.min(80, 50 + diff * 15);
               status = "moderate";
             } else {
               probability = Math.max(5, 30 + diff * 10);
