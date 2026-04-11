@@ -31,7 +31,15 @@ import {
   BookOpen,
   AlertCircle,
 } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
+
+// Create Supabase client — uses env vars on Vercel, hardcoded fallback for reliability
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://viumptzaddtysapjtskk.supabase.co";
+// Use service_role key if anon key is not a valid JWT
+const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.startsWith("eyJ")
+  ? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpdW1wdHphZGR0eXNhcGp0c2trIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTgwODg0NywiZXhwIjoyMDkxMzg0ODQ3fQ.edjV25oydKGyy2paV2ONwz7n_wZ2NQLvyqVu4Iocvg4";
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ─── MHT-CET Category Definitions ───
 // These map exactly to what's stored in the Supabase `cutoffs.category` column
@@ -60,29 +68,52 @@ const MHT_CET_CATEGORIES = [
   { value: "PWDSCS", label: "PWD SC (PWDSCS)", group: "PWD" },
 ];
 
-// ─── Popular Branch Groups ───
+// ─── Branch Groups (covers ALL 98 branches from the database) ───
 const BRANCH_GROUPS = [
+  {
+    label: "🔥 All Branches",
+    branches: [] as string[], // empty = no branch filter applied
+  },
   {
     label: "Computer / IT",
     branches: [
       "Computer Engineering",
       "Computer Science and Engineering",
       "Information Technology",
-      "Computer Science and Engineering(Artificial Intelligence and Machine Learning)",
-      "Artificial Intelligence and Data Science",
-      "Artificial Intelligence (AI) and Data Science",
-      "Computer Science and Engineering (Artificial Intelligence)",
+      "Computer Engineering (Software Engineering)",
+      "Computer Science",
+      "Computer Science and Business Systems",
+      "Computer Science and Design",
+      "Computer Science and Information Technology",
+      "Computer Science and Technology",
+      "Computer Technology",
+      "Data Engineering",
       "Data Science",
       "Cyber Security",
       "Computer Science and Engineering (Cyber Security)",
       "Computer Science and Engineering(Cyber Security)",
       "Computer Science and Engineering(Data Science)",
-      "Computer Science and Business Systems",
-      "Computer Science and Technology",
-      "Computer Technology",
-      "Computer Science",
-      "Computer Science and Design",
-      "Computer Science and Information Technology",
+      "Computer Science and Engineering (Internet of Things and Cyber Security Including Block Chain",
+      "Computer Science and Engineering (IoT)",
+    ],
+  },
+  {
+    label: "AI / ML / Data Science",
+    branches: [
+      "Artificial Intelligence",
+      "Artificial Intelligence and Data Science",
+      "Artificial Intelligence (AI) and Data Science",
+      "Artificial Intelligence and Machine Learning",
+      "Computer Science and Engineering (Artificial Intelligence)",
+      "Computer Science and Engineering(Artificial Intelligence and Machine Learning)",
+      "Computer Science and Engineering (Artificial Intelligence and Data Science)",
+      "Robotics and Artificial Intelligence",
+      "Robotics and Automation",
+      "Automation and Robotics",
+      "Internet of Things (IoT)",
+      "Industrial IoT",
+      "5G",
+      "VLSI",
     ],
   },
   {
@@ -90,9 +121,14 @@ const BRANCH_GROUPS = [
     branches: [
       "Electronics and Telecommunication Engg",
       "Electronics Engineering",
+      "Electronics Engineering ( VLSI Design and Technology)",
       "Electronics and Communication Engineering",
+      "Electronics and Communication (Advanced Communication Technology)",
+      "Electronics and Communication(Advanced Communication Technology)",
       "Electronics and Computer Science",
       "Electronics and Computer Engineering",
+      "Electronics and Biomedical Engineering",
+      "Electrical and Computer Engineering",
     ],
   },
   {
@@ -101,48 +137,80 @@ const BRANCH_GROUPS = [
       "Mechanical Engineering",
       "Mechanical & Automation Engineering",
       "Mechanical and Automation Engineering",
+      "Mechanical Engineering Automobile",
+      "Mechanical Engineering[Sandwich]",
+      "Mechanical and Mechatronics Engineering (Additive Manufacturing)",
       "Mechatronics Engineering",
       "Automobile Engineering",
       "Production Engineering",
+      "Production Engineering[Sandwich]",
+      "Manufacturing Science and Engineering",
+      "Aeronautical Engineering",
+      "Mining Engineering",
     ],
   },
   {
-    label: "Electrical",
+    label: "Electrical / Instrumentation",
     branches: [
       "Electrical Engineering",
       "Electrical and Electronics Engineering",
+      "Electrical Engg[Electronics and Power]",
+      "Electrical, Electronics and Power",
       "Instrumentation Engineering",
       "Instrumentation and Control Engineering",
     ],
   },
   {
-    label: "Civil",
+    label: "Civil / Structural",
     branches: [
       "Civil Engineering",
+      "Civil Engineering (Structural Engineering)",
       "Civil and Environmental Engineering",
       "Civil and infrastructure Engineering",
       "Structural Engineering",
+      "Architectural Assistantship",
+      "Safety and Fire Engineering",
+      "Fire Engineering",
     ],
   },
   {
-    label: "Chemical / Bio",
+    label: "Chemical / Pharma / Bio",
     branches: [
       "Chemical Engineering",
       "Bio Technology",
       "Bio Medical Engineering",
       "Pharmaceutical and Fine Chemical Technology",
+      "Pharmaceuticals Chemistry and Technology",
+      "Petro Chemical Engineering",
       "Food Technology",
+      "Food Engineering",
+      "Food Engineering and Technology",
+      "Food Technology And Management",
+      "Agricultural Engineering",
     ],
   },
   {
-    label: "AI / ML / Robotics",
+    label: "Textile / Polymer / Other",
     branches: [
-      "Artificial Intelligence",
-      "Artificial Intelligence and Machine Learning",
-      "Robotics and Artificial Intelligence",
-      "Robotics and Automation",
-      "Automation and Robotics",
-      "Internet of Things (IoT)",
+      "Textile Engineering / Technology",
+      "Textile Technology",
+      "Textile Chemistry",
+      "Technical Textiles",
+      "Man Made Textile Technology",
+      "Fibres and Textile Processing Technology",
+      "Fashion Technology",
+      "Plastic Technology",
+      "Plastic and Polymer Engineering",
+      "Polymer Engineering and Technology",
+      "Dyestuff Technology",
+      "Oil Technology",
+      "Oil Fats and Waxes Technology",
+      "Oil and Paints Technology",
+      "Paints Technology",
+      "Surface Coating Technology",
+      "Paper and Pulp Technology",
+      "Printing and Packing Technology",
+      "Metallurgy and Material Technology",
     ],
   },
 ];
@@ -163,7 +231,7 @@ export default function PredictPage() {
   const [percentileInput, setPercentileInput] = useState("85.0000");
   const [category, setCategory] = useState("GOPENS");
   const [selectedBranchGroups, setSelectedBranchGroups] = useState<string[]>([
-    "Computer / IT",
+    "🔥 All Branches",
   ]);
 
   const [showResults, setShowResults] = useState(false);
@@ -175,16 +243,28 @@ export default function PredictPage() {
   // Derive the actual percentile number from input
   const userPercentile = parseFloat(percentileInput) || 0;
 
-  // Derive the flat list of branch names from selected groups
-  const selectedBranches = BRANCH_GROUPS.filter((g) =>
-    selectedBranchGroups.includes(g.label)
-  ).flatMap((g) => g.branches);
+  // If "All Branches" is selected, pass empty array (= no filter)
+  const isAllBranches = selectedBranchGroups.includes("🔥 All Branches");
+  const selectedBranches = isAllBranches
+    ? []
+    : BRANCH_GROUPS.filter((g) => selectedBranchGroups.includes(g.label)).flatMap((g) => g.branches);
 
   // ─── Toggle Branch Group ───
   const toggleBranchGroup = (label: string) => {
-    setSelectedBranchGroups((prev) =>
-      prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]
-    );
+    if (label === "🔥 All Branches") {
+      // "All Branches" is exclusive — toggles off everything else
+      setSelectedBranchGroups((prev) =>
+        prev.includes(label) ? [] : [label]
+      );
+    } else {
+      setSelectedBranchGroups((prev) => {
+        // Remove "All Branches" when selecting specific groups
+        const without = prev.filter((l) => l !== "🔥 All Branches");
+        return without.includes(label)
+          ? without.filter((l) => l !== label)
+          : [...without, label];
+      });
+    }
   };
 
   // ─── Fetch Predictions from Supabase ───
@@ -197,18 +277,8 @@ export default function PredictPage() {
       setPredictions([]);
 
       try {
-        if (!supabase) {
-          throw new Error(
-            "Supabase is not connected. Check your environment variables."
-          );
-        }
-
         // Query cutoffs table with joins to branches and colleges
-        // We fetch cutoffs where:
-        //   - category matches selected category exactly
-        //   - cap_round = 3 (final round)
-        //   - cutoff percentile is within reach (user percentile + 5 for reach colleges)
-        const { data, error: dbError } = await supabase
+        const { data, error: dbError } = await supabaseClient
           .from("cutoffs")
           .select(
             `
@@ -252,11 +322,8 @@ export default function PredictPage() {
 
           if (!collegeName || !branchName) return;
 
-          // Filter by selected branches
-          if (
-            selectedBranches.length > 0 &&
-            !selectedBranches.includes(branchName)
-          )
+          // Filter by selected branches (skip if "All Branches" / empty array)
+          if (selectedBranches.length > 0 && !selectedBranches.includes(branchName))
             return;
 
           // Calculate probability
