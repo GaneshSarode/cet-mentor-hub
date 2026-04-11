@@ -359,12 +359,15 @@ export default function PredictPage() {
           });
         });
 
-        // Sort: safe first, then moderate, then reach; within each group by probability desc
+        // Sort: safe first, then moderate, then reach
+        // Within each group sort by probability descending, then by cutoff descending (hardest colleges first)
         results.sort((a, b) => {
           const order = { safe: 0, moderate: 1, reach: 2 };
           if (order[a.status] !== order[b.status])
             return order[a.status] - order[b.status];
-          return b.probability - a.probability;
+          if (b.probability !== a.probability)
+            return b.probability - a.probability;
+          return b.cutoffPercentile - a.cutoffPercentile;
         });
 
         setTotalFound(results.length);
@@ -862,7 +865,7 @@ export default function PredictPage() {
               {/* Results List */}
               {!isLoading && !error && predictions.length > 0 && (
                 <div className="space-y-4">
-                  {predictions.slice(0, 30).map((result, index) => {
+                  {predictions.slice(0, 150).map((result, index) => {
                     const colors = statusColors[result.status];
 
                     return (
@@ -988,9 +991,9 @@ export default function PredictPage() {
                 </Card>
               )}
 
-              {predictions.length > 30 && (
+              {predictions.length > 150 && (
                 <p className="text-center text-sm text-muted-foreground mt-6">
-                  Showing top 30 of {totalFound} results
+                  Showing top 150 of {totalFound} results
                 </p>
               )}
             </div>
