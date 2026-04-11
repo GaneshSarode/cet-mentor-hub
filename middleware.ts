@@ -1,6 +1,12 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+import { updateSession } from "@/utils/supabase/middleware";
 
-export default clerkMiddleware();
+export default clerkMiddleware(async (auth, req) => {
+  // Generate the standard Next response and pass it through the Supabase session updater
+  const res = NextResponse.next();
+  return updateSession(req, res);
+});
 
 export const config = {
   matcher: [
