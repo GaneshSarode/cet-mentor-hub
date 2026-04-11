@@ -225,11 +225,18 @@ interface PredictionResult {
   status: "safe" | "moderate" | "reach";
 }
 
+const DISTRICTS = [
+  "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", 
+  "Solapur", "Amravati", "Kolhapur", "Sangli", "Thane", 
+  "Raigad", "Satara", "Jalgaon", "Navi Mumbai", "Karad"
+];
+
 export default function PredictPage() {
   // ─── State ───
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [percentileInput, setPercentileInput] = useState("85.0000");
   const [category, setCategory] = useState("GOPENS");
+  const [cityPreference, setCityPreference] = useState("any");
   const [selectedBranchGroups, setSelectedBranchGroups] = useState<string[]>([
     "🔥 All Branches",
   ]);
@@ -239,6 +246,7 @@ export default function PredictPage() {
   const [predictions, setPredictions] = useState<PredictionResult[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [totalFound, setTotalFound] = useState(0);
+  const [statusFilter, setStatusFilter] = useState<"all" | "safe" | "moderate" | "reach">("all");
 
   // Derive the actual percentile number from input
   const userPercentile = parseFloat(percentileInput) || 0;
@@ -321,6 +329,10 @@ export default function PredictPage() {
           const cutoff = row.percentile;
 
           if (!collegeName || !branchName) return;
+
+          // Filter by city
+          if (cityPreference !== "any" && !collegeName.toLowerCase().includes(cityPreference.toLowerCase()))
+            return;
 
           // Filter by selected branches (skip if "All Branches" / empty array)
           if (selectedBranches.length > 0 && !selectedBranches.includes(branchName))
@@ -407,7 +419,9 @@ export default function PredictPage() {
     setError(null);
     setPercentileInput("85.0000");
     setCategory("GOPENS");
-    setSelectedBranchGroups(["Computer / IT"]);
+    setCityPreference("any");
+    setStatusFilter("all");
+    setSelectedBranchGroups(["🔥 All Branches"]);
   };
 
   // ─── Status Helpers ───
@@ -615,7 +629,7 @@ export default function PredictPage() {
                         </p>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                         {BRANCH_GROUPS.map((group) => {
                           const isSelected = selectedBranchGroups.includes(
                             group.label
@@ -668,6 +682,29 @@ export default function PredictPage() {
                         })}
                       </div>
 
+                      {/* City Preference */}
+                      <div className="space-y-3 pt-4 border-t">
+                        <Label className="text-base font-medium">City / District Preference</Label>
+                        <Select
+                          value={cityPreference}
+                          onValueChange={setCityPreference}
+                        >
+                          <SelectTrigger className="h-12">
+                            <SelectValue placeholder="Any city" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="any">Any City (All Maharashtra)</SelectItem>
+                            {DISTRICTS.map(
+                              (city) => (
+                                <SelectItem key={city} value={city}>
+                                  {city}
+                                </SelectItem>
+                              )
+                            )}
+                          </SelectContent>
+                        </Select>
+                      </div>
+
                       {selectedBranchGroups.length === 0 && (
                         <p className="text-sm text-amber-600 dark:text-amber-400 flex items-center gap-2">
                           <AlertCircle className="h-4 w-4" />
@@ -701,6 +738,14 @@ export default function PredictPage() {
                             {MHT_CET_CATEGORIES.find(
                               (c) => c.value === category
                             )?.label || category}
+                          </span>
+                        </div>
+                        <div className="flex justify-between py-3 border-b border-border/50">
+                          <span className="text-muted-foreground">
+                            City
+                          </span>
+                          <span className="font-semibold text-foreground">
+                            {cityPreference === "any" ? "Any City" : cityPreference}
                           </span>
                         </div>
                         <div className="flex justify-between py-3">
@@ -781,29 +826,52 @@ export default function PredictPage() {
                 </Button>
               </div>
 
-              {/* Summary Stats */}
+              {/* Summary Stats / Filters */}
               {!isLoading && predictions.length > 0 && (
                 <div className="grid grid-cols-3 gap-3 mb-6">
-                  <div className="rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 p-4 text-center">
+                  <div 
+                    onClick={() => setStatusFilter(statusFilter === "safe" ? "all" : "safe")}
+                    className={`rounded-xl border p-4 text-center cursor-pointer transition-all ${
+                      statusFilter === "safe" || statusFilter === "all"
+                        ? "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-300 dark:border-emerald-500/50 shadow-sm"
+                        : "bg-muted/30 border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                  >
                     <Shield className="h-5 w-5 text-emerald-500 mx-auto mb-1" />
                     <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
                       {safeCount}
                     </p>
-                    <p className="text-xs text-muted-foreground">Safe</p>
+                    <p className="text-xs font-medium text-emerald-700/70 dark:text-emerald-300/70 uppercase">Safe</p>
                   </div>
-                  <div className="rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30 p-4 text-center">
+                  
+                  <div 
+                    onClick={() => setStatusFilter(statusFilter === "moderate" ? "all" : "moderate")}
+                    className={`rounded-xl border p-4 text-center cursor-pointer transition-all ${
+                      statusFilter === "moderate" || statusFilter === "all"
+                        ? "bg-amber-50 dark:bg-amber-500/10 border-amber-300 dark:border-amber-500/50 shadow-sm"
+                        : "bg-muted/30 border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                  >
                     <Target className="h-5 w-5 text-amber-500 mx-auto mb-1" />
                     <p className="text-2xl font-bold text-amber-600 dark:text-amber-400">
                       {moderateCount}
                     </p>
-                    <p className="text-xs text-muted-foreground">Moderate</p>
+                    <p className="text-xs font-medium text-amber-700/70 dark:text-amber-300/70 uppercase">Moderate</p>
                   </div>
-                  <div className="rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 p-4 text-center">
+                  
+                  <div 
+                    onClick={() => setStatusFilter(statusFilter === "reach" ? "all" : "reach")}
+                    className={`rounded-xl border p-4 text-center cursor-pointer transition-all ${
+                      statusFilter === "reach" || statusFilter === "all"
+                        ? "bg-blue-50 dark:bg-blue-500/10 border-blue-300 dark:border-blue-500/50 shadow-sm"
+                        : "bg-muted/30 border-transparent opacity-60 hover:opacity-100"
+                    }`}
+                  >
                     <Rocket className="h-5 w-5 text-blue-500 mx-auto mb-1" />
                     <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                       {reachCount}
                     </p>
-                    <p className="text-xs text-muted-foreground">Reach</p>
+                    <p className="text-xs font-medium text-blue-700/70 dark:text-blue-300/70 uppercase">Reach</p>
                   </div>
                 </div>
               )}
@@ -865,7 +933,10 @@ export default function PredictPage() {
               {/* Results List */}
               {!isLoading && !error && predictions.length > 0 && (
                 <div className="space-y-4">
-                  {predictions.slice(0, 150).map((result, index) => {
+                  {predictions
+                    .filter((p) => statusFilter === "all" || p.status === statusFilter)
+                    .slice(0, 150)
+                    .map((result, index) => {
                     const colors = statusColors[result.status];
 
                     return (
@@ -991,9 +1062,9 @@ export default function PredictPage() {
                 </Card>
               )}
 
-              {predictions.length > 150 && (
+              {predictions.filter((p) => statusFilter === "all" || p.status === statusFilter).length > 150 && (
                 <p className="text-center text-sm text-muted-foreground mt-6">
-                  Showing top 150 of {totalFound} results
+                  Showing top 150 of {predictions.filter((p) => statusFilter === "all" || p.status === statusFilter).length} results
                 </p>
               )}
             </div>
