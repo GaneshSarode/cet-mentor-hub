@@ -343,21 +343,31 @@ export default function PredictPage() {
           let probability: number;
           let status: "safe" | "moderate" | "reach";
 
-          if (diff >= 3) {
-            probability = Math.min(98, 85 + diff * 1.5);
+          if (diff >= 0) {
             status = "safe";
-          } else if (diff >= 0.5) {
-            probability = Math.min(84, 60 + diff * 8);
-            status = "safe";
-          } else if (diff >= -1) {
-            probability = Math.max(25, 50 + diff * 20);
-            status = "moderate";
-          } else if (diff >= -3) {
-            probability = Math.max(10, 30 + diff * 7);
-            status = "reach";
+            if (userPercentile === 100) {
+              probability = 100;
+            } else {
+              // Base 80% if exactly meeting cutoff. Increases up to 99%.
+              probability = Math.min(99, 80 + diff * 20);
+            }
           } else {
-            probability = Math.max(2, 15 + diff * 3);
-            status = "reach";
+            // diff is negative
+            if (diff >= -1.0) {
+              status = "moderate";
+              // diff is between 0 and -1.0. 
+              // at -0.01, prob is ~79. at -1.0, prob is 45.
+              probability = Math.max(45, 80 + diff * 35);
+            } else if (diff >= -3.0) {
+              status = "reach";
+              // diff is between -1.0 and -3.0.
+              // at -1.0, prob is ~44. at -3.0, prob is 15.
+              probability = Math.max(15, 60 + diff * 15);
+            } else {
+              status = "reach";
+              // completely out of range, cap at low probability
+              probability = Math.max(2, 24 + diff * 3);
+            }
           }
 
           results.push({
