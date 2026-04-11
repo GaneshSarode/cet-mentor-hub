@@ -14,3 +14,7 @@ next.user-config.*
 node_modules
 .next/
 .DS_Store
+
+# Downloaded PDFs and Massive Data files
+*.pdf
+scripts/pdf-extractor/*.json

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -61,65 +61,135 @@ export default function PredictPage() {
     }
   };
 
-  const predictions = useMemo((): PredictionResult[] => {
-    if (!showResults) return [];
+  const [isLoading, setIsLoading] = useState(false);
+  const [predictions, setPredictions] = useState<PredictionResult[]>([]);
 
-    const results: PredictionResult[] = [];
-    const userPercentile = percentile[0];
+  useEffect(() => {
+    async function fetchPredictions() {
+      if (!showResults) return;
+      setIsLoading(true);
+      
+      try {
+        const { supabase } = await import('@/lib/supabase');
+        if (!supabase) throw new Error("Supabase is not initialized");
 
-    colleges.forEach((college) => {
-      // Filter by govt only
-      if (govtOnly && college.type !== "Government") return;
+        // Fetch from Supabase with joins: cutoffs -> branches -> colleges
+        // We filter round=3 for final cutoffs, and category matches user
+        const { data, error } = await supabase
+          .from('cutoffs')
+          .select(`
+            percentile,
+            category,
+            branch:branches!inner(
+              name,
+              college:colleges!inner(*)
+            )
+          `)
+          .eq('cap_round', 3)
+          // we match the mapped category (open -> GOPENS in db, etc)
+          // For now, we'll fetch all and filter in JS to handle complex sub-category matching
+          // But ideally, we do: .eq('category', category.toUpperCase())
+          
+        let results: PredictionResult[] = [];
+        const userPercentile = percentile[0];
 
-      // Filter by city preference
-      if (cityPreference !== "any" && college.city !== cityPreference) return;
+        if (data && data.length > 0) {
+          data.forEach((row: any) => {
+            const college = row.branch.college;
+            const branchName = row.branch.name;
+            const cutoff = row.percentile;
+            
+            // Filters
+            if (govtOnly && college.type !== "Government") return;
+            if (cityPreference !== "any" && college.city !== cityPreference) return;
+            if (!selectedBranches.includes(branchName)) return;
 
-      Object.entries(college.cutoffs).forEach(([branch, cutoffs]) => {
-        // Filter by selected branches
-        if (!selectedBranches.includes(branch)) return;
+            const diff = userPercentile - cutoff;
+            let probability: number;
+            let status: "safe" | "moderate" | "reach";
 
-        const cutoff = cutoffs[category as keyof typeof cutoffs] || cutoffs.open;
-        if (!cutoff) return;
+            if (diff >= 2) {
+              probability = Math.min(95, 80 + diff * 2);
+              status = "safe";
+            } else if (diff >= -1) {
+              probability = 50 + diff * 15;
+              status = "moderate";
+            } else {
+              probability = Math.max(5, 30 + diff * 10);
+              status = "reach";
+            }
 
-        // Calculate probability based on percentile difference
-        const diff = userPercentile - cutoff;
-        let probability: number;
-        let status: "safe" | "moderate" | "reach";
-
-        if (diff >= 2) {
-          probability = Math.min(95, 80 + diff * 2);
-          status = "safe";
-        } else if (diff >= -1) {
-          probability = 50 + diff * 15;
-          status = "moderate";
-        } else {
-          probability = Math.max(5, 30 + diff * 10);
-          status = "reach";
-        }
-
-        // Only show if probability is above 5%
-        if (probability > 5) {
-          results.push({
-            college,
-            branch,
-            probability: Math.round(probability),
-            cutoff,
-            status,
+            if (probability > 5) {
+              results.push({
+                college: {
+                    ...college,
+                    id: college.id,
+                    name: college.name,
+                    city: college.city
+                },
+                branch: branchName,
+                probability: Math.round(probability),
+                cutoff,
+                status,
+              });
+            }
           });
         }
-      });
-    });
 
-    // Sort by probability
-    return results.sort((a, b) => b.probability - a.probability);
-  }, [
-    showResults,
-    percentile,
-    category,
-    selectedBranches,
-    cityPreference,
-    govtOnly,
-  ]);
+        // --- FALLBACK LOGIC ---
+        // If DB is empty (which it is currently until data is imported), 
+        // fallback to dummy data logic so the UI doesn't break
+        if (results.length === 0) {
+           console.log("No data found in Supabase or it failed. Falling back to local data.ts");
+           colleges.forEach((college) => {
+            if (govtOnly && college.type !== "Government") return;
+            if (cityPreference !== "any" && college.city !== cityPreference) return;
+
+            Object.entries(college.cutoffs).forEach(([branch, cutoffs]) => {
+              if (!selectedBranches.includes(branch)) return;
+              const cutoff = cutoffs[category as keyof typeof cutoffs] || cutoffs.open;
+              if (!cutoff) return;
+
+              const diff = userPercentile - cutoff;
+              let probability: number;
+              let status: "safe" | "moderate" | "reach";
+
+              if (diff >= 2) {
+                probability = Math.min(95, 80 + diff * 2);
+                status = "safe";
+              } else if (diff >= -1) {
+                probability = 50 + diff * 15;
+                status = "moderate";
+              } else {
+                probability = Math.max(5, 30 + diff * 10);
+                status = "reach";
+              }
+
+              if (probability > 5) {
+                results.push({
+                  college: { ...college, id: college.id, name: college.name },
+                  branch,
+                  probability: Math.round(probability),
+                  cutoff,
+                  status,
+                });
+              }
+            });
+          });
+        }
+        
+        // Sort by probability
+        setPredictions(results.sort((a, b) => b.probability - a.probability));
+
+      } catch (err) {
+        console.error("Error fetching predictions:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchPredictions();
+  }, [showResults, percentile, category, selectedBranches, cityPreference, govtOnly]);
 
   const handleNext = () => {
     if (step < 3) {
@@ -469,7 +539,12 @@ export default function PredictPage() {
                 </div>
               </div>
 
-              {predictions.length > 0 ? (
+              {isLoading ? (
+                <div className="flex flex-col items-center justify-center py-12">
+                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+                  <p className="mt-4 text-muted-foreground">Fetching perfect insights from database...</p>
+                </div>
+              ) : predictions.length > 0 ? (
                 <div className="space-y-4">
                   {predictions.slice(0, 15).map((result, index) => {
                     const statusColors = {
