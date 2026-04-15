@@ -4,6 +4,8 @@ import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   Select,
@@ -47,6 +49,18 @@ export default function MentorsPage() {
     null
   );
   const [showBookingModal, setShowBookingModal] = useState(false);
+  const { isSignedIn, isLoaded } = useUser();
+  const router = useRouter();
+
+  const handleJoinWhatsApp = (whatsappLink: string) => {
+    // Wait for Clerk to finish loading before checking auth state
+    if (!isLoaded) return;
+    if (!isSignedIn) {
+      router.push(`/sign-in?redirect_url=${encodeURIComponent(window.location.href)}`);
+      return;
+    }
+    window.open(whatsappLink, "_blank", "noopener,noreferrer");
+  };
 
   const filteredMentors = useMemo(() => {
     return mentors.filter((mentor) => {
@@ -355,17 +369,11 @@ export default function MentorsPage() {
 
                 <Button
                   className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
-                  asChild
+                  onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
                   disabled={!selectedMentor.available}
                 >
-                  <a
-                    href={selectedMentor.whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Join WhatsApp Group — Free
-                  </a>
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Join WhatsApp Group — Free
                 </Button>
               </div>
             </>
@@ -415,16 +423,10 @@ export default function MentorsPage() {
 
                 <Button
                   className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
-                  asChild
+                  onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
                 >
-                  <a
-                    href={selectedMentor.whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Join WhatsApp Group
-                  </a>
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Join WhatsApp Group
                 </Button>
 
                 <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">

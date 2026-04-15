@@ -307,7 +307,7 @@ export default function PredictPage() {
           .gte("percentile", userPercentile - 15)
           .lte("percentile", userPercentile + 5)
           .order("percentile", { ascending: false })
-          .limit(500);
+          .limit(1500);
 
         if (dbError) {
           throw new Error(dbError.message);
@@ -945,7 +945,7 @@ export default function PredictPage() {
                 <div className="space-y-4">
                   {predictions
                     .filter((p) => statusFilter === "all" || p.status === statusFilter)
-                    .slice(0, 150)
+                    .slice(0, 300)
                     .map((result, index) => {
                     const colors = statusColors[result.status];
 
@@ -1072,9 +1072,9 @@ export default function PredictPage() {
                 </Card>
               )}
 
-              {predictions.filter((p) => statusFilter === "all" || p.status === statusFilter).length > 150 && (
+              {predictions.filter((p) => statusFilter === "all" || p.status === statusFilter).length > 300 && (
                 <p className="text-center text-sm text-muted-foreground mt-6">
-                  Showing top 150 of {predictions.filter((p) => statusFilter === "all" || p.status === statusFilter).length} results
+                  Showing top 300 of {predictions.filter((p) => statusFilter === "all" || p.status === statusFilter).length} results
                 </p>
               )}
             </div>

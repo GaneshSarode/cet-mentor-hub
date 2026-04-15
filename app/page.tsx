@@ -17,6 +17,7 @@ import {
   ExternalLink,
   FileText,
   Download,
+  BookOpenCheck,
 } from "lucide-react";
 import { mentors } from "@/lib/data";
 
@@ -139,13 +140,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: BarChart3,
                 title: "College Predictor",
                 description:
-                  "Enter your percentile and get college recommendations. Based on past CAP cutoff data — use as a guide, not a guarantee.",
+                  "Enter your percentile and get college recommendations based on past CAP cutoff data.",
                 href: "/predict",
                 color: "bg-blue-500/10 text-blue-600",
               },
@@ -153,7 +154,7 @@ export default function HomePage() {
                 icon: Users,
                 title: "Talk to a Mentor",
                 description:
-                  "Get honest 1:1 guidance from a real VJTI student. College selection, CAP rounds, branch insights — completely free.",
+                  "Get honest 1:1 guidance from a real VJTI student — completely free.",
                 href: "/mentors",
                 color: "bg-purple-500/10 text-purple-600",
               },
@@ -161,9 +162,17 @@ export default function HomePage() {
                 icon: FileQuestion,
                 title: "Mock Tests",
                 description:
-                  "Practice with CET-pattern tests. More tests being added regularly.",
+                  "Practice with CET-pattern interactive tests. More tests added regularly.",
                 href: "/mock-tests",
                 color: "bg-amber-500/10 text-amber-600",
+              },
+              {
+                icon: BookOpenCheck,
+                title: "Practice Papers",
+                description:
+                  "Download MHTCET PYQs and mock papers for offline practice.",
+                href: "/papers",
+                color: "bg-emerald-500/10 text-emerald-600",
               },
             ].map((feature) => (
               <Link key={feature.title} href={feature.href} className="group">
