@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -49,16 +49,9 @@ export default function MentorsPage() {
     null
   );
   const [showBookingModal, setShowBookingModal] = useState(false);
-  const { isSignedIn, isLoaded } = useUser();
   const router = useRouter();
 
   const handleJoinWhatsApp = (whatsappLink: string) => {
-    // Wait for Clerk to finish loading before checking auth state
-    if (!isLoaded) return;
-    if (!isSignedIn) {
-      router.push(`/sign-in?redirect_url=${encodeURIComponent(window.location.href)}`);
-      return;
-    }
     window.open(whatsappLink, "_blank", "noopener,noreferrer");
   };
 
@@ -367,14 +360,27 @@ export default function MentorsPage() {
                   </div>
                 </div>
 
-                <Button
-                  className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
-                  onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
-                  disabled={!selectedMentor.available}
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Join WhatsApp Group — Free
-                </Button>
+                <SignedIn>
+                  <Button
+                    className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
+                    onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
+                    disabled={!selectedMentor.available}
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Join WhatsApp Group — Free
+                  </Button>
+                </SignedIn>
+                <SignedOut>
+                  <SignInButton mode="modal" fallbackRedirectUrl="/mentors">
+                    <Button
+                      className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
+                      disabled={!selectedMentor.available}
+                    >
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      Join WhatsApp Group — Free
+                    </Button>
+                  </SignInButton>
+                </SignedOut>
               </div>
             </>
           )}
@@ -421,13 +427,25 @@ export default function MentorsPage() {
                   </div>
                 </div>
 
-                <Button
-                  className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
-                  onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Join WhatsApp Group
-                </Button>
+                <SignedIn>
+                  <Button
+                    className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
+                    onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Join WhatsApp Group
+                  </Button>
+                </SignedIn>
+                <SignedOut>
+                  <SignInButton mode="modal" fallbackRedirectUrl="/mentors">
+                    <Button
+                      className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
+                    >
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      Join WhatsApp Group
+                    </Button>
+                  </SignInButton>
+                </SignedOut>
 
                 <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">
