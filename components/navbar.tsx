@@ -6,14 +6,18 @@ import { useTheme } from "next-themes";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, GraduationCap, Sun, Moon } from "lucide-react";
+import { Menu, GraduationCap, Sun, Moon, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { href: "/colleges", label: "Colleges" },
   { href: "/predict", label: "Predict" },
   { href: "/mentors", label: "Mentors" },
-  { href: "/mock-tests", label: "Tests" },
-  { href: "/papers", label: "Papers" },
 ];
 
 export function Navbar() {
@@ -74,6 +78,41 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Tests Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium h-auto flex items-center transition-colors ${
+                    isScrolled
+                      ? "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  Tests
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56 mt-2">
+                 <DropdownMenuItem asChild>
+                  <Link href="/papers" className="w-full cursor-pointer py-2">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Previous Year Papers</span>
+                      <span className="text-xs text-muted-foreground">Take real MHT-CET tests</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/mock-tests" className="w-full cursor-pointer py-2">
+                    <div className="flex flex-col">
+                      <span className="font-medium">Mock Tests</span>
+                      <span className="text-xs text-muted-foreground">Practice chapter-wise</span>
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Desktop CTA */}
@@ -176,6 +215,28 @@ export function Navbar() {
                         {link.label}
                       </Link>
                     ))}
+                    
+                    {/* Tests Section Mobile */}
+                    <div className="px-4 py-2 mt-2">
+                      <p className="text-sm font-semibold text-muted-foreground mb-2">Tests</p>
+                      <div className="flex flex-col gap-2 ml-2">
+                        <Link
+                           href="/papers"
+                           onClick={() => setIsOpen(false)}
+                           className="py-2 text-foreground hover:text-primary transition-colors"
+                        >
+                          Previous Year Papers
+                        </Link>
+                        <Link
+                           href="/mock-tests"
+                           onClick={() => setIsOpen(false)}
+                           className="py-2 text-foreground hover:text-primary transition-colors"
+                        >
+                          Mock Tests
+                        </Link>
+                      </div>
+                    </div>
+
                   </nav>
                   <div className="flex flex-col gap-3 pt-4 border-t">
                     {!isSignedIn ? (

@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { useUser, SignInButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -50,6 +50,7 @@ export default function MentorsPage() {
   );
   const [showBookingModal, setShowBookingModal] = useState(false);
   const router = useRouter();
+  const { isSignedIn } = useUser();
 
   const handleJoinWhatsApp = (whatsappLink: string) => {
     window.open(whatsappLink, "_blank", "noopener,noreferrer");
@@ -360,7 +361,7 @@ export default function MentorsPage() {
                   </div>
                 </div>
 
-                <SignedIn>
+                {isSignedIn && (
                   <Button
                     className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
                     onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
@@ -369,8 +370,8 @@ export default function MentorsPage() {
                     <MessageCircle className="mr-2 h-5 w-5" />
                     Join WhatsApp Group — Free
                   </Button>
-                </SignedIn>
-                <SignedOut>
+                )}
+                {!isSignedIn && (
                   <SignInButton mode="modal" fallbackRedirectUrl="/mentors">
                     <Button
                       className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
@@ -380,7 +381,7 @@ export default function MentorsPage() {
                       Join WhatsApp Group — Free
                     </Button>
                   </SignInButton>
-                </SignedOut>
+                )}
               </div>
             </>
           )}
@@ -427,7 +428,7 @@ export default function MentorsPage() {
                   </div>
                 </div>
 
-                <SignedIn>
+                {isSignedIn && (
                   <Button
                     className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
                     onClick={() => handleJoinWhatsApp(selectedMentor.whatsappLink!)}
@@ -435,8 +436,8 @@ export default function MentorsPage() {
                     <MessageCircle className="mr-2 h-5 w-5" />
                     Join WhatsApp Group
                   </Button>
-                </SignedIn>
-                <SignedOut>
+                )}
+                {!isSignedIn && (
                   <SignInButton mode="modal" fallbackRedirectUrl="/mentors">
                     <Button
                       className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white h-12"
@@ -445,7 +446,7 @@ export default function MentorsPage() {
                       Join WhatsApp Group
                     </Button>
                   </SignInButton>
-                </SignedOut>
+                )}
 
                 <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
                   <div className="flex items-center gap-1">

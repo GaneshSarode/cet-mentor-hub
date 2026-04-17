@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Star, MessageSquare, BadgeCheck, Sparkles, MessageCircle } from "lucide-react";
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
 interface MentorCardProps {
@@ -32,6 +33,7 @@ interface MentorCardProps {
 export function MentorCard({ mentor, onBook, onViewProfile }: MentorCardProps) {
   const isVerified = mentor.verified !== false; // Default to verified
   const router = useRouter();
+  const { isSignedIn } = useUser();
 
   const handleJoinWhatsApp = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -113,7 +115,7 @@ export function MentorCard({ mentor, onBook, onViewProfile }: MentorCardProps) {
         <div className="mt-5 flex items-center gap-3">
           {mentor.whatsappLink ? (
             <>
-              <SignedIn>
+              {isSignedIn && (
                 <Button
                   className="flex-1 bg-[#25D366] hover:bg-[#1EBE57] text-white shadow-lg shadow-green-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/30"
                   onClick={handleJoinWhatsApp}
@@ -122,8 +124,8 @@ export function MentorCard({ mentor, onBook, onViewProfile }: MentorCardProps) {
                   <MessageCircle className="mr-2 h-4 w-4" />
                   Join Free
                 </Button>
-              </SignedIn>
-              <SignedOut>
+              )}
+              {!isSignedIn && (
                 <SignInButton mode="modal" fallbackRedirectUrl="/mentors">
                   <Button
                     className="flex-1 bg-[#25D366] hover:bg-[#1EBE57] text-white shadow-lg shadow-green-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/30"
@@ -133,7 +135,7 @@ export function MentorCard({ mentor, onBook, onViewProfile }: MentorCardProps) {
                     Join Free
                   </Button>
                 </SignInButton>
-              </SignedOut>
+              )}
             </>
           ) : (
             <Button
