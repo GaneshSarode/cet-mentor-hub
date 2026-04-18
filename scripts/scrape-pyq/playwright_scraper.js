@@ -91,7 +91,7 @@ async function scrapeQuestion(page, url, subject) {
 
     // 3. Solution extraction
     let solutionText = '';
-    const allEls = document.querySelectorAll('div, p, span');
+    const allEls = document.querySelectorAll('h1, h2, h3, h4, h5, h6, div, p, span, strong, b');
     for (const el of allEls) {
       const text = el.textContent.trim();
       if (text === 'Explanation' || text === 'Solution') {
