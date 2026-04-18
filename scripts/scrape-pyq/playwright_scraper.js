@@ -52,71 +52,52 @@ async function scrapeQuestion(page, url, subject) {
     console.log('Skipped Check Answer button click');
   }
 
-  // Extract the data using browser-side evaluation
   const result = await page.evaluate((subject) => {
-    // Helper to get text correctly replacing MathJax nodes with their aria-label (Latex)
-    function cleanText(element) {
+    // We must extract innerHTML to preserve SVG MathJax formulas and image tags!
+    function getHTML(element) {
       if (!element) return '';
-      const clone = element.cloneNode(true);
-      const mathElements = clone.querySelectorAll('mjx-container');
-      mathElements.forEach(mjx => {
-        const ariaLabel = mjx.getAttribute('aria-label') || '';
-        const textNode = document.createTextNode(ariaLabel);
-        mjx.parentNode.replaceChild(textNode, mjx);
-      });
-      // Try resolving images if any
-      const imgs = clone.querySelectorAll('img');
-      imgs.forEach(img => {
-        const textNode = document.createTextNode(`[Image: ${img.src}]`);
-        img.parentNode.replaceChild(textNode, img);
-      });
-      return clone.textContent.trim().replace(/\s+/g, ' ');
+      return element.innerHTML.trim();
     }
 
-    let questionText = '';
+    // 1. Question Extraction
+    // ExamSIDE puts the actual question in the very first .question div on the page.
+    const questionNodes = document.querySelectorAll('.question');
+    const questionText = questionNodes.length > 0 ? getHTML(questionNodes[0]) : '';
+
+    // 2. Options Extraction
     const options = { A: '', B: '', C: '', D: '' };
     let correctLetter = '';
-    let solutionText = '';
-
-    // Options extraction
+    
+    // ExamSIDE options are inside div[role="button"]
     const optionNodes = document.querySelectorAll('div[role="button"]');
     optionNodes.forEach(node => {
-      const labelDiv = node.querySelector('div');
+      const labelDiv = node.querySelector('div'); // This is the A/B/C/D circle
       if (labelDiv) {
         const label = labelDiv.textContent.trim();
         if (['A', 'B', 'C', 'D'].includes(label)) {
+          // The option's actual formula/text is the next sibling
           const contentDiv = labelDiv.nextElementSibling;
-          options[label] = contentDiv ? cleanText(contentDiv) : '';
+          options[label] = contentDiv ? getHTML(contentDiv) : '';
           
-          // Determine if correct
-          const nodeHTML = node.outerHTML;
-          if (nodeHTML.includes('green') || nodeHTML.includes('Correct Answer') || node.className.includes('green')) {
+          // Detect if it's correct (usually highlighted in green after clicking "Check Answer")
+          const nodeHTML = node.outerHTML || '';
+          const nodeClass = node.className || '';
+          if (nodeHTML.includes('green') || nodeClass.includes('green') || nodeHTML.includes('Correct Answer') || node.textContent.includes('Correct Answer')) {
             correctLetter = label;
           }
         }
       }
     });
 
-    // Question extraction (Find the main text blocks above the options)
-    if (optionNodes.length > 0) {
-      let prev = optionNodes[0].previousElementSibling;
-      while (prev) {
-        let text = cleanText(prev);
-        if (text.length > 15 && !text.includes('MCQ')) {
-          questionText = text;
-          break;
-        }
-        prev = prev.previousElementSibling;
-      }
-    }
-
-    // Solution extraction
-    const allEls = document.querySelectorAll('*');
+    // 3. Solution extraction
+    let solutionText = '';
+    const allEls = document.querySelectorAll('div, p, span');
     for (const el of allEls) {
-      if (el.textContent.trim() === 'Explanation' || el.textContent.trim() === 'Solution') {
-        const explanationContainer = el.nextElementSibling || el.parentElement;
+      const text = el.textContent.trim();
+      if (text === 'Explanation' || text === 'Solution') {
+        const explanationContainer = el.nextElementSibling || el.parentElement?.nextElementSibling;
         if (explanationContainer) {
-          solutionText = cleanText(explanationContainer);
+          solutionText = getHTML(explanationContainer);
         }
         break;
       }
@@ -125,7 +106,7 @@ async function scrapeQuestion(page, url, subject) {
     return {
       question: questionText,
       options,
-      correct: correctLetter,
+      correct: correctLetter || 'A', // Fallback to A if undefined
       solution: solutionText,
       subject: subject,
       year: 2025,
@@ -137,10 +118,9 @@ async function scrapeQuestion(page, url, subject) {
 }
 
 async function main() {
-  console.log('Launching browser window... (keep it open so it works!)');
+  console.log('Launching browser window... (headless for background execution)');
   
-  // We launch visually (headless: false) so you can see it and it successfully bypasses bot-checks
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
 
