@@ -16,6 +16,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { MathRenderer } from "@/components/MathRenderer";
 import {
   Clock,
   ArrowLeft,
@@ -423,8 +424,9 @@ export default function TestPage({
           <div className="flex-1 overflow-y-auto p-6 md:p-8">
             {currentQuestion ? (
                <div className="max-w-3xl">
-                 <div className="prose dark:prose-invert max-w-none text-foreground text-lg mb-8" 
-                      dangerouslySetInnerHTML={{__html: currentQuestion.question_text}} 
+                 <MathRenderer 
+                    className="prose dark:prose-invert max-w-none text-foreground text-lg mb-8" 
+                    html={currentQuestion.question_text} 
                  />
 
                  <RadioGroup value={currentSelectedOption || ""} onValueChange={(v) => setCurrentSelectedOption(v as any)} className="space-y-4">
@@ -433,7 +435,7 @@ export default function TestPage({
                         <RadioGroupItem value={opt} id={`opt-${opt}`} className="mt-1" />
                         <Label htmlFor={`opt-${opt}`} className="flex-1 cursor-pointer text-base leading-relaxed">
                           {/* @ts-ignore - indexing object */}
-                          <span dangerouslySetInnerHTML={{__html: currentQuestion[`option_${opt.toLowerCase()}` as keyof PyqQuestion] as string}} />
+                          <MathRenderer html={currentQuestion[`option_${opt.toLowerCase()}` as keyof PyqQuestion] as string} />
                         </Label>
                       </div>
                     ))}

@@ -3,6 +3,7 @@
 import { use, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
+import { MathRenderer } from "@/components/MathRenderer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle, XCircle } from "lucide-react";
@@ -164,8 +165,9 @@ export default function ReviewPage({
              </Button>
           </div>
 
-          <div className="prose dark:prose-invert max-w-none text-slate-200 text-lg mb-8 leading-relaxed font-sans" 
-             dangerouslySetInnerHTML={{__html: currentQuestion.question_text}} 
+          <MathRenderer 
+             className="prose dark:prose-invert max-w-none text-slate-200 text-lg mb-8 leading-relaxed font-sans" 
+             html={currentQuestion.question_text} 
           />
 
           <div className="grid md:grid-cols-2 gap-x-6 gap-y-4 mb-8">
@@ -191,7 +193,7 @@ export default function ReviewPage({
                       <div className={`w-8 h-8 rounded shrink-0 flex items-center justify-center font-bold text-sm ${isSelected ? 'bg-current text-[#1A202C]' : 'bg-slate-800 border border-slate-700 text-slate-400'}`}>
                          {opt}
                       </div>
-                      <div className="flex-1 font-medium select-none overflow-x-auto text-base" dangerouslySetInnerHTML={{__html: currentQuestion[`option_${opt.toLowerCase()}` as keyof PyqQuestion] as string}} />
+                      <MathRenderer className="flex-1 font-medium select-none overflow-x-auto text-base" html={currentQuestion[`option_${opt.toLowerCase()}` as keyof PyqQuestion] as string} />
                       
                       {isSelected && (
                          <div className="absolute -top-3 right-4 flex items-center gap-1.5 px-3 py-1 bg-[#1A202C] border-x border-t border-current rounded-t-lg text-xs font-bold w-fit z-10 text-current">
@@ -214,8 +216,9 @@ export default function ReviewPage({
              <h4 className="text-sm font-bold text-slate-300 mb-4 inline-flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Solution :
              </h4>
-             <div className="prose dark:prose-invert max-w-none text-slate-300 text-base leading-relaxed bg-[#1E2530]/40 p-6 rounded-xl border border-slate-700/30" 
-                  dangerouslySetInnerHTML={{__html: currentQuestion.solution_text || "<p>No detailed solution available.</p>"}} 
+             <MathRenderer 
+                  className="prose dark:prose-invert max-w-none text-slate-300 text-base leading-relaxed bg-[#1E2530]/40 p-6 rounded-xl border border-slate-700/30" 
+                  html={currentQuestion.solution_text || "<p>No detailed solution available.</p>"} 
              />
           </div>
        </div>
