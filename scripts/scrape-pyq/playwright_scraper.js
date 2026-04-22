@@ -52,24 +52,28 @@ async function scrapeQuestion(page, url, subject) {
     console.log('Skipped Check Answer button click');
   }
 
-  const result = await page.evaluate((subject) => {
+    const result = await page.evaluate((subject) => {
     // We must extract innerHTML to preserve SVG MathJax formulas and image tags!
     function getHTML(element) {
       if (!element) return '';
-      return element.innerHTML.trim();
+      const clone = element.cloneNode(true);
+      const mmls = clone.querySelectorAll('mjx-assistive-mml');
+      mmls.forEach(m => m.remove());
+      return clone.innerHTML.trim();
     }
 
     // 1. Question Extraction
     // ExamSIDE puts the actual question in the very first .question div on the page.
-    const questionNodes = document.querySelectorAll('.question');
+    const mainComponent = document.querySelector('.question-component') || document.body;
+    const questionNodes = mainComponent.querySelectorAll('.question');
     const questionText = questionNodes.length > 0 ? getHTML(questionNodes[0]) : '';
 
     // 2. Options Extraction
     const options = { A: '', B: '', C: '', D: '' };
     let correctLetter = '';
     
-    // ExamSIDE options are inside div[role="button"]
-    const optionNodes = document.querySelectorAll('div[role="button"]');
+    // ExamSIDE options are inside div[role="button"] WITHIN the main component
+    const optionNodes = mainComponent.querySelectorAll('div[role="button"]');
     optionNodes.forEach(node => {
       const labelDiv = node.querySelector('div'); // This is the A/B/C/D circle
       if (labelDiv) {
@@ -91,7 +95,7 @@ async function scrapeQuestion(page, url, subject) {
 
     // 3. Solution extraction
     let solutionText = '';
-    const allEls = document.querySelectorAll('h1, h2, h3, h4, h5, h6, div, p, span, strong, b');
+    const allEls = mainComponent.querySelectorAll('h1, h2, h3, h4, h5, h6, div, p, span, strong, b');
     for (const el of allEls) {
       const text = el.textContent.trim();
       if (text === 'Explanation' || text === 'Solution') {

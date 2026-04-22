@@ -29,28 +29,41 @@ async function seed() {
   console.log(`Found ${questions.length} questions in JSON. Seeding into Supabase...`);
 
   try {
-    // 1. Insert the paper record
-    const { data: paperData, error: paperError } = await supabase
+    // 1. Check if paper exists, otherwise insert
+    const paperTitle = "MHT CET 2025 23rd April Morning Shift";
+    let { data: existingPaper, error: fetchError } = await supabase
       .from('pyq_papers')
-      .insert([
-         {
-           title: "MHT CET 2025 23rd April Morning Shift",
-           year: 2025,
-           shift: "morning",
-           exam_date: "2025-04-23",
-           subject_group: "PCM", 
-           total_questions: questions.length,
-           duration_minutes: 180, // Standard 3 hour duration
-           pdf_url: null
-         }
-      ])
-      .select()
+      .select('id')
+      .eq('title', paperTitle)
       .single();
-
-    if (paperError) throw paperError;
-
-    const paperId = paperData.id;
-    console.log(`Created paper: ${paperData.title} with ID: ${paperId}`);
+      
+    let paperId;
+    if (existingPaper) {
+        paperId = existingPaper.id;
+        console.log(`Found existing paper: ${paperTitle} with ID: ${paperId}`);
+    } else {
+        const { data: paperData, error: paperError } = await supabase
+          .from('pyq_papers')
+          .insert([
+             {
+               title: paperTitle,
+               year: 2025,
+               shift: "morning",
+               exam_date: "2025-04-23",
+               subject_group: "PCM", 
+               total_questions: questions.length,
+               duration_minutes: 180, // Standard 3 hour duration
+               pdf_url: null
+             }
+          ])
+          .select()
+          .single();
+    
+        if (paperError) throw paperError;
+        paperId = paperData.id;
+        console.log(`Created paper: ${paperData.title} with ID: ${paperId}`);
+    }
+    console.log(`Working with paper ID: ${paperId}`);
 
     // 2. Prepare questions for database insert
     const formattedQuestions = questions.map((q, index) => {
@@ -81,7 +94,7 @@ async function seed() {
     // Supabase can handle many inserts, but batching by 50 ensures we don't hit payload limits
     for (let i = 0; i < formattedQuestions.length; i += 50) {
         const batch = formattedQuestions.slice(i, i + 50);
-        const { error: qError } = await supabase.from('pyq_questions').insert(batch);
+        const { error: qError } = await supabase.from('pyq_questions').upsert(batch, { onConflict: 'paper_id, question_number' });
         
         if (qError) {
              console.error(`Error inserting batch ${i/50 + 1}:`, qError);
