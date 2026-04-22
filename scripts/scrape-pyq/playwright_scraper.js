@@ -79,8 +79,10 @@ async function scrapeQuestion(page, url, subject) {
       if (labelDiv) {
         const label = labelDiv.textContent.trim();
         if (['A', 'B', 'C', 'D'].includes(label)) {
-          // The option's actual formula/text is the next sibling
-          const contentDiv = labelDiv.nextElementSibling;
+          // The option's actual formula/text is the .grow container, or the last child
+          const children = Array.from(node.children);
+          const contentDiv = children.find(child => (child.className || '').includes('grow')) || children[children.length - 1];
+
           options[label] = contentDiv ? getHTML(contentDiv) : '';
           
           // Detect if it's correct (usually highlighted in green after clicking "Check Answer")
