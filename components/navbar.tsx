@@ -55,8 +55,8 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-transform group-hover:scale-105">
-              <GraduationCap className="h-5 w-5" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden transition-transform group-hover:scale-105">
+              <img src="/logo.png" alt="CET Mentor Hub Logo" className="h-full w-full object-cover" />
             </div>
             <span className={`font-bold text-lg ${isScrolled ? "text-foreground" : "text-white"}`}>
               CET Mentor Hub
@@ -198,8 +198,8 @@ export function Navbar() {
                 <div className="flex flex-col gap-6 pt-6">
                   <div className="flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                        <GraduationCap className="h-5 w-5" />
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden">
+                        <img src="/logo.png" alt="CET Mentor Hub Logo" className="h-full w-full object-cover" />
                       </div>
                       <span className="font-bold text-lg">CET Mentor Hub</span>
                     </Link>

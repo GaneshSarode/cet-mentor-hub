@@ -19,10 +19,23 @@ export const metadata: Metadata = {
   description: 'Connect with verified mentors from VJTI, ICT, COEP, PICT for 1:1 sessions. College predictor, mock tests, and personalized guidance for MHTCET & JEE aspirants.',
   keywords: ['MHTCET', 'JEE', 'mentorship', 'college predictor', 'mock tests', 'VJTI', 'ICT', 'COEP', 'engineering'],
   authors: [{ name: 'CET Mentor Hub' }],
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: 'CET Mentor Hub | Get Mentored by Top College Students',
     description: 'Connect with verified mentors from VJTI, ICT, COEP, PICT for 1:1 sessions.',
     type: 'website',
+    images: [
+      {
+        url: '/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'CET Mentor Hub Logo',
+      },
+    ],
   },
 }
 
