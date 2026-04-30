@@ -43,13 +43,13 @@ export default function HomePage() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight text-balance">
               Get Mentored by Students from{" "}
-              <span className="text-primary">VJTI, ICT, COEP, PICT</span>
+              <span className="text-primary">VJTI</span>
             </h1>
 
             <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed text-pretty">
               1:1 sessions with real students who cracked MHTCET. Get honest guidance on
               college selection, CAP rounds, and what engineering life is actually like.{" "}
-              <span className="text-white font-semibold">Completely free right now.</span>
+              <span className="text-white font-semibold">Completely free.</span>
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -69,7 +69,7 @@ export default function HomePage() {
                 size="lg"
                 className="bg-transparent border-slate-600 text-white hover:bg-white/10 h-12 px-8 text-base"
               >
-                <Link href="/mock-tests">Take Free Mock Test</Link>
+                <Link href="/papers">Previous Year Papers</Link>
               </Button>
             </div>
 
