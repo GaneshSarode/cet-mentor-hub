@@ -16,6 +16,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { MathRenderer } from "@/components/MathRenderer";
 import {
   Clock,
@@ -23,7 +24,8 @@ import {
   ArrowRight,
   Flag,
   AlertCircle,
-  PlayCircle
+  PlayCircle,
+  Grid3X3
 } from "lucide-react";
 import { PyqPaper, PyqQuestion, PyqTestSession, PyqTestAnswer } from "@/lib/types/database";
 // We would import 'katex/dist/katex.min.css' here, but letting client render it raw or use a React KaTeX wrapper
@@ -54,6 +56,7 @@ export default function TestPage({
   const [currentSelectedOption, setCurrentSelectedOption] = useState<'A' | 'B' | 'C' | 'D' | null>(null);
   const [timeSpentOnCurrent, setTimeSpentOnCurrent] = useState(0);
   const [syncing, setSyncing] = useState(false);
+  const [showMobilePalette, setShowMobilePalette] = useState(false);
 
   // 1. Initial Data Fetch
   useEffect(() => {
@@ -447,17 +450,23 @@ export default function TestPage({
           </div>
 
           {/* Action Footer */}
-          <div className="h-16 border-t bg-card flex items-center justify-between px-6 shrink-0">
+          <div className="h-16 border-t bg-card flex items-center justify-between px-4 sm:px-6 shrink-0">
             <div className="flex gap-2">
-              <Button variant="outline" onClick={handleMarkReviewAndNext}>
-                 Mark for Review & Next
+              <Button variant="outline" onClick={handleMarkReviewAndNext} className="text-xs sm:text-sm px-2 sm:px-4">
+                 <Flag className="h-4 w-4 sm:mr-1" />
+                 <span className="hidden sm:inline">Mark for Review & Next</span>
+                 <span className="sm:hidden">Review</span>
               </Button>
-              <Button variant="ghost" onClick={handleClearResponse}>
-                 Clear Response
+              <Button variant="ghost" onClick={handleClearResponse} className="text-xs sm:text-sm px-2 sm:px-4">
+                 Clear
               </Button>
             </div>
-            <div className="flex gap-2 text-red-500">
-               <Button onClick={handleSaveAndNext} className="bg-primary hover:bg-primary/90 text-primary-foreground min-w-[120px]">
+            <div className="flex gap-2 items-center">
+               {/* Mobile palette trigger */}
+               <Button variant="outline" size="icon" className="lg:hidden" onClick={() => setShowMobilePalette(true)}>
+                 <Grid3X3 className="h-4 w-4" />
+               </Button>
+               <Button onClick={handleSaveAndNext} className="bg-primary hover:bg-primary/90 text-primary-foreground min-w-[100px] sm:min-w-[120px]">
                  Save & Next
                </Button>
             </div>
@@ -557,6 +566,51 @@ export default function TestPage({
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Mobile Question Palette Drawer */}
+      <Drawer open={showMobilePalette} onOpenChange={setShowMobilePalette}>
+        <DrawerContent className="max-h-[70vh]">
+          <DrawerHeader className="pb-2">
+            <DrawerTitle className="flex items-center justify-between">
+              Question Palette
+              <span className="text-xs text-muted-foreground font-normal">Total: {questions.length}</span>
+            </DrawerTitle>
+          </DrawerHeader>
+          <div className="px-4 pb-4 overflow-y-auto">
+            <div className="grid grid-cols-8 gap-2">
+              {questions.map((q, idx) => {
+                const { color } = getQuestionStatusDetails(q.id);
+                const isCurrent = idx === currentQuestionIndex;
+                let finalColor = color;
+                if (isCurrent) {
+                  finalColor += " ring-2 ring-primary ring-offset-1 dark:ring-offset-background";
+                }
+                return (
+                  <button
+                    key={q.id}
+                    onClick={async () => {
+                      await saveAnswer(currentQuestion.id, currentSelectedOption, answers[currentQuestion.id]?.is_marked_for_review || false);
+                      setCurrentQuestionIndex(idx);
+                      setActiveSubject('all');
+                      setShowMobilePalette(false);
+                    }}
+                    className={`h-9 w-full text-xs font-semibold rounded-md border ${finalColor}`}
+                  >
+                    {q.question_number}
+                  </button>
+                );
+              })}
+            </div>
+            {/* Legend */}
+            <div className="mt-4 pt-3 border-t text-xs grid grid-cols-2 gap-y-2">
+              <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm bg-green-500"></div> Answered</div>
+              <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm bg-red-500/10 border-red-200 border"></div> Not Visited</div>
+              <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm bg-slate-200"></div> Not Answered</div>
+              <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-sm bg-orange-500/20 border-orange-300 border"></div> Marked</div>
+            </div>
+          </div>
+        </DrawerContent>
+      </Drawer>
     </div>
   );
 }

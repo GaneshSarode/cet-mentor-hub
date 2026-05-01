@@ -239,7 +239,7 @@ export default function ReviewPage({
              onClick={() => setCurrentQuestionIndex(prev => prev + 1)}
              className="border-0 bg-slate-200 text-slate-900 hover:bg-white font-bold px-8 rounded-lg h-12 flex-1 max-w-[200px]"
           >
-             Save & Next
+             Next
           </Button>
        </div>
     </div>

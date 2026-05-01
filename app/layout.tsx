@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'CET Mentor Hub | Get Mentored by Top College Students',
-  description: 'Connect with verified mentors from VJTI, ICT, COEP, PICT for 1:1 sessions. College predictor, mock tests, and personalized guidance for MHTCET & JEE aspirants.',
-  keywords: ['MHTCET', 'JEE', 'mentorship', 'college predictor', 'mock tests', 'VJTI', 'ICT', 'COEP', 'engineering'],
+  title: 'CET Mentor Hub | Free MHTCET Guidance by VJTI Students',
+  description: 'Get free 1:1 mentorship from a real VJTI student. College predictor, MHT-CET PYQ online tests (2019–2025), and honest guidance for MHTCET aspirants.',
+  keywords: ['MHTCET', 'MHT-CET', 'MHTCET 2026', 'mentorship', 'college predictor', 'previous year papers', 'VJTI', 'engineering', 'CAP round', 'MHTCET mock test'],
   authors: [{ name: 'CET Mentor Hub' }],
   manifest: '/manifest.json',
   icons: {
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'CET Mentor Hub | Get Mentored by Top College Students',
-    description: 'Connect with verified mentors from VJTI, ICT, COEP, PICT for 1:1 sessions.',
+    title: 'CET Mentor Hub | Free MHTCET Guidance by VJTI Students',
+    description: 'Get free 1:1 mentorship from a real VJTI student. Practice MHT-CET PYQs online with auto-grading and detailed solutions.',
     type: 'website',
     images: [
       {
