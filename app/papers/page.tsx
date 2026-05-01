@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import { useUser } from "@clerk/nextjs";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -26,8 +27,26 @@ export default function PapersPage() {
   const [activeShift, setActiveShift] = useState("All");
   const [selectedYear, setSelectedYear] = useState("all");
   const [papers, setPapers] = useState<PyqPaper[]>([]);
+  const [sessions, setSessions] = useState<any[]>([]);
+  const { isSignedIn } = useUser();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchSessions() {
+      if (!isSignedIn) return;
+      try {
+        const res = await fetch("/api/pyq/sessions", { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          setSessions(data.sessions || []);
+        }
+      } catch (err) {
+        console.error("Failed to load sessions", err);
+      }
+    }
+    fetchSessions();
+  }, [isSignedIn]);
 
   useEffect(() => {
     async function fetchPapers() {
@@ -209,9 +228,18 @@ export default function PapersPage() {
             </div>
           ) : filteredPapers.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredPapers.map((paper) => (
-                <PaperCard key={paper.id} paper={paper} />
-              ))}
+              {filteredPapers.map((paper) => {
+                const paperSessions = sessions.filter(s => s.paper_id === paper.id && s.status === 'completed');
+                let bestScore = undefined;
+                if (paperSessions.length > 0) {
+                  const maxScore = Math.max(...paperSessions.map(s => s.score || 0));
+                  bestScore = { score: maxScore, total: paperSessions[0].total_marks || 200 };
+                }
+
+                return (
+                  <PaperCard key={paper.id} paper={paper} bestScore={bestScore} />
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-16">

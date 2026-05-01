@@ -10,15 +10,17 @@ import {
   BookOpen,
   Calendar,
   FileQuestion,
-  PlayCircle
+  PlayCircle,
+  CheckCircle2
 } from "lucide-react";
 import { PyqPaper } from "@/lib/types/database";
 
 interface PaperCardProps {
   paper: PyqPaper;
+  bestScore?: { score: number; total: number };
 }
 
-export function PaperCard({ paper }: PaperCardProps) {
+export function PaperCard({ paper, bestScore }: PaperCardProps) {
   const subjectColors: Record<string, string> = {
     PCM: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
     PCB: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
@@ -60,6 +62,13 @@ export function PaperCard({ paper }: PaperCardProps) {
         <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {paper.shift === 'morning' ? 'Morning Shift (9am-12pm)' : 'Evening Shift (2pm-5pm)'}
         </p>
+
+        {bestScore && (
+          <div className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 w-fit px-2 py-1 rounded-md">
+            <CheckCircle2 className="h-3.5 w-3.5" />
+            Highest Score: {bestScore.score} / {bestScore.total}
+          </div>
+        )}
 
         {/* Meta info */}
         <div className="mt-auto mb-5 pt-4 flex items-center justify-between text-sm text-muted-foreground">

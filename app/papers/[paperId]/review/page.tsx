@@ -136,20 +136,30 @@ export default function ReviewPage({
              </div>
           </div>
           
-          <div className="flex px-16 border-t border-slate-700/30">
-             {['Physics', 'Chemistry', 'Mathematics'].map(subj => (
-               <button 
-                  key={subj}
-                  className={`px-6 py-2.5 text-sm font-medium border-b-2 transition-colors ${activeSubject === subj ? 'border-blue-500 text-slate-100' : 'border-transparent text-slate-400 hover:text-slate-300'}`}
-                  onClick={() => {
-                     setActiveSubject(subj as any);
-                     const firstIdx = questions.findIndex(q => q.subject === subj);
-                     if (firstIdx !== -1) setCurrentQuestionIndex(firstIdx);
-                  }}
-               >
-                 {subj}
-               </button>
-             ))}
+          <div className="flex px-4 md:px-16 border-t border-slate-700/30 justify-between items-center">
+             <div className="flex overflow-x-auto">
+               {['Physics', 'Chemistry', 'Mathematics'].map(subj => (
+                 <button 
+                    key={subj}
+                    className={`px-6 py-2.5 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeSubject === subj ? 'border-blue-500 text-slate-100' : 'border-transparent text-slate-400 hover:text-slate-300'}`}
+                    onClick={() => {
+                       setActiveSubject(subj as any);
+                       const firstIdx = questions.findIndex(q => q.subject === subj);
+                       if (firstIdx !== -1) setCurrentQuestionIndex(firstIdx);
+                    }}
+                 >
+                   {subj}
+                 </button>
+               ))}
+             </div>
+             <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => router.push(`/papers/${paperId}/test`)} 
+                className="hidden sm:flex shrink-0 border-slate-600 text-slate-300 hover:bg-slate-800 ml-4"
+             >
+                Go to Test Again
+             </Button>
           </div>
        </div>
 
