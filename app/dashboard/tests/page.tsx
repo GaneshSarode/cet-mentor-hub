@@ -42,7 +42,7 @@ export default function TestHistoryPage() {
 
       try {
         setIsLoading(true);
-        const res = await fetch("/api/pyq/sessions");
+        const res = await fetch("/api/pyq/sessions", { cache: 'no-store' });
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
         setSessions(data.sessions || []);
