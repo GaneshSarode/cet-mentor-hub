@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -26,14 +27,18 @@ const sidebarLinks = [
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
-function SidebarContent({ pathname }: { pathname: string }) {
+function SidebarContent({ pathname, user }: { pathname: string; user?: { firstName?: string | null; lastName?: string | null; emailAddresses?: { emailAddress: string }[]; fullName?: string | null } | null }) {
+  const initials = user ? `${(user.firstName || '')[0] || ''}${(user.lastName || '')[0] || ''}`.toUpperCase() || 'U' : 'U';
+  const displayName = user?.fullName || user?.firstName || 'Student';
+  const email = user?.emailAddresses?.[0]?.emailAddress || '';
+
   return (
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="p-6 border-b border-sidebar-border">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <GraduationCap className="h-5 w-5" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden">
+            <img src="/logo.png" alt="CET Mentor Hub Logo" className="h-full w-full object-cover" />
           </div>
           <span className="font-bold text-lg text-sidebar-foreground">CET Mentor Hub</span>
         </Link>
@@ -64,23 +69,28 @@ function SidebarContent({ pathname }: { pathname: string }) {
       <div className="p-4 border-t border-sidebar-border">
         <div className="flex items-center gap-3 p-3 rounded-lg bg-sidebar-accent/50">
           <Avatar className="h-10 w-10 border border-sidebar-border">
-            <AvatarFallback className="bg-primary/20 text-primary">RS</AvatarFallback>
+            <AvatarFallback className="bg-primary/20 text-primary">{initials}</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <p className="font-medium text-sm text-sidebar-foreground truncate">
-              Rahul Sharma
+              {displayName}
             </p>
-            <p className="text-xs text-sidebar-foreground/60 truncate">
-              rahul@example.com
-            </p>
+            {email && (
+              <p className="text-xs text-sidebar-foreground/60 truncate">
+                {email}
+              </p>
+            )}
           </div>
         </div>
         <Button
           variant="ghost"
           className="w-full mt-2 text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent/50 justify-start"
+          asChild
         >
-          <LogOut className="h-4 w-4 mr-2" />
-          Sign Out
+          <Link href="/">
+            <LogOut className="h-4 w-4 mr-2" />
+            Back to Home
+          </Link>
         </Button>
       </div>
     </div>
@@ -93,13 +103,14 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const { user } = useUser();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
       {/* Desktop Sidebar */}
       <aside className="fixed left-0 top-0 bottom-0 w-64 bg-sidebar hidden lg:block border-r border-sidebar-border">
-        <SidebarContent pathname={pathname} />
+        <SidebarContent pathname={pathname} user={user} />
       </aside>
 
       {/* Mobile Header */}
@@ -111,7 +122,7 @@ export default function DashboardLayout({
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-64 p-0 bg-sidebar">
-            <SidebarContent pathname={pathname} />
+            <SidebarContent pathname={pathname} user={user} />
           </SheetContent>
         </Sheet>
         <span className="ml-4 font-semibold text-foreground">Dashboard</span>

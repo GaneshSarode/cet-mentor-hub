@@ -1,56 +1,131 @@
+"use client";
+
+import { useState, useEffect, useMemo } from "react";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
-  Calendar,
   FileText,
-  Bookmark,
-  TrendingUp,
-  Video,
   Clock,
+  TrendingUp,
   ArrowRight,
-  Star,
+  Target,
+  BookOpen,
+  CheckCircle,
+  XCircle,
 } from "lucide-react";
+import { PyqTestSession, PyqPaper } from "@/lib/types/database";
 
-// Sample user data (would come from auth/database in real app)
-const userData = {
-  name: "Rahul",
-  upcomingSessions: 1,
-  testsTaken: 12,
-  collegesSaved: 5,
-  percentileRank: 87,
-};
-
-const upcomingBooking = {
-  mentorName: "Arjun S.",
-  college: "VJTI Mumbai",
-  date: "Tomorrow",
-  time: "6:00 PM",
-  topic: "Physics Numericals",
-};
-
-const recentTests = [
-  { name: "Physics - Mechanics", score: 78, date: "2 days ago", total: 30 },
-  { name: "Maths - Calculus", score: 65, date: "5 days ago", total: 30 },
-  { name: "Chemistry - Organic", score: 82, date: "1 week ago", total: 25 },
-];
-
-const savedColleges = [
-  { name: "VJTI Mumbai", branch: "CS", probability: 72 },
-  { name: "COEP Pune", branch: "IT", probability: 85 },
-  { name: "PICT Pune", branch: "CS", probability: 91 },
-];
+type SessionWithPaper = PyqTestSession & { pyq_papers: PyqPaper };
 
 export default function DashboardPage() {
+  const { isLoaded, isSignedIn, user } = useUser();
+  const router = useRouter();
+  const [sessions, setSessions] = useState<SessionWithPaper[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      if (!isLoaded) return;
+      if (!isSignedIn) {
+        router.push("/sign-in?redirect_url=/dashboard");
+        return;
+      }
+
+      try {
+        setIsLoading(true);
+        const res = await fetch("/api/pyq/sessions");
+        if (!res.ok) throw new Error("Failed to fetch");
+        const data = await res.json();
+        setSessions(data.sessions || []);
+      } catch {
+        // Silently handle — dashboard will show empty state
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, [isLoaded, isSignedIn, router]);
+
+  const completedSessions = useMemo(
+    () => sessions.filter((s) => s.status === "completed"),
+    [sessions]
+  );
+
+  const inProgressSessions = useMemo(
+    () => sessions.filter((s) => s.status === "in_progress"),
+    [sessions]
+  );
+
+  const recentCompleted = completedSessions.slice(0, 3);
+
+  const stats = useMemo(() => {
+    if (completedSessions.length === 0)
+      return { testsTaken: 0, avgScore: 0, avgAccuracy: 0, inProgress: 0 };
+
+    const totalScore = completedSessions.reduce(
+      (sum, s) => sum + (s.score || 0),
+      0
+    );
+    const totalMaxMarks = completedSessions.reduce(
+      (sum, s) => sum + (s.total_marks || 200),
+      0
+    );
+    const totalCorrect = completedSessions.reduce(
+      (sum, s) => sum + s.correct_count,
+      0
+    );
+    const totalAttempted = completedSessions.reduce(
+      (sum, s) => sum + s.correct_count + s.wrong_count,
+      0
+    );
+
+    return {
+      testsTaken: completedSessions.length,
+      avgScore:
+        totalMaxMarks > 0 ? Math.round((totalScore / totalMaxMarks) * 100) : 0,
+      avgAccuracy:
+        totalAttempted > 0
+          ? Math.round((totalCorrect / totalAttempted) * 100)
+          : 0,
+      inProgress: inProgressSessions.length,
+    };
+  }, [completedSessions, inProgressSessions]);
+
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) return "Today";
+    if (diffDays === 1) return "Yesterday";
+    if (diffDays < 7) return `${diffDays} days ago`;
+    return date.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+    });
+  };
+
+  const getScorePercent = (session: SessionWithPaper) => {
+    if (!session.score && session.score !== 0) return 0;
+    const maxMarks = session.total_marks || 200;
+    return Math.round((session.score / maxMarks) * 100);
+  };
+
+  const firstName = user?.firstName || "Student";
+
   return (
     <div className="p-6 lg:p-8">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
-          Welcome back, {userData.name}!
+          Welcome back, {firstName}!
         </h1>
         <p className="text-muted-foreground mt-1">
           Here&apos;s an overview of your progress
@@ -58,128 +133,151 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <Card className="border-border/50">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Upcoming Sessions</p>
-                <p className="text-3xl font-bold text-foreground mt-1">
-                  {userData.upcomingSessions}
-                </p>
+      {isLoading ? (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {[1, 2, 3, 4].map((i) => (
+            <Card key={i} className="border-border/50">
+              <CardContent className="p-6">
+                <Skeleton className="h-4 w-24 mb-3" />
+                <Skeleton className="h-8 w-16" />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <Card className="border-border/50">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    Tests Completed
+                  </p>
+                  <p className="text-3xl font-bold text-foreground mt-1">
+                    {stats.testsTaken}
+                  </p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <FileText className="h-6 w-6 text-primary" />
+                </div>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Calendar className="h-6 w-6 text-primary" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
 
-        <Card className="border-border/50">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Tests Taken</p>
-                <p className="text-3xl font-bold text-foreground mt-1">
-                  {userData.testsTaken}
-                </p>
+          <Card className="border-border/50">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-muted-foreground">Average Score</p>
+                  <p className="text-3xl font-bold text-foreground mt-1">
+                    {stats.avgScore}%
+                  </p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                  <TrendingUp className="h-6 w-6 text-emerald-500" />
+                </div>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                <FileText className="h-6 w-6 text-accent" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
 
-        <Card className="border-border/50">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Colleges Saved</p>
-                <p className="text-3xl font-bold text-foreground mt-1">
-                  {userData.collegesSaved}
-                </p>
+          <Card className="border-border/50">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-muted-foreground">Accuracy</p>
+                  <p className="text-3xl font-bold text-foreground mt-1">
+                    {stats.avgAccuracy}%
+                  </p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
+                  <Target className="h-6 w-6 text-blue-500" />
+                </div>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                <Bookmark className="h-6 w-6 text-amber-500" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
 
-        <Card className="border-border/50">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Avg. Percentile</p>
-                <p className="text-3xl font-bold text-foreground mt-1">
-                  {userData.percentileRank}%
-                </p>
+          <Card className="border-border/50">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-muted-foreground">In Progress</p>
+                  <p className="text-3xl font-bold text-foreground mt-1">
+                    {stats.inProgress}
+                  </p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-amber-500/10 flex items-center justify-center">
+                  <Clock className="h-6 w-6 text-amber-500" />
+                </div>
               </div>
-              <div className="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                <TrendingUp className="h-6 w-6 text-purple-500" />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
       <div className="grid lg:grid-cols-2 gap-6">
-        {/* Upcoming Session */}
+        {/* In-Progress Tests */}
         <Card className="border-border/50">
           <CardHeader className="flex-row items-center justify-between space-y-0 pb-4">
-            <CardTitle className="text-lg">Upcoming Session</CardTitle>
+            <CardTitle className="text-lg">Continue Tests</CardTitle>
             <Button asChild variant="ghost" size="sm">
-              <Link href="/dashboard/bookings">
-                View all
+              <Link href="/papers">
+                Browse Papers
                 <ArrowRight className="h-4 w-4 ml-1" />
               </Link>
             </Button>
           </CardHeader>
           <CardContent>
-            {upcomingBooking ? (
-              <div className="p-4 bg-muted/50 rounded-xl">
-                <div className="flex items-start gap-4">
-                  <Avatar className="h-12 w-12 border-2 border-primary/20">
-                    <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-                      {upcomingBooking.mentorName[0]}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-foreground">
-                      {upcomingBooking.mentorName}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {upcomingBooking.college}
-                    </p>
-                    <Badge className="mt-2 bg-primary/10 text-primary border-0">
-                      {upcomingBooking.topic}
-                    </Badge>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="h-4 w-4" />
-                    <span>{upcomingBooking.date}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="h-4 w-4" />
-                    <span>{upcomingBooking.time}</span>
-                  </div>
-                </div>
-                <div className="flex gap-3 mt-4">
-                  <Button className="flex-1 bg-primary hover:bg-primary/90">
-                    <Video className="h-4 w-4 mr-2" />
-                    Join Session
-                  </Button>
-                  <Button variant="outline">Reschedule</Button>
-                </div>
+            {isLoading ? (
+              <div className="space-y-3">
+                {[1, 2].map((i) => (
+                  <Skeleton key={i} className="h-16 w-full rounded-lg" />
+                ))}
+              </div>
+            ) : inProgressSessions.length > 0 ? (
+              <div className="space-y-3">
+                {inProgressSessions.map((session) => {
+                  const paper = session.pyq_papers;
+                  const timeLeftMin = Math.floor(
+                    session.time_remaining_seconds / 60
+                  );
+                  return (
+                    <div
+                      key={session.id}
+                      className="p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0">
+                          <h3 className="font-semibold text-foreground text-sm truncate">
+                            {paper?.title || "Unknown"}
+                          </h3>
+                          <p className="text-xs text-muted-foreground mt-0.5">
+                            {paper?.year} • {paper?.shift} •{" "}
+                            <span className="text-amber-600 dark:text-amber-400 font-medium">
+                              {timeLeftMin} min left
+                            </span>
+                          </p>
+                        </div>
+                        <Button
+                          asChild
+                          size="sm"
+                          className="bg-amber-600 hover:bg-amber-700 text-white shrink-0"
+                        >
+                          <Link href={`/papers/${session.paper_id}/test`}>
+                            Resume
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             ) : (
               <div className="text-center py-8">
-                <p className="text-muted-foreground">No upcoming sessions</p>
-                <Button asChild variant="link" className="mt-2">
-                  <Link href="/mentors">Book a mentor</Link>
+                <p className="text-muted-foreground text-sm">
+                  No tests in progress
+                </p>
+                <Button asChild variant="link" className="mt-2" size="sm">
+                  <Link href="/papers">Start a PYQ test</Link>
                 </Button>
               </div>
             )}
@@ -189,7 +287,7 @@ export default function DashboardPage() {
         {/* Recent Tests */}
         <Card className="border-border/50">
           <CardHeader className="flex-row items-center justify-between space-y-0 pb-4">
-            <CardTitle className="text-lg">Recent Test Results</CardTitle>
+            <CardTitle className="text-lg">Recent Results</CardTitle>
             <Button asChild variant="ghost" size="sm">
               <Link href="/dashboard/tests">
                 View all
@@ -197,76 +295,72 @@ export default function DashboardPage() {
               </Link>
             </Button>
           </CardHeader>
-          <CardContent className="space-y-4">
-            {recentTests.map((test, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between p-3 bg-muted/50 rounded-lg"
-              >
-                <div>
-                  <p className="font-medium text-foreground text-sm">{test.name}</p>
-                  <p className="text-xs text-muted-foreground">{test.date}</p>
-                </div>
-                <div className="text-right">
-                  <p className="font-semibold text-foreground">
-                    {Math.round((test.score / test.total) * 100)}%
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {test.score}/{test.total}
-                  </p>
-                </div>
-              </div>
-            ))}
-            <Button asChild variant="outline" className="w-full">
-              <Link href="/mock-tests">Take Another Test</Link>
-            </Button>
-          </CardContent>
-        </Card>
-
-        {/* Saved Colleges */}
-        <Card className="border-border/50 lg:col-span-2">
-          <CardHeader className="flex-row items-center justify-between space-y-0 pb-4">
-            <CardTitle className="text-lg">Saved Colleges</CardTitle>
-            <Button asChild variant="ghost" size="sm">
-              <Link href="/dashboard/saved">
-                View all
-                <ArrowRight className="h-4 w-4 ml-1" />
-              </Link>
-            </Button>
-          </CardHeader>
-          <CardContent>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {savedColleges.map((college, index) => (
-                <div
-                  key={index}
-                  className="p-4 bg-muted/50 rounded-xl space-y-3"
-                >
-                  <div>
-                    <h3 className="font-semibold text-foreground">{college.name}</h3>
-                    <p className="text-sm text-muted-foreground">{college.branch}</p>
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between text-sm mb-1">
-                      <span className="text-muted-foreground">Your chances</span>
-                      <span className="font-medium text-foreground">
-                        {college.probability}%
-                      </span>
-                    </div>
-                    <Progress value={college.probability} className="h-2" />
-                  </div>
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="sm"
-                    className="w-full"
-                  >
-                    <Link href={`/mentors?college=${college.name.toLowerCase().replace(" ", "-")}`}>
-                      Find Mentor
+          <CardContent className="space-y-3">
+            {isLoading ? (
+              [1, 2, 3].map((i) => (
+                <Skeleton key={i} className="h-14 w-full rounded-lg" />
+              ))
+            ) : recentCompleted.length > 0 ? (
+              <>
+                {recentCompleted.map((session) => {
+                  const paper = session.pyq_papers;
+                  const scorePercent = getScorePercent(session);
+                  return (
+                    <Link
+                      key={session.id}
+                      href={`/papers/${session.paper_id}/result`}
+                      className="block"
+                    >
+                      <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg hover:bg-muted transition-colors">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-medium text-foreground text-sm truncate">
+                            {paper?.title || "Unknown"}
+                          </p>
+                          <div className="flex items-center gap-2 mt-0.5 text-xs text-muted-foreground">
+                            <span>
+                              {session.submitted_at
+                                ? formatDate(session.submitted_at)
+                                : formatDate(session.created_at)}
+                            </span>
+                            <span className="flex items-center gap-0.5 text-emerald-500">
+                              <CheckCircle className="h-3 w-3" />
+                              {session.correct_count}
+                            </span>
+                            <span className="flex items-center gap-0.5 text-red-500">
+                              <XCircle className="h-3 w-3" />
+                              {session.wrong_count}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="text-right ml-3">
+                          <p className="font-bold text-foreground">
+                            {scorePercent}%
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {session.score}/{session.total_marks || 200}
+                          </p>
+                        </div>
+                      </div>
                     </Link>
-                  </Button>
+                  );
+                })}
+                <Button asChild variant="outline" className="w-full" size="sm">
+                  <Link href="/papers">Take Another Test</Link>
+                </Button>
+              </>
+            ) : (
+              <div className="text-center py-8">
+                <div className="mx-auto h-12 w-12 rounded-full bg-muted flex items-center justify-center mb-3">
+                  <BookOpen className="h-6 w-6 text-muted-foreground" />
                 </div>
-              ))}
-            </div>
+                <p className="text-sm text-muted-foreground">
+                  No tests completed yet
+                </p>
+                <Button asChild variant="link" className="mt-2" size="sm">
+                  <Link href="/papers">Take your first test</Link>
+                </Button>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
