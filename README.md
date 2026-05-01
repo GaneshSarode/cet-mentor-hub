@@ -95,26 +95,7 @@ Make sure you have [Node.js](https://nodejs.org/) (v22+ recommended) and `npm` i
    npm install
    ```
 
-3. **Set up Environment Variables:**
-   Create a `.env.local` file in the root directory and add your API keys:
-   ```env
-   # Clerk Auth
-   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
-   CLERK_SECRET_KEY=your_clerk_secret
-
-   # Supabase
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-   # Razorpay
-   NEXT_PUBLIC_RAZORPAY_KEY_ID=your_razorpay_key
-   RAZORPAY_KEY_SECRET=your_razorpay_secret
-   
-   # Resend
-   RESEND_API_KEY=your_resend_key
-   ```
-
-4. **Run the Development Server:**
+3. **Run the Development Server:**
    ```bash
    npm run dev
    ```
