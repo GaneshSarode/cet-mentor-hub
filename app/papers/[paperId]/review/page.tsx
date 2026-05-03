@@ -6,7 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { MathRenderer } from "@/components/MathRenderer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CheckCircle, XCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle, XCircle, Bookmark, BookmarkCheck } from "lucide-react";
 import { PyqPaper, PyqQuestion, PyqTestSession, PyqTestAnswer } from "@/lib/types/database";
 
 export default function ReviewPage({
@@ -25,6 +25,8 @@ export default function ReviewPage({
   const [isLoading, setIsLoading] = useState(true);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [activeSubject, setActiveSubject] = useState<'Physics' | 'Chemistry' | 'Mathematics' | 'all'>('Physics');
+  const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
+  const [bookmarkLoading, setBookmarkLoading] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadReviewData() {
@@ -76,6 +78,43 @@ export default function ReviewPage({
     
     loadReviewData();
   }, [paperId, isLoaded, isSignedIn, router]);
+
+  // Load bookmarks
+  useEffect(() => {
+    async function loadBookmarks() {
+      if (!isLoaded || !isSignedIn) return;
+      try {
+        const res = await fetch('/api/pyq/bookmarks', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          const ids = new Set<string>((data.bookmarks || []).map((b: any) => b.question_id));
+          setBookmarkedIds(ids);
+        }
+      } catch { /* silently handle */ }
+    }
+    loadBookmarks();
+  }, [isLoaded, isSignedIn]);
+
+  const toggleBookmark = async (questionId: string) => {
+    setBookmarkLoading(questionId);
+    try {
+      const isBookmarked = bookmarkedIds.has(questionId);
+      const res = await fetch('/api/pyq/bookmarks', {
+        method: isBookmarked ? 'DELETE' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question_id: questionId }),
+      });
+      if (res.ok) {
+        setBookmarkedIds(prev => {
+          const next = new Set(prev);
+          if (isBookmarked) next.delete(questionId);
+          else next.add(questionId);
+          return next;
+        });
+      }
+    } catch { /* silently handle */ }
+    finally { setBookmarkLoading(null); }
+  };
 
 
   if (isLoading) return <div className="min-h-screen bg-[#1E2530] text-slate-200 flex items-center justify-center">Loading Review...</div>;
@@ -170,10 +209,22 @@ export default function ReviewPage({
                 <span className="text-slate-400 font-semibold">Q{currentQuestion.question_number}</span>
                 <Badge className="bg-emerald-500/10 text-emerald-500 border-0">+{currentQuestion.marks_positive}</Badge>
              </div>
-             <Button variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 text-xs">
-                View All Qs ›
-             </Button>
-          </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={`h-9 w-9 transition-colors ${bookmarkedIds.has(currentQuestion.id) ? 'text-amber-400 hover:text-amber-300' : 'text-slate-500 hover:text-amber-400'}`}
+                  disabled={bookmarkLoading === currentQuestion.id}
+                  onClick={() => toggleBookmark(currentQuestion.id)}
+                  title={bookmarkedIds.has(currentQuestion.id) ? 'Remove bookmark' : 'Bookmark this question'}
+                >
+                  {bookmarkedIds.has(currentQuestion.id) ? <BookmarkCheck className="h-5 w-5 fill-current" /> : <Bookmark className="h-5 w-5" />}
+                </Button>
+                <Button variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 text-xs">
+                   View All Qs ›
+                </Button>
+              </div>
+           </div>
 
           <MathRenderer 
              className="prose dark:prose-invert max-w-none text-slate-200 text-lg mb-8 leading-relaxed font-sans" 

@@ -11,7 +11,8 @@ import {
   LayoutDashboard,
   Calendar,
   FileText,
-  Bookmark,
+  BookmarkCheck,
+  Heart,
   Settings,
   LogOut,
   Menu,
@@ -23,7 +24,8 @@ const sidebarLinks = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
   { href: "/dashboard/bookings", label: "My Bookings", icon: Calendar },
   { href: "/dashboard/tests", label: "Test History", icon: FileText },
-  { href: "/dashboard/saved", label: "Saved Colleges", icon: Bookmark },
+  { href: "/dashboard/bookmarks", label: "Bookmarks", icon: BookmarkCheck },
+  { href: "/dashboard/saved", label: "Saved Colleges", icon: Heart },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 

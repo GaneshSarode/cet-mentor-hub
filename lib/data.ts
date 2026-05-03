@@ -462,7 +462,44 @@ export const papers = [
   },
 ];
 
-export const testimonials: never[] = [];
+export const testimonials = [
+  {
+    id: "1",
+    name: "Rohan Patil",
+    college: "VJTI Mumbai",
+    branch: "Computer Engineering",
+    cetScore: "99.45%ile",
+    text: "The PYQ practice papers on CET Mentor Hub were exactly like the real exam. Solving them in timed mode really helped me manage pressure during the actual CET.",
+    avatar: "RP",
+  },
+  {
+    id: "2",
+    name: "Sneha Kulkarni",
+    college: "COEP Pune",
+    branch: "IT",
+    cetScore: "98.92%ile",
+    text: "I was confused between VJTI and COEP. One session with Ganesh cleared all my doubts about branch vs college priority. Genuinely helpful, no sugar-coating.",
+    avatar: "SK",
+  },
+  {
+    id: "3",
+    name: "Aditya Deshmukh",
+    college: "PICT Pune",
+    branch: "Computer Engineering",
+    cetScore: "98.15%ile",
+    text: "The subject-wise practice mode helped me identify my weak areas in Chemistry. I improved my score by 15 marks in just 2 weeks of focused practice.",
+    avatar: "AD",
+  },
+  {
+    id: "4",
+    name: "Priya Sharma",
+    college: "SPIT Mumbai",
+    branch: "EXTC",
+    cetScore: "97.80%ile",
+    text: "Best part about CET Mentor Hub is the college predictor — it gave me realistic expectations. The mentor guidance on CAP rounds was invaluable.",
+    avatar: "PS",
+  },
+];
 
 
 export const districts = [

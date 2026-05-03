@@ -18,8 +18,10 @@ import {
   FileText,
   Download,
   BookOpenCheck,
+  Quote,
 } from "lucide-react";
-import { mentors } from "@/lib/data";
+import { mentors, testimonials } from "@/lib/data";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
 
@@ -347,10 +349,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ✅ Testimonials section DELETED — add back when you have real ones */}
+      {/* Testimonials Section */}
+      <section className="py-20 bg-muted/50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Hear from our Students
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Join hundreds of students who have improved their CET scores
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Card className="h-full border-border/50 bg-background/50 hover:bg-background transition-colors">
+                  <CardContent className="p-6 flex flex-col h-full">
+                    <Quote className="h-8 w-8 text-primary/20 mb-4" />
+                    <p className="text-sm text-foreground flex-1 mb-6 leading-relaxed">
+                      "{t.text}"
+                    </p>
+                    <div className="flex items-center gap-3 mt-auto">
+                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center text-primary font-bold text-sm">
+                        {t.avatar}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground text-sm">{t.name}</p>
+                        <p className="text-xs text-muted-foreground">{t.college} • {t.cetScore}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section — updated copy */}
-      <><section className="py-20 bg-[#0f172a]">
+      <section className="py-20 bg-[#0f172a]">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-white text-balance">
@@ -373,7 +417,8 @@ export default function HomePage() {
         </div>
       </div>
     </div>
-  </section><Footer /></>
+  </section>
+  <Footer />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useUser, SignInButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   Select,
@@ -38,6 +39,7 @@ import {
   MessageSquare,
   CheckCircle,
   MessageCircle,
+  Users,
 } from "lucide-react";
 
 export default function MentorsPage() {
@@ -467,6 +469,37 @@ export default function MentorsPage() {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Become a Mentor CTA */}
+      <section className="py-20 mt-10 bg-primary/5 border-t border-primary/10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+            <Users className="h-8 w-8 text-primary" />
+          </div>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            Become a Mentor
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Are you studying at a top engineering college in Maharashtra? Help the next generation of students navigate their MHTCET journey and college selection process.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <Badge variant="outline" className="bg-background">
+              <CheckCircle className="h-3.5 w-3.5 mr-1.5 text-primary" /> Guide Juniors
+            </Badge>
+            <Badge variant="outline" className="bg-background">
+              <CheckCircle className="h-3.5 w-3.5 mr-1.5 text-primary" /> Build Network
+            </Badge>
+            <Badge variant="outline" className="bg-background">
+              <CheckCircle className="h-3.5 w-3.5 mr-1.5 text-primary" /> Flexible Time
+            </Badge>
+          </div>
+          <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+            <Link href="https://forms.gle/PLACEHOLDER" target="_blank" rel="noopener noreferrer">
+              Apply to be a Mentor
+            </Link>
+          </Button>
+        </div>
+      </section>
 
       <Footer />
     </div>
