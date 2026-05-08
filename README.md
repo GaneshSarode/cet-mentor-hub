@@ -1,117 +1,136 @@
 <div align="center">
+  <h1>🎯 CET Mentor Hub</h1>
+  <p><strong>Free MHT-CET guidance platform for Maharashtra students</strong></p>
 
-# 🎓 CET Mentor Hub
+  <p>
+    <a href="https://cet-mentor-hub.vercel.app"><strong>Live Demo</strong></a> · 
+    <a href="https://github.com/GaneshSarode/cet-mentor-hub/issues"><strong>Report Bug</strong></a> · 
+    <a href="https://github.com/GaneshSarode/cet-mentor-hub/pulls"><strong>Contribute</strong></a>
+  </p>
 
-**Your ultimate companion for Common Entrance Test (CET) Preparation**
-
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg?style=for-the-badge&logo=vercel)](https://cet-mentor-hub.vercel.app/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)]()
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)]()
-[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)]()
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)]()
-
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Architecture](#-architecture--flow) • [Getting Started](#-getting-started) • [Contributing](#-contributing)
-
+  <p>
+    <img src="https://img.shields.io/badge/Next.js_16-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 16" />
+    <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React 19" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+    <br/>
+    <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+    <img src="https://img.shields.io/badge/Clerk_Auth-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" alt="Clerk Auth" />
+    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" />
+  </p>
 </div>
 
 ---
 
-## 📖 About The Project
+## 🌟 About the Project
 
-**CET Mentor Hub** is a dynamic web application designed to help students master their Common Entrance Test (CET) preparations. The platform provides access to Previous Year Questions (PYQs), progress tracking, mock tests, and personalized mentoring.
+**CET Mentor Hub** is a comprehensive, student-first platform designed to democratize access to high-quality MHT-CET preparation. Built by a VJTI student who scored in the **99.21%ile**, this platform connects aspirants with top-tier resources, real exam-like experiences, and direct 1:1 mentorship from seniors who have already cracked the code.
 
-### ✨ Features
-- **Secure Authentication**: Passwordless & social login via Clerk.
-- **Progress Tracking**: Real-time analytics and charts using Recharts.
-- **Previous Year Questions (PYQs)**: Dedicated scraper and viewer for past exam questions.
-- **Secure Payments**: Integrated with Razorpay for premium mock tests or mentorships.
-- **Interactive UI**: Beautiful, accessible, and responsive components built with Radix UI, Framer Motion, and Tailwind CSS.
-- **Email Notifications**: Automated updates and alerts via Resend.
+### ✨ Key Features
+
+- 🎓 **1:1 VJTI Mentorship:** Direct guidance and strategy sessions with current VJTI students.
+- 🔮 **College Predictor:** Advanced algorithm leveraging historical CAP cutoff data to predict college admissions.
+- 📝 **Live PYQ Tests (2019–2025):** Time-bound, auto-graded Previous Year Question mock exams mimicking the actual CBT environment.
+- 🏆 **Global Leaderboard:** Competitive ranking system to track your progress against peers across Maharashtra.
+- 🏛️ **College Explorer:** In-depth directories and insights on top engineering colleges.
 
 ---
 
-## 🛠 Tech Stack
+## 💻 Tech Stack
 
 | Category | Technology |
 | :--- | :--- |
-| **Frontend** | Next.js 16 (App Router), React 19, TypeScript |
-| **Styling** | Tailwind CSS v4, Radix UI (Shadcn), Framer Motion |
-| **Backend & DB** | Supabase (PostgreSQL) |
-| **Authentication** | Clerk |
-| **Payments** | Razorpay |
-| **Emails** | Resend |
-| **Data Visualization**| Recharts |
-| **Scraping** | Playwright, Cheerio, Axios |
+| **Frontend Framework** | Next.js 16, React 19 |
+| **Styling & UI** | Tailwind CSS v4, Radix UI, Recharts (Data Viz) |
+| **Language** | TypeScript |
+| **Backend & Database** | Supabase (PostgreSQL with RLS) |
+| **Authentication** | Clerk Auth |
+| **Payments & Emails** | Razorpay, Resend |
+| **Data Automation** | Playwright (Automated PYQ Scraper) |
+| **Deployment** | Vercel |
 
 ---
 
-## 🏗 Architecture & Flow
-
-The following flow chart explains the high-level architecture of how the frontend, authentication, and database interact:
+## 🏗️ Architecture Overview
 
 ```mermaid
-graph TD;
-    Client[Client Browser / Next.js]
-    Auth[Clerk Authentication]
-    DB[(Supabase PostgreSQL)]
-    Payment[Razorpay Gateway]
-    Scraper[Playwright Scraper]
+graph TD
+    Client[📱 Next.js Client] -->|Auth| Clerk[🔑 Clerk Auth]
+    Client -->|Server Actions / API| Server[⚙️ Next.js Server]
+    Server -->|Read/Write Data| Supabase[(🗄️ Supabase Postgres)]
+    Server -->|Payments| Razorpay[💳 Razorpay]
+    Server -->|Transactional Emails| Resend[📧 Resend]
+    Scraper[🕷️ Playwright Data Scraper] -.->|Upsert PYQ Data| Supabase
     
-    Client -->|1. Sign In / Sign Up| Auth
-    Auth -->|2. Return Token| Client
-    Client -->|3. Fetch / Update Data| DB
-    Client -->|4. Initiate Checkout| Payment
-    Payment -->|5. Payment Webhook| DB
-    Scraper -->|6. Scrape PYQs| DB
-    
-    classDef main fill:#2563eb,stroke:#1e40af,stroke-width:2px,color:#fff;
-    classDef secondary fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
-    classDef db fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff;
-    
-    class Client main;
-    class Auth,Payment secondary;
-    class DB db;
+    classDef default fill:#111827,stroke:#374151,stroke-width:2px,color:#F9FAFB;
+    classDef db fill:#064E3B,stroke:#059669,stroke-width:2px,color:#F9FAFB;
+    classDef auth fill:#4C1D95,stroke:#7C3AED,stroke-width:2px,color:#F9FAFB;
+    class Supabase db;
+    class Clerk auth;
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-Follow these instructions to set up the project locally.
+To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) (v22+ recommended) and `npm` installed.
+- Node.js (v18+)
+- npm or yarn or pnpm
+- Supabase Account
+- Clerk Account
 
 ### Installation
 
-1. **Clone the repository:**
+1. **Clone the repo**
    ```bash
    git clone https://github.com/GaneshSarode/cet-mentor-hub.git
    cd cet-mentor-hub
    ```
 
-2. **Install dependencies:**
+2. **Install dependencies**
    ```bash
    npm install
+   # or yarn install / pnpm install
    ```
 
-3. **Run the Development Server:**
+3. **Set up Environment Variables**
+   Create a `.env.local` file in the root directory and add your keys:
+   ```env
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+   CLERK_SECRET_KEY=sk_test_...
+   NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhb...
+   SUPABASE_SERVICE_ROLE_KEY=eyJhb...
+   ```
+
+4. **Start the development server**
    ```bash
    npm run dev
    ```
-   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   *Your app will be running at `http://localhost:3000`*
 
 ---
 
-## 🕷️ PYQ Scraper
+## 🕷️ PYQ Scraper Usage
 
-This project includes a custom Playwright scraper inside `scripts/scrape-pyq/` to fetch past examination questions.
+The repository includes a highly robust Playwright scraper used to automatically extract and format MHT-CET Previous Year Questions from the web to populate our Supabase instance.
+
 To run the scraper:
-```bash
-cd scripts/scrape-pyq
-npm install
-node scrape_examside.js
-```
+1. Navigate to the scraper directory:
+   ```bash
+   cd scripts/scrape-pyq
+   ```
+2. Ensure you have the necessary dependencies (Node/Playwright or Python depending on the script format):
+   ```bash
+   npm install playwright
+   ```
+3. Run the targeted extraction script:
+   ```bash
+   node playwright_scraper_19_evening.js
+   ```
 
 ---
 
@@ -134,5 +153,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 <div align="center">
-  Made with ❤️ by <a href="https://github.com/GaneshSarode">Ganesh Sarode</a>
+  <p>Made with ❤️ by <strong>Ganesh Sarode</strong> — VJTI Mumbai</p>
+  <p><i>SY BTech EXTC | 99.21%ile MHTCET</i></p>
+  <a href="https://github.com/GaneshSarode">GitHub</a> · <a href="https://cet-mentor-hub.vercel.app">Live Platform</a>
 </div>
