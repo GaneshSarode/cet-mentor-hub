@@ -12,7 +12,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/colleges", label: "Colleges" },
   { href: "/predict", label: "Predict" },
-  { href: "/mentors", label: "Mentors" },
   { href: "/papers", label: "Tests" },
   { href: "/practice", label: "Practice" },
   { href: "/leaderboard", label: "Leaderboard" },

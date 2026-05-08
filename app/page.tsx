@@ -21,8 +21,11 @@ import {
 } from "lucide-react";
 import { mentors } from "@/lib/data";
 import { motion } from "framer-motion";
+import { useUser, SignInButton } from "@clerk/nextjs";
 
 export default function HomePage() {
+  const { isSignedIn } = useUser();
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -54,16 +57,28 @@ export default function HomePage() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8 text-base"
-              >
-                <Link href="/mentors">
-                  Talk to a Mentor — Free
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              {isSignedIn ? (
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8 text-base"
+                >
+                  <Link href="https://chat.whatsapp.com/FT9zIkNqsbt4yNQDDkEGaU" target="_blank" rel="noopener noreferrer">
+                    Join WhatsApp Group — Free
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              ) : (
+                <SignInButton mode="modal" fallbackRedirectUrl="/">
+                  <Button
+                    size="lg"
+                    className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8 text-base cursor-pointer"
+                  >
+                    Join WhatsApp Group — Free
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </SignInButton>
+              )}
               <Button
                 asChild
                 variant="outline"
@@ -89,34 +104,6 @@ export default function HomePage() {
                 <span>Honest Guidance — No Scripts</span>
               </div>
             </div>
-          </div>
-
-          {/* Mentor Card Preview — only shows Ganesh */}
-          <div className="mt-16 flex justify-center">
-            {mentors.slice(0, 1).map((mentor) => (
-              <div
-                key={mentor.id}
-                className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-4 w-72"
-              >
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-10 w-10 border border-slate-600">
-                    <AvatarFallback className="bg-primary/20 text-primary">
-                      {mentor.firstName[0]}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-medium text-white text-sm">{mentor.name}</p>
-                    <p className="text-xs text-slate-400">{mentor.college}</p>
-                  </div>
-                </div>
-                <Badge className="mt-3 bg-primary/20 text-primary text-xs border-0">
-                  {mentor.achievement}
-                </Badge>
-                <p className="mt-2 text-xs text-slate-400">
-                  SY BTech EXTC • Available for free sessions
-                </p>
-              </div>
-            ))}
           </div>
         </div>
 
@@ -153,10 +140,10 @@ export default function HomePage() {
               },
               {
                 icon: Users,
-                title: "Talk to a Mentor",
+                title: "WhatsApp Community",
                 description:
-                  "Get honest 1:1 guidance from a real VJTI student — completely free.",
-                href: "/mentors",
+                  "Get honest 1:1 guidance from a real VJTI student directly on WhatsApp.",
+                href: "#join",
                 color: "bg-purple-500/10 text-purple-600",
               },
               {
@@ -351,23 +338,32 @@ export default function HomePage() {
 
 
       {/* CTA Section — updated copy */}
-      <section className="py-20 bg-[#0f172a]">
+      <section id="join" className="py-20 bg-[#0f172a] scroll-mt-16">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-white text-balance">
           Ready to get real guidance for MHTCET?
         </h2>
         <p className="mt-4 text-slate-300 text-lg">
-          Talk directly to a VJTI student who has been through exactly what you are facing.
+          Join our WhatsApp group to talk directly to a VJTI student who has been through exactly what you are facing.
           Free, honest, no sales pitch.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8">
-            <Link href="/mentors">
-              Book Free Session
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          {isSignedIn ? (
+            <Button asChild size="lg" className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8">
+              <Link href="https://chat.whatsapp.com/FT9zIkNqsbt4yNQDDkEGaU" target="_blank" rel="noopener noreferrer">
+                Join WhatsApp Group
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          ) : (
+            <SignInButton mode="modal" fallbackRedirectUrl="/">
+              <Button size="lg" className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8 cursor-pointer">
+                Join WhatsApp Group
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </SignInButton>
+          )}
           <Button asChild variant="outline" size="lg" className="bg-transparent border-slate-600 text-white hover:bg-white/10 h-12 px-8">
             <Link href="/predict">Try College Predictor</Link>
           </Button>
