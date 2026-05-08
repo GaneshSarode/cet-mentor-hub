@@ -14,7 +14,6 @@ const navLinks = [
   { href: "/predict", label: "Predict" },
   { href: "/papers", label: "Tests" },
   { href: "/practice", label: "Practice" },
-  { href: "/leaderboard", label: "Leaderboard" },
 ];
 
 export function Navbar() {
