@@ -3,7 +3,7 @@
   <p><strong>Free MHT-CET guidance platform for Maharashtra students</strong></p>
 
   <p>
-    <a href="https://cet-mentor-hub.vercel.app"><strong>Live Demo</strong></a> · 
+    <a href="https://cet-mentor-hub.vercel.app"><strong> Live Link - </strong></a> · 
   </p>
     <a href="https://github.com/GaneshSarode/cet-mentor-hub/issues"><strong>Report Bug</strong></a> · 
     <a href="https://github.com/GaneshSarode/cet-mentor-hub/pulls"><strong>Contribute</strong></a>
