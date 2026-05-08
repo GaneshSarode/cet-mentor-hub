@@ -14,6 +14,8 @@ import {
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { PaperCard } from "@/components/paper-card";
+import { PaperGridSkeleton } from "@/components/paper-card-skeleton";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { FileText, BookOpen, Sparkles, AlertCircle } from "lucide-react";
 import { PyqPaper } from "@/lib/types/database";
 
@@ -98,6 +100,7 @@ export default function PapersPage() {
   const mockCount = 0; // Assuming mock tests could be added later
 
   return (
+    <ErrorBoundary fallbackTitle="Papers failed to load" fallbackDescription="We couldn't load the papers page. This might be a temporary issue — please try again.">
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
 
@@ -216,10 +219,7 @@ export default function PapersPage() {
           </div>
 
           {isLoading ? (
-             <div className="text-center py-16">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-              <p className="mt-4 text-sm text-muted-foreground">Loading papers...</p>
-             </div>
+             <PaperGridSkeleton count={8} />
           ) : error ? (
             <div className="text-center py-16">
               <AlertCircle className="h-8 w-8 text-destructive mx-auto mb-4" />
@@ -259,5 +259,6 @@ export default function PapersPage() {
 
       <Footer />
     </div>
+    </ErrorBoundary>
   );
 }

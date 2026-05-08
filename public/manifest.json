@@ -1,17 +1,32 @@
 {
   "name": "CET Mentor Hub",
   "short_name": "CET Mentor",
-  "description": "Connect with verified mentors from VJTI, ICT, COEP, PICT for 1:1 sessions.",
+  "description": "Free MHTCET guidance by VJTI students. College predictor, PYQ online tests, and 1:1 mentorship.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
+  "orientation": "any",
+  "categories": ["education", "utilities"],
   "icons": [
     {
       "src": "/icon.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
-  ]
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
 }

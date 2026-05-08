@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect, useCallback } from "react";
+import { use, useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
@@ -57,6 +57,12 @@ export default function TestPage({
   const [timeSpentOnCurrent, setTimeSpentOnCurrent] = useState(0);
   const [syncing, setSyncing] = useState(false);
   const [showMobilePalette, setShowMobilePalette] = useState(false);
+  
+  // Ref to track latest timeRemaining for sync without causing re-renders
+  const timeRemainingRef = useRef(timeRemaining);
+  useEffect(() => {
+    timeRemainingRef.current = timeRemaining;
+  }, [timeRemaining]);
 
   // 1. Initial Data Fetch
   useEffect(() => {
@@ -154,7 +160,7 @@ export default function TestPage({
     };
   }, [hasStarted]);
 
-  // Timer & Periodic Sync
+  // Timer countdown — runs every second
   useEffect(() => {
     if (!hasStarted || timeRemaining <= 0) return;
 
@@ -170,22 +176,23 @@ export default function TestPage({
       setTimeSpentOnCurrent((prev) => prev + 1);
     }, 1000);
 
-    // Sync session time every 60 seconds
+    return () => clearInterval(timer);
+  }, [hasStarted]); // Only re-run when test starts — no timeRemaining dependency
+
+  // Periodic sync — reads from ref to avoid re-render cascade
+  useEffect(() => {
+    if (!hasStarted || !session) return;
+
     const syncInterval = setInterval(() => {
-       if (session) {
-         fetch(`/api/pyq/sessions/${session.id}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ time_remaining_seconds: timeRemaining })
-         });
-       }
+      fetch(`/api/pyq/sessions/${session.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ time_remaining_seconds: timeRemainingRef.current })
+      });
     }, 60000);
 
-    return () => {
-      clearInterval(timer);
-      clearInterval(syncInterval);
-    };
-  }, [hasStarted, session, timeRemaining]); // Note: timeRemaining dependency might cause excessive re-renders, normally use a mutable ref for sync
+    return () => clearInterval(syncInterval);
+  }, [hasStarted, session]); // Stable dependencies — no excessive re-renders
 
   // Update current option when question changes
   useEffect(() => {

@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env.local') });
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.service_role
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 // IMPORTANT: You might need the Supabase Service Role Key to bypass RLS for inserts if RLS is enabled
 
 if (!supabaseUrl || !supabaseKey) {

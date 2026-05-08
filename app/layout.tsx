@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { ServiceWorkerRegistration } from '@/components/sw-register'
 import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 
@@ -64,6 +65,7 @@ export default function RootLayout({
           </ThemeProvider>
         </ClerkProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ServiceWorkerRegistration />
       </body>
     </html>
   )
