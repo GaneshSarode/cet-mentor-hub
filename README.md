@@ -4,6 +4,7 @@
 
   <p>
     <a href="https://cet-mentor-hub.vercel.app"><strong>Live Demo</strong></a> · 
+  </p>
     <a href="https://github.com/GaneshSarode/cet-mentor-hub/issues"><strong>Report Bug</strong></a> · 
     <a href="https://github.com/GaneshSarode/cet-mentor-hub/pulls"><strong>Contribute</strong></a>
   </p>
