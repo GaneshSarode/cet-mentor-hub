@@ -237,6 +237,7 @@ export default function PredictPage() {
   const [percentileInput, setPercentileInput] = useState("85.0000");
   const [category, setCategory] = useState("GOPENS");
   const [cityPreference, setCityPreference] = useState("any");
+  const [dataset, setDataset] = useState<"cap3_24" | "cap1_25">("cap3_24");
   const [selectedBranchGroups, setSelectedBranchGroups] = useState<string[]>([
     "🔥 All Branches",
   ]);
@@ -285,6 +286,9 @@ export default function PredictPage() {
       setPredictions([]);
 
       try {
+        const academicYear = dataset === "cap3_24" ? "24-25" : "25-26";
+        const capRound = dataset === "cap3_24" ? 3 : 1;
+
         // Query cutoffs table with joins to branches and colleges
         const { data, error: dbError } = await supabaseClient
           .from("cutoffs")
@@ -303,7 +307,8 @@ export default function PredictPage() {
           `
           )
           .eq("category", category)
-          .eq("cap_round", 3)
+          .eq("cap_round", capRound)
+          .eq("academic_year", academicYear)
           .gte("percentile", userPercentile - 15)
           .lte("percentile", userPercentile + 5)
           .order("percentile", { ascending: false })
@@ -403,7 +408,7 @@ export default function PredictPage() {
     }
 
     fetchPredictions();
-  }, [showResults, userPercentile, category, selectedBranches.join(",")]);
+  }, [showResults, userPercentile, category, dataset, selectedBranches.join(",")]);
 
   // ─── Navigation ───
   const handleNext = () => {
@@ -432,6 +437,7 @@ export default function PredictPage() {
     setCityPreference("any");
     setStatusFilter("all");
     setSelectedBranchGroups(["🔥 All Branches"]);
+    setDataset("cap3_24");
   };
 
   // ─── Status Helpers ───
@@ -624,6 +630,22 @@ export default function PredictPage() {
                           </SelectContent>
                         </Select>
                       </div>
+
+                      {/* Dataset Selection */}
+                      <div className="space-y-3">
+                        <Label className="text-base font-medium">
+                          Prediction Dataset
+                        </Label>
+                        <Select value={dataset} onValueChange={(val: any) => setDataset(val)}>
+                          <SelectTrigger className="h-12" id="dataset-select">
+                            <SelectValue placeholder="Select dataset" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="cap3_24">CAP Round 3 (2024-25)</SelectItem>
+                            <SelectItem value="cap1_25">CAP Round 1 (2025-26) 🔥</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
                   )}
 
@@ -772,9 +794,7 @@ export default function PredictPage() {
 
                       <div className="p-4 bg-blue-50 dark:bg-blue-500/10 rounded-lg border border-blue-200 dark:border-blue-500/30">
                         <p className="text-sm text-blue-700 dark:text-blue-300">
-                          <strong>Data Source:</strong> Official MHT-CET CAP
-                          Round 3 Cutoff Data (2024-25). Predictions are based
-                          on last year&apos;s closing cutoffs.
+                          <strong>Data Source:</strong> Official MHT-CET {dataset === "cap3_24" ? "CAP Round 3 (2024-25)" : "CAP Round 1 (2025-26)"} Cutoff Data.
                         </p>
                       </div>
                     </div>
