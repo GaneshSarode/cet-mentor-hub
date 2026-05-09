@@ -18,8 +18,23 @@ import {
   BookOpen,
   CheckCircle,
   XCircle,
+  BarChart2,
+  AlertTriangle,
 } from "lucide-react";
 import { PyqTestSession, PyqPaper } from "@/lib/types/database";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  Cell,
+  Legend,
+} from "recharts";
 
 type SessionWithPaper = PyqTestSession & { pyq_papers: PyqPaper };
 
@@ -27,6 +42,7 @@ export default function DashboardPage() {
   const { isLoaded, isSignedIn, user } = useUser();
   const router = useRouter();
   const [sessions, setSessions] = useState<SessionWithPaper[]>([]);
+  const [analytics, setAnalytics] = useState<{ trends: any[]; topics: any[] } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -40,9 +56,15 @@ export default function DashboardPage() {
       try {
         setIsLoading(true);
         const res = await fetch("/api/pyq/sessions", { cache: 'no-store' });
-        if (!res.ok) throw new Error("Failed to fetch");
+        if (!res.ok) throw new Error("Failed to fetch sessions");
         const data = await res.json();
         setSessions(data.sessions || []);
+
+        const resAnalytics = await fetch("/api/pyq/analytics", { cache: 'no-store' });
+        if (resAnalytics.ok) {
+          const analyticsData = await resAnalytics.json();
+          setAnalytics(analyticsData);
+        }
       } catch {
         // Silently handle — dashboard will show empty state
       } finally {
@@ -209,6 +231,122 @@ export default function DashboardPage() {
                   <Clock className="h-6 w-6 text-amber-500" />
                 </div>
               </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* Analytics Charts */}
+      {analytics && analytics.trends.length > 0 && (
+        <div className="grid lg:grid-cols-2 gap-6 mb-8">
+          {/* Trend Chart */}
+          <Card className="border-border/50">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <BarChart2 className="h-5 w-5 text-primary" />
+                Score & Percentile Trends
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[300px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={analytics.trends} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
+                    <XAxis 
+                      dataKey="date" 
+                      tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} 
+                      axisLine={false} 
+                      tickLine={false} 
+                      dy={10} 
+                    />
+                    <YAxis 
+                      yAxisId="left" 
+                      domain={[0, 200]} 
+                      tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} 
+                      axisLine={false} 
+                      tickLine={false} 
+                    />
+                    <YAxis 
+                      yAxisId="right" 
+                      orientation="right" 
+                      domain={[0, 100]} 
+                      tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }} 
+                      axisLine={false} 
+                      tickLine={false} 
+                    />
+                    <Tooltip 
+                      contentStyle={{ backgroundColor: "hsl(var(--card))", borderColor: "hsl(var(--border))", borderRadius: "8px" }}
+                      itemStyle={{ color: "hsl(var(--foreground))" }}
+                    />
+                    <Legend wrapperStyle={{ paddingTop: "20px" }} />
+                    <Line 
+                      yAxisId="left" 
+                      type="monotone" 
+                      dataKey="score" 
+                      name="Score (out of 200)" 
+                      stroke="hsl(var(--primary))" 
+                      strokeWidth={3} 
+                      dot={{ r: 4, fill: "hsl(var(--primary))" }} 
+                      activeDot={{ r: 6 }} 
+                    />
+                    <Line 
+                      yAxisId="right" 
+                      type="monotone" 
+                      dataKey="percentile" 
+                      name="Est. Percentile" 
+                      stroke="#10b981" 
+                      strokeWidth={3} 
+                      dot={{ r: 4, fill: "#10b981" }} 
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Weak Topics Heatmap / Bar Chart */}
+          <Card className="border-border/50">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5 text-amber-500" />
+                Weakest Topics
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[300px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart 
+                    layout="vertical" 
+                    data={analytics.topics.filter(t => t.total >= 3).sort((a, b) => a.accuracy - b.accuracy).slice(0, 6)} 
+                    margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="hsl(var(--border))" />
+                    <XAxis type="number" domain={[0, 100]} hide />
+                    <YAxis 
+                      dataKey="name" 
+                      type="category" 
+                      axisLine={false} 
+                      tickLine={false} 
+                      width={120}
+                      tick={{ fill: "hsl(var(--foreground))", fontSize: 11 }}
+                    />
+                    <Tooltip 
+                      formatter={(value: number) => [`${value}%`, 'Accuracy']}
+                      contentStyle={{ backgroundColor: "hsl(var(--card))", borderColor: "hsl(var(--border))", borderRadius: "8px" }}
+                    />
+                    <Bar dataKey="accuracy" radius={[0, 4, 4, 0]} barSize={20}>
+                      {
+                        analytics.topics.filter(t => t.total >= 3).sort((a, b) => a.accuracy - b.accuracy).slice(0, 6).map((entry, index) => (
+                          <Cell key={\`cell-\${index}\`} fill={entry.accuracy < 40 ? "#ef4444" : entry.accuracy < 70 ? "#f59e0b" : "#10b981"} />
+                        ))
+                      }
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="text-xs text-muted-foreground text-center mt-2">
+                Topics with &lt; 40% accuracy are highlighted in red. Minimum 3 attempts required.
+              </p>
             </CardContent>
           </Card>
         </div>
