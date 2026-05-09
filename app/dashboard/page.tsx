@@ -237,8 +237,9 @@ export default function DashboardPage() {
       )}
 
       {/* Analytics Charts */}
-      {analytics && analytics.trends.length > 0 && (
-        <div className="grid lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid lg:grid-cols-2 gap-6 mb-8">
+      {analytics && analytics.trends.length > 0 ? (
+        <>
           {/* Trend Chart */}
           <Card className="border-border/50">
             <CardHeader>
@@ -349,8 +350,26 @@ export default function DashboardPage() {
               </p>
             </CardContent>
           </Card>
-        </div>
+      </>
+      ) : (
+        <>
+          <Card className="border-border/50 lg:col-span-2">
+            <CardContent className="flex flex-col items-center justify-center py-16">
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                <BarChart2 className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Your Analytics Will Appear Here</h3>
+              <p className="text-sm text-muted-foreground text-center max-w-md mb-4">
+                Complete your first PYQ test to unlock score trends, percentile tracking, and a weak-topic heatmap.
+              </p>
+              <Button asChild variant="outline" size="sm">
+                <Link href="/papers">Take a PYQ Test</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </>
       )}
+      </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* In-Progress Tests */}

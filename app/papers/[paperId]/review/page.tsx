@@ -197,7 +197,7 @@ export default function ReviewPage({
                 onClick={() => router.push(`/papers/${paperId}/test`)} 
                 className="hidden sm:flex shrink-0 border-slate-600 text-slate-300 hover:bg-slate-800 ml-4"
              >
-                Go to Test Again
+                Go back to Test Page
              </Button>
           </div>
        </div>
