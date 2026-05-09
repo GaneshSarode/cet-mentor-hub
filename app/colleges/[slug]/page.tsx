@@ -18,6 +18,10 @@ import {
   Building2,
   ArrowLeft,
   ExternalLink,
+  Briefcase,
+  IndianRupee,
+  Home,
+  GraduationCap,
 } from "lucide-react";
 
 export default function CollegeDetailPage({
@@ -104,6 +108,7 @@ export default function CollegeDetailPage({
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="cutoffs">Cutoffs</TabsTrigger>
               <TabsTrigger value="branches">Branches</TabsTrigger>
+              <TabsTrigger value="details">Placements & Fees</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-6">
@@ -187,6 +192,114 @@ export default function CollegeDetailPage({
                   </div>
                 </CardContent>
               </Card>
+            </TabsContent>
+
+            <TabsContent value="details" className="space-y-6">
+              {college.placements && (
+                <Card className="border-border/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Briefcase className="h-5 w-5 text-primary" />
+                      Placement Statistics
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid sm:grid-cols-3 gap-6 mb-6">
+                      <div className="bg-muted/30 p-4 rounded-xl border border-border/50">
+                        <p className="text-sm text-muted-foreground mb-1">Highest Package</p>
+                        <p className="text-2xl font-bold text-emerald-500">{college.placements.highestPackage}</p>
+                      </div>
+                      <div className="bg-muted/30 p-4 rounded-xl border border-border/50">
+                        <p className="text-sm text-muted-foreground mb-1">Average Package</p>
+                        <p className="text-2xl font-bold text-foreground">{college.placements.averagePackage}</p>
+                      </div>
+                      <div className="bg-muted/30 p-4 rounded-xl border border-border/50">
+                        <p className="text-sm text-muted-foreground mb-1">Placement Rate</p>
+                        <p className="text-2xl font-bold text-blue-500">{college.placements.placementRate}</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground mb-3">Top Recruiters</p>
+                      <div className="flex flex-wrap gap-2">
+                        {college.placements.topRecruiters.map(recruiter => (
+                          <Badge key={recruiter} variant="outline" className="bg-background">
+                            {recruiter}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {college.fees && (
+                  <Card className="border-border/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <IndianRupee className="h-5 w-5 text-primary" />
+                        Fee Structure (Estimated)
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="flex justify-between items-center py-2 border-b border-border/50">
+                        <span className="text-muted-foreground">Open Category</span>
+                        <span className="font-semibold text-foreground">{college.fees.open}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-border/50">
+                        <span className="text-muted-foreground">OBC/EBC</span>
+                        <span className="font-semibold text-foreground">{college.fees.obc}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="text-muted-foreground">SC/ST/VJNT</span>
+                        <span className="font-semibold text-foreground">{college.fees.scSt}</span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {college.facilities && (
+                  <Card className="border-border/50">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <Home className="h-5 w-5 text-primary" />
+                        Campus & Facilities
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="flex items-center gap-3 py-2 border-b border-border/50">
+                        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                          <Building2 className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground">Campus Size</p>
+                          <p className="font-semibold text-foreground">{college.facilities.campusSize}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 py-2 border-b border-border/50">
+                        <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                          <Home className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground">Hostel Availability</p>
+                          <p className="font-semibold text-foreground">{college.facilities.hostel ? "Yes (Boys & Girls)" : "No / Limited"}</p>
+                        </div>
+                      </div>
+                      {college.facilities.hostel && (
+                        <div className="flex items-center gap-3 py-2">
+                          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <IndianRupee className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <p className="text-sm text-muted-foreground">Hostel Fees</p>
+                            <p className="font-semibold text-foreground">{college.facilities.hostelFees}</p>
+                          </div>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
             </TabsContent>
 
             <TabsContent value="cutoffs">

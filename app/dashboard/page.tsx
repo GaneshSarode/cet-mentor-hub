@@ -337,7 +337,7 @@ export default function DashboardPage() {
                     <Bar dataKey="accuracy" radius={[0, 4, 4, 0]} barSize={20}>
                       {
                         analytics.topics.filter(t => t.total >= 3).sort((a, b) => a.accuracy - b.accuracy).slice(0, 6).map((entry, index) => (
-                          <Cell key={\`cell-\${index}\`} fill={entry.accuracy < 40 ? "#ef4444" : entry.accuracy < 70 ? "#f59e0b" : "#10b981"} />
+                          <Cell key={`cell-${index}`} fill={entry.accuracy < 40 ? "#ef4444" : entry.accuracy < 70 ? "#f59e0b" : "#10b981"} />
                         ))
                       }
                     </Bar>

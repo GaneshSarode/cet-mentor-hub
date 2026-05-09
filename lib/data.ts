@@ -45,7 +45,30 @@ export const colleges = [
       }
     },
     "rating": 4.8,
-    "reviewCount": 245
+    "reviewCount": 245,
+    "placements": {
+      "highestPackage": "50+ LPA",
+      "averagePackage": "12 - 16 LPA",
+      "placementRate": "95%+",
+      "topRecruiters": [
+        "Microsoft",
+        "Google",
+        "Amazon",
+        "Morgan Stanley",
+        "JPMorgan",
+        "Deutsche Bank"
+      ]
+    },
+    "fees": {
+      "open": "\u20b985,000 / year",
+      "obc": "\u20b945,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b935,000 / year",
+      "campusSize": "16 Acres"
+    }
   },
   {
     "id": "ict-mumbai",
@@ -79,7 +102,30 @@ export const colleges = [
       }
     },
     "rating": 4.9,
-    "reviewCount": 189
+    "reviewCount": 189,
+    "placements": {
+      "highestPackage": "50+ LPA",
+      "averagePackage": "12 - 16 LPA",
+      "placementRate": "95%+",
+      "topRecruiters": [
+        "Microsoft",
+        "Google",
+        "Amazon",
+        "Morgan Stanley",
+        "JPMorgan",
+        "Deutsche Bank"
+      ]
+    },
+    "fees": {
+      "open": "\u20b985,000 / year",
+      "obc": "\u20b945,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b935,000 / year",
+      "campusSize": "16 Acres"
+    }
   },
   {
     "id": "coep-pune",
@@ -121,7 +167,30 @@ export const colleges = [
       }
     },
     "rating": 4.8,
-    "reviewCount": 312
+    "reviewCount": 312,
+    "placements": {
+      "highestPackage": "50+ LPA",
+      "averagePackage": "12 - 16 LPA",
+      "placementRate": "95%+",
+      "topRecruiters": [
+        "Microsoft",
+        "Google",
+        "Amazon",
+        "Morgan Stanley",
+        "JPMorgan",
+        "Deutsche Bank"
+      ]
+    },
+    "fees": {
+      "open": "\u20b985,000 / year",
+      "obc": "\u20b945,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b935,000 / year",
+      "campusSize": "36 Acres"
+    }
   },
   {
     "id": "pict-pune",
@@ -154,7 +223,30 @@ export const colleges = [
       }
     },
     "rating": 4.7,
-    "reviewCount": 278
+    "reviewCount": 278,
+    "placements": {
+      "highestPackage": "50+ LPA",
+      "averagePackage": "12 - 16 LPA",
+      "placementRate": "95%+",
+      "topRecruiters": [
+        "Microsoft",
+        "Google",
+        "Amazon",
+        "Morgan Stanley",
+        "JPMorgan",
+        "Deutsche Bank"
+      ]
+    },
+    "fees": {
+      "open": "\u20b985,000 / year",
+      "obc": "\u20b945,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b935,000 / year",
+      "campusSize": "16 Acres"
+    }
   },
   {
     "id": "spit-mumbai",
@@ -188,7 +280,30 @@ export const colleges = [
       }
     },
     "rating": 4.6,
-    "reviewCount": 156
+    "reviewCount": 156,
+    "placements": {
+      "highestPackage": "50+ LPA",
+      "averagePackage": "12 - 16 LPA",
+      "placementRate": "95%+",
+      "topRecruiters": [
+        "Microsoft",
+        "Google",
+        "Amazon",
+        "Morgan Stanley",
+        "JPMorgan",
+        "Deutsche Bank"
+      ]
+    },
+    "fees": {
+      "open": "\u20b985,000 / year",
+      "obc": "\u20b945,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b935,000 / year",
+      "campusSize": "20 Acres"
+    }
   },
   {
     "id": "wce-sangli",
@@ -224,7 +339,29 @@ export const colleges = [
       }
     },
     "rating": 4.5,
-    "reviewCount": 167
+    "reviewCount": 167,
+    "placements": {
+      "highestPackage": "30 - 45 LPA",
+      "averagePackage": "7 - 10 LPA",
+      "placementRate": "90%+",
+      "topRecruiters": [
+        "Barclays",
+        "TCS Digital",
+        "Infosys Power",
+        "BNY Mellon",
+        "Siemens"
+      ]
+    },
+    "fees": {
+      "open": "\u20b985,000 / year",
+      "obc": "\u20b945,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b970,000 / year",
+      "campusSize": "25 Acres"
+    }
   },
   {
     "id": "djsce-mumbai",
@@ -258,7 +395,29 @@ export const colleges = [
       }
     },
     "rating": 4.5,
-    "reviewCount": 201
+    "reviewCount": 201,
+    "placements": {
+      "highestPackage": "30 - 45 LPA",
+      "averagePackage": "7 - 10 LPA",
+      "placementRate": "90%+",
+      "topRecruiters": [
+        "Barclays",
+        "TCS Digital",
+        "Infosys Power",
+        "BNY Mellon",
+        "Siemens"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,50,000 - \u20b92,00,000 / year",
+      "obc": "\u20b980,000 - \u20b91,00,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b970,000 / year",
+      "campusSize": "25 Acres"
+    }
   },
   {
     "id": "kj-somaiya-mumbai",
@@ -293,7 +452,29 @@ export const colleges = [
       }
     },
     "rating": 4.4,
-    "reviewCount": 178
+    "reviewCount": 178,
+    "placements": {
+      "highestPackage": "30 - 45 LPA",
+      "averagePackage": "7 - 10 LPA",
+      "placementRate": "90%+",
+      "topRecruiters": [
+        "Barclays",
+        "TCS Digital",
+        "Infosys Power",
+        "BNY Mellon",
+        "Siemens"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,50,000 - \u20b92,00,000 / year",
+      "obc": "\u20b980,000 - \u20b91,00,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b970,000 / year",
+      "campusSize": "25 Acres"
+    }
   },
   {
     "id": "vit-pune",
@@ -327,7 +508,30 @@ export const colleges = [
       }
     },
     "rating": 4.6,
-    "reviewCount": 245
+    "reviewCount": 245,
+    "placements": {
+      "highestPackage": "50+ LPA",
+      "averagePackage": "12 - 16 LPA",
+      "placementRate": "95%+",
+      "topRecruiters": [
+        "Microsoft",
+        "Google",
+        "Amazon",
+        "Morgan Stanley",
+        "JPMorgan",
+        "Deutsche Bank"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,80,000 / year",
+      "obc": "\u20b995,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b980,000 / year",
+      "campusSize": "20 Acres"
+    }
   },
   {
     "id": "pccoe-pune",
@@ -362,7 +566,29 @@ export const colleges = [
       }
     },
     "rating": 4.5,
-    "reviewCount": 198
+    "reviewCount": 198,
+    "placements": {
+      "highestPackage": "30 - 45 LPA",
+      "averagePackage": "7 - 10 LPA",
+      "placementRate": "90%+",
+      "topRecruiters": [
+        "Barclays",
+        "TCS Digital",
+        "Infosys Power",
+        "BNY Mellon",
+        "Siemens"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,50,000 - \u20b92,00,000 / year",
+      "obc": "\u20b980,000 - \u20b91,00,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b970,000 / year",
+      "campusSize": "25 Acres"
+    }
   },
   {
     "id": "cummins-pune",
@@ -397,7 +623,29 @@ export const colleges = [
       }
     },
     "rating": 4.6,
-    "reviewCount": 156
+    "reviewCount": 156,
+    "placements": {
+      "highestPackage": "30 - 45 LPA",
+      "averagePackage": "7 - 10 LPA",
+      "placementRate": "90%+",
+      "topRecruiters": [
+        "Barclays",
+        "TCS Digital",
+        "Infosys Power",
+        "BNY Mellon",
+        "Siemens"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,50,000 - \u20b92,00,000 / year",
+      "obc": "\u20b980,000 - \u20b91,00,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b970,000 / year",
+      "campusSize": "25 Acres"
+    }
   },
   {
     "id": "viit-pune",
@@ -430,7 +678,29 @@ export const colleges = [
       }
     },
     "rating": 4.3,
-    "reviewCount": 145
+    "reviewCount": 145,
+    "placements": {
+      "highestPackage": "15 LPA",
+      "averagePackage": "6 LPA",
+      "placementRate": "85%",
+      "topRecruiters": [
+        "TCS",
+        "Infosys",
+        "Wipro",
+        "Cognizant",
+        "Accenture"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,20,000 / year",
+      "obc": "\u20b965,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b960,000 / year",
+      "campusSize": "10 Acres"
+    }
   },
   {
     "id": "sggs-nanded",
@@ -465,7 +735,29 @@ export const colleges = [
       }
     },
     "rating": 4.4,
-    "reviewCount": 134
+    "reviewCount": 134,
+    "placements": {
+      "highestPackage": "15 - 20 LPA",
+      "averagePackage": "5 - 7 LPA",
+      "placementRate": "80%",
+      "topRecruiters": [
+        "TCS",
+        "L&T",
+        "Tata Motors",
+        "Mahindra",
+        "Infosys"
+      ]
+    },
+    "fees": {
+      "open": "\u20b975,000 / year",
+      "obc": "\u20b940,000 / year",
+      "scSt": "\u20b94,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b920,000 / year",
+      "campusSize": "50+ Acres"
+    }
   },
   {
     "id": "tsec-mumbai",
@@ -499,7 +791,29 @@ export const colleges = [
       }
     },
     "rating": 4.3,
-    "reviewCount": 112
+    "reviewCount": 112,
+    "placements": {
+      "highestPackage": "15 LPA",
+      "averagePackage": "6 LPA",
+      "placementRate": "85%",
+      "topRecruiters": [
+        "TCS",
+        "Infosys",
+        "Wipro",
+        "Cognizant",
+        "Accenture"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,20,000 / year",
+      "obc": "\u20b965,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b960,000 / year",
+      "campusSize": "10 Acres"
+    }
   },
   {
     "id": "vesit-mumbai",
@@ -533,7 +847,29 @@ export const colleges = [
       }
     },
     "rating": 4.2,
-    "reviewCount": 98
+    "reviewCount": 98,
+    "placements": {
+      "highestPackage": "15 LPA",
+      "averagePackage": "6 LPA",
+      "placementRate": "85%",
+      "topRecruiters": [
+        "TCS",
+        "Infosys",
+        "Wipro",
+        "Cognizant",
+        "Accenture"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,20,000 / year",
+      "obc": "\u20b965,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b960,000 / year",
+      "campusSize": "10 Acres"
+    }
   },
   {
     "id": "gcoe-amravati",
@@ -568,7 +904,29 @@ export const colleges = [
       }
     },
     "rating": 4.2,
-    "reviewCount": 89
+    "reviewCount": 89,
+    "placements": {
+      "highestPackage": "15 - 20 LPA",
+      "averagePackage": "5 - 7 LPA",
+      "placementRate": "80%",
+      "topRecruiters": [
+        "TCS",
+        "L&T",
+        "Tata Motors",
+        "Mahindra",
+        "Infosys"
+      ]
+    },
+    "fees": {
+      "open": "\u20b975,000 / year",
+      "obc": "\u20b940,000 / year",
+      "scSt": "\u20b94,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b920,000 / year",
+      "campusSize": "50+ Acres"
+    }
   },
   {
     "id": "rcoem-nagpur",
@@ -602,7 +960,29 @@ export const colleges = [
       }
     },
     "rating": 4.4,
-    "reviewCount": 156
+    "reviewCount": 156,
+    "placements": {
+      "highestPackage": "30 - 45 LPA",
+      "averagePackage": "7 - 10 LPA",
+      "placementRate": "90%+",
+      "topRecruiters": [
+        "Barclays",
+        "TCS Digital",
+        "Infosys Power",
+        "BNY Mellon",
+        "Siemens"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,50,000 - \u20b92,00,000 / year",
+      "obc": "\u20b980,000 - \u20b91,00,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b970,000 / year",
+      "campusSize": "25 Acres"
+    }
   },
   {
     "id": "gcoe-nagpur",
@@ -630,7 +1010,29 @@ export const colleges = [
       }
     },
     "rating": 4,
-    "reviewCount": 45
+    "reviewCount": 45,
+    "placements": {
+      "highestPackage": "15 - 20 LPA",
+      "averagePackage": "5 - 7 LPA",
+      "placementRate": "80%",
+      "topRecruiters": [
+        "TCS",
+        "L&T",
+        "Tata Motors",
+        "Mahindra",
+        "Infosys"
+      ]
+    },
+    "fees": {
+      "open": "\u20b975,000 / year",
+      "obc": "\u20b940,000 / year",
+      "scSt": "\u20b94,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b920,000 / year",
+      "campusSize": "50+ Acres"
+    }
   },
   {
     "id": "gcoe-aurangabad",
@@ -665,7 +1067,29 @@ export const colleges = [
       }
     },
     "rating": 4.1,
-    "reviewCount": 76
+    "reviewCount": 76,
+    "placements": {
+      "highestPackage": "15 - 20 LPA",
+      "averagePackage": "5 - 7 LPA",
+      "placementRate": "80%",
+      "topRecruiters": [
+        "TCS",
+        "L&T",
+        "Tata Motors",
+        "Mahindra",
+        "Infosys"
+      ]
+    },
+    "fees": {
+      "open": "\u20b975,000 / year",
+      "obc": "\u20b940,000 / year",
+      "scSt": "\u20b94,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b920,000 / year",
+      "campusSize": "50+ Acres"
+    }
   },
   {
     "id": "vit-mumbai",
@@ -699,7 +1123,29 @@ export const colleges = [
       }
     },
     "rating": 4.1,
-    "reviewCount": 88
+    "reviewCount": 88,
+    "placements": {
+      "highestPackage": "15 LPA",
+      "averagePackage": "6 LPA",
+      "placementRate": "85%",
+      "topRecruiters": [
+        "TCS",
+        "Infosys",
+        "Wipro",
+        "Cognizant",
+        "Accenture"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,20,000 / year",
+      "obc": "\u20b965,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b960,000 / year",
+      "campusSize": "10 Acres"
+    }
   },
   {
     "id": "sinhgad-pune",
@@ -734,7 +1180,29 @@ export const colleges = [
       }
     },
     "rating": 4,
-    "reviewCount": 234
+    "reviewCount": 234,
+    "placements": {
+      "highestPackage": "15 LPA",
+      "averagePackage": "6 LPA",
+      "placementRate": "85%",
+      "topRecruiters": [
+        "TCS",
+        "Infosys",
+        "Wipro",
+        "Cognizant",
+        "Accenture"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,20,000 / year",
+      "obc": "\u20b965,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b960,000 / year",
+      "campusSize": "10 Acres"
+    }
   },
   {
     "id": "dypatil-pune",
@@ -768,7 +1236,29 @@ export const colleges = [
       }
     },
     "rating": 4.1,
-    "reviewCount": 167
+    "reviewCount": 167,
+    "placements": {
+      "highestPackage": "15 LPA",
+      "averagePackage": "6 LPA",
+      "placementRate": "85%",
+      "topRecruiters": [
+        "TCS",
+        "Infosys",
+        "Wipro",
+        "Cognizant",
+        "Accenture"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,20,000 / year",
+      "obc": "\u20b965,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b960,000 / year",
+      "campusSize": "10 Acres"
+    }
   },
   {
     "id": "walchand-solapur",
@@ -802,7 +1292,29 @@ export const colleges = [
       }
     },
     "rating": 4.2,
-    "reviewCount": 89
+    "reviewCount": 89,
+    "placements": {
+      "highestPackage": "15 LPA",
+      "averagePackage": "6 LPA",
+      "placementRate": "85%",
+      "topRecruiters": [
+        "TCS",
+        "Infosys",
+        "Wipro",
+        "Cognizant",
+        "Accenture"
+      ]
+    },
+    "fees": {
+      "open": "\u20b91,20,000 / year",
+      "obc": "\u20b965,000 / year",
+      "scSt": "\u20b95,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b960,000 / year",
+      "campusSize": "10 Acres"
+    }
   },
   {
     "id": "gcoe-karad",
@@ -837,7 +1349,29 @@ export const colleges = [
       }
     },
     "rating": 4.1,
-    "reviewCount": 67
+    "reviewCount": 67,
+    "placements": {
+      "highestPackage": "15 - 20 LPA",
+      "averagePackage": "5 - 7 LPA",
+      "placementRate": "80%",
+      "topRecruiters": [
+        "TCS",
+        "L&T",
+        "Tata Motors",
+        "Mahindra",
+        "Infosys"
+      ]
+    },
+    "fees": {
+      "open": "\u20b975,000 / year",
+      "obc": "\u20b940,000 / year",
+      "scSt": "\u20b94,000 / year"
+    },
+    "facilities": {
+      "hostel": true,
+      "hostelFees": "\u20b920,000 / year",
+      "campusSize": "50+ Acres"
+    }
   }
 ];
 export const mentors = [
