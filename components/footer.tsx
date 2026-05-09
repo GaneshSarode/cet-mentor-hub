@@ -3,7 +3,6 @@ import Link from "next/link";
 const footerLinks = {
   product: [
     { label: "College Predictor", href: "/predict" },
-    { label: "Find Mentors", href: "/mentors" },
     { label: "Previous Year Papers", href: "/papers" },
     { label: "College Explorer", href: "/colleges" },
   ],
@@ -29,7 +28,7 @@ export function Footer() {
               <span className="font-bold text-lg">CET Mentor Hub</span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Free MHTCET guidance by real VJTI students. College predictor, PYQ online tests, and honest mentorship — completely free.
+              Free MHTCET guidance by real VJTI students. College predictor, PYQ online tests, and community support — completely free.
             </p>
           </div>
 

@@ -94,9 +94,6 @@ export function CollegeCard({ college }: CollegeCardProps) {
           <Button asChild variant="outline" className="flex-1">
             <Link href={`/colleges/${college.id}`}>View Details</Link>
           </Button>
-          <Button asChild className="flex-1 bg-primary hover:bg-primary/90">
-            <Link href={`/mentors?college=${college.id}`}>Find Mentor</Link>
-          </Button>
         </div>
       </CardContent>
     </Card>

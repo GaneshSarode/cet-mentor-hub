@@ -18,7 +18,38 @@ import {
   FileText,
   Download,
   BookOpenCheck,
+  MapPin,
 } from "lucide-react";
+
+const TOP_COLLEGES = [
+  {
+    city: "Mumbai",
+    colleges: [
+      { name: "VJTI Mumbai", rank: "Top 1", url: "https://vjti.ac.in", branches: ["CS", "IT", "EXTC", "Electronics", "Electrical", "Production", "Mechanical", "Textile"] },
+      { name: "SPIT Mumbai", rank: "Top 2", url: "https://www.spit.ac.in", branches: ["Computer", "CE (AI/ML)", "CE (DS)", "EXTC"] },
+      { name: "ICT Mumbai", rank: "Top 3", url: "https://www.ictmumbai.edu.in", branches: ["Chemical", "Pharmacy", "Food", "Polymers", "Oils", "Paints"] },
+      { name: "DJSCE Mumbai", rank: "Top 4", url: "https://djsce.ac.in", branches: ["CS", "IT", "EXTC", "Mechanical", "Data Science", "AI/ML"] },
+    ]
+  },
+  {
+    city: "Pune",
+    colleges: [
+      { name: "COEP Pune", rank: "Top 1", url: "https://www.coep.org.in", branches: ["Computer", "Mechanical", "Civil", "Electrical", "EnTC", "Meta", "Production"] },
+      { name: "PICT Pune", rank: "Top 2", url: "https://pict.edu", branches: ["Computer", "IT", "EnTC", "AI/DS"] },
+      { name: "VIT Pune", rank: "Top 3", url: "https://www.vit.edu", branches: ["Computer", "IT", "AI", "Mechanical", "EnTC", "Chemical"] },
+      { name: "PCCOE Pune", rank: "Top 4", url: "http://www.pccoepune.com", branches: ["Computer", "IT", "EnTC", "Mechanical", "Civil"] },
+    ]
+  },
+  {
+    city: "Other Regions",
+    colleges: [
+      { name: "WCE Sangli", rank: "Top 1", url: "http://www.walchandsangli.ac.in", branches: ["Computer", "IT", "Mechanical", "Civil", "Electrical", "Electronics"] },
+      { name: "SGGS Nanded", rank: "Top 2", url: "https://sggs.ac.in", branches: ["Computer", "IT", "Mechanical", "Civil", "Chemical", "Production"] },
+      { name: "GCOE Amravati", rank: "Top 3", url: "https://www.gcoea.ac.in", branches: ["Computer", "IT", "Mechanical", "Civil", "Electrical", "EnTC"] },
+      { name: "GCOE Nagpur", rank: "Top 4", url: "https://www.gcoen.ac.in", branches: ["Computer", "Mechanical", "Civil", "Electrical", "Electronics"] },
+    ]
+  }
+];
 import { mentors } from "@/lib/data";
 import { motion } from "framer-motion";
 import { useUser, SignInButton } from "@clerk/nextjs";
@@ -304,32 +335,43 @@ export default function HomePage() {
             </Button>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {[
-              { name: "VJTI", city: "Mumbai", grade: "A++" },
-              { name: "ICT", city: "Mumbai", grade: "A++" },
-              { name: "COEP", city: "Pune", grade: "A++" },
-              { name: "PICT", city: "Pune", grade: "A+" },
-              { name: "SPIT", city: "Mumbai", grade: "A+" },
-              { name: "WCE", city: "Sangli", grade: "A+" },
-              { name: "DJSCE", city: "Mumbai", grade: "A+" },
-            ].map((college) => (
-              <Link key={college.name} href={`/colleges?search=${college.name.toLowerCase()}`} className="group">
-                <Card className="border border-border/50 bg-card/50 transition-all duration-300 hover:border-primary/30 hover:shadow-lg">
-                  <CardContent className="p-4 text-center">
-                    <div className="h-12 w-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                      {college.name[0]}
-                    </div>
-                    <p className="mt-3 font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {college.name}
-                    </p>
-                    <p className="text-xs text-muted-foreground">{college.city}</p>
-                    <Badge variant="secondary" className="mt-2 text-xs">
-                      {college.grade}
-                    </Badge>
-                  </CardContent>
-                </Card>
-              </Link>
+          <div className="mt-12 space-y-12">
+            {TOP_COLLEGES.map((region) => (
+              <div key={region.city}>
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  Top Colleges in {region.city}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {region.colleges.map((college) => (
+                    <Card key={college.name} className="border border-border/50 bg-card/50 transition-all duration-300 hover:border-primary/30 hover:shadow-lg flex flex-col h-full">
+                      <CardContent className="p-5 flex flex-col h-full">
+                        <div className="flex justify-between items-start mb-4">
+                          <h4 className="font-semibold text-foreground text-lg leading-tight">{college.name}</h4>
+                          <Badge variant="secondary" className="bg-primary/10 text-primary text-xs shrink-0">{college.rank}</Badge>
+                        </div>
+                        
+                        <div className="flex-grow">
+                          <p className="text-xs text-muted-foreground mb-3 font-medium">Branches Available:</p>
+                          <div className="flex flex-wrap gap-1.5 mb-5">
+                            {college.branches.map((branch) => (
+                              <span key={branch} className="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+                                {branch}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <Button asChild variant="outline" size="sm" className="w-full mt-auto group">
+                          <Link href={college.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                            Visit Website <ExternalLink className="ml-1.5 h-3.5 w-3.5 group-hover:text-primary" />
+                          </Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
