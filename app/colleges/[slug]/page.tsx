@@ -7,17 +7,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { colleges, mentors, categories } from "@/lib/data";
+import { colleges, categories } from "@/lib/data";
 import {
   MapPin,
   Star,
   Calendar,
   Building2,
   ArrowLeft,
-  Users,
   ExternalLink,
 } from "lucide-react";
 
@@ -33,7 +32,6 @@ export default function CollegeDetailPage({
     notFound();
   }
 
-  const collegeMentors = mentors.filter((m) => m.collegeId === college.id);
 
   return (
     <div className="min-h-screen bg-background">
@@ -85,12 +83,14 @@ export default function CollegeDetailPage({
               </div>
             </div>
             <div className="flex gap-3">
-              <Button asChild className="bg-primary hover:bg-primary/90">
-                <Link href={`/mentors?college=${college.id}`}>
-                  <Users className="h-4 w-4 mr-2" />
-                  Find Mentors
-                </Link>
-              </Button>
+              {college.url && (
+                <Button asChild className="bg-primary hover:bg-primary/90">
+                  <Link href={college.url} target="_blank" rel="noopener noreferrer">
+                    Visit Official Website
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -104,7 +104,6 @@ export default function CollegeDetailPage({
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="cutoffs">Cutoffs</TabsTrigger>
               <TabsTrigger value="branches">Branches</TabsTrigger>
-              <TabsTrigger value="mentors">Mentors</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-6">
@@ -124,12 +123,12 @@ export default function CollegeDetailPage({
                 <Card className="border-border/50">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-sm font-medium text-muted-foreground">
-                      Available Mentors
+                      College Type
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-3xl font-bold text-foreground">
-                      {collegeMentors.length}
+                    <p className="text-xl font-bold text-foreground mt-1">
+                      {college.type}
                     </p>
                   </CardContent>
                 </Card>
@@ -267,16 +266,6 @@ export default function CollegeDetailPage({
                             </div>
                           </div>
                         )}
-                        <Button
-                          asChild
-                          variant="outline"
-                          size="sm"
-                          className="w-full mt-4"
-                        >
-                          <Link href={`/mentors?college=${college.id}&branch=${branch}`}>
-                            Find {branch} Mentors
-                          </Link>
-                        </Button>
                       </CardContent>
                     </Card>
                   );
@@ -284,65 +273,6 @@ export default function CollegeDetailPage({
               </div>
             </TabsContent>
 
-            <TabsContent value="mentors">
-              {collegeMentors.length > 0 ? (
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {collegeMentors.map((mentor) => (
-                    <Card key={mentor.id} className="border-border/50">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-3">
-                          <Avatar className="h-12 w-12 border-2 border-primary/20">
-                            <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-                              {mentor.firstName[0]}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <h3 className="font-semibold text-foreground">
-                              {mentor.name}
-                            </h3>
-                            <p className="text-sm text-muted-foreground">
-                              {mentor.branch} • {mentor.year}
-                            </p>
-                          </div>
-                        </div>
-                        <Badge className="mt-3 bg-primary/10 text-primary border-0">
-                          {mentor.achievement}
-                        </Badge>
-                        <p className="mt-3 text-sm text-muted-foreground line-clamp-2">
-                          {mentor.bio}
-                        </p>
-                        <div className="mt-3 flex items-center gap-2 text-sm">
-                          <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                          <span className="font-medium">{mentor.rating}</span>
-                          <span className="text-muted-foreground">
-                            • {mentor.sessionCount} sessions
-                          </span>
-                        </div>
-                        <Button
-                          asChild
-                          className="w-full mt-4 bg-primary hover:bg-primary/90"
-                        >
-                          <Link href={`/mentors?id=${mentor.id}`}>
-                            Book @ ₹{mentor.price}
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              ) : (
-                <Card className="border-border/50">
-                  <CardContent className="py-12 text-center">
-                    <p className="text-muted-foreground">
-                      No mentors available from this college yet.
-                    </p>
-                    <Button asChild variant="link" className="mt-2">
-                      <Link href="/mentors">Browse all mentors</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              )}
-            </TabsContent>
           </Tabs>
         </div>
       </section>
