@@ -53,6 +53,7 @@ const TOP_COLLEGES = [
 import { mentors } from "@/lib/data";
 import { motion } from "framer-motion";
 import { useUser, SignInButton } from "@clerk/nextjs";
+import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/json-ld";
 
 export default function HomePage() {
   const { isSignedIn } = useUser();
@@ -60,6 +61,8 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <OrganizationJsonLd />
+      <WebsiteJsonLd />
       <Navbar />
 
 

@@ -5,6 +5,7 @@ const footerLinks = {
     { label: "College Predictor", href: "/predict" },
     { label: "Previous Year Papers", href: "/papers" },
     { label: "College Explorer", href: "/colleges" },
+    { label: "Blog", href: "/blog" },
   ],
   support: [
     { label: "About Us", href: "/about" },
