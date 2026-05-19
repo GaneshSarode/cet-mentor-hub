@@ -3,8 +3,8 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     name: "CET Mentor Hub",
-    url: "https://cetmentorhub.com",
-    logo: "https://cetmentorhub.com/logo.png",
+    url: "https://cet-mentor-hub.vercel.app",
+    logo: "https://cet-mentor-hub.vercel.app/logo.png",
     description:
       "Free MHT-CET guidance by real VJTI students. College predictor, PYQ online tests with auto-grading, and 1:1 mentorship — completely free.",
     foundingDate: "2024",
@@ -37,14 +37,14 @@ export function WebsiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "CET Mentor Hub",
-    url: "https://cetmentorhub.com",
+    url: "https://cet-mentor-hub.vercel.app",
     description:
       "Free MHT-CET guidance by real VJTI students. Practice PYQs online, predict your college, and get 1:1 mentorship.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://cetmentorhub.com/colleges?q={search_term_string}",
+        urlTemplate: "https://cet-mentor-hub.vercel.app/colleges?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -83,7 +83,7 @@ export function QuizJsonLd({
     provider: {
       "@type": "Organization",
       name: "CET Mentor Hub",
-      url: "https://cetmentorhub.com",
+      url: "https://cet-mentor-hub.vercel.app",
     },
     isAccessibleForFree: true,
     url,

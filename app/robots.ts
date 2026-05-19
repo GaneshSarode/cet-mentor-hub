@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/', '/dashboard/', '/sign-in', '/sign-up'],
       },
     ],
-    sitemap: 'https://cetmentorhub.com/sitemap.xml',
+    sitemap: 'https://cet-mentor-hub.vercel.app/sitemap.xml',
   }
 }

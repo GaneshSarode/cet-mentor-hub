@@ -1,0 +1,2088 @@
+[
+  {
+    "question": "<p>The spectral series observed for hydrogen atom found in visible region is</p>",
+    "options": {
+      "A": "Lyman",
+      "B": "Balmer",
+      "C": "Paschen",
+      "D": "Brackett"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Three liquids of densities $\\rho_1, \\rho_2$ and $\\rho_3$ (with $\\rho_1&gt;\\rho_2&gt;\\rho_3$ ) having same value of surface tension T , rise to the same height in three identical capillaries. Angle of contact $\\theta_1, \\theta_2$ and $\\theta_3$ respectively obey</p>",
+    "options": {
+      "A": "$\\frac{\\pi}{2}&gt;\\theta_1&gt;\\theta_2&gt;\\theta_3&gt;0$",
+      "B": "$0 \\leqslant \\theta_1&lt;\\theta_2&lt;\\theta_3&lt;\\frac{\\pi}{2}$",
+      "C": "$\\frac{\\pi}{2}&lt;\\theta_1&lt;\\theta_2&lt;\\theta_3&lt;\\pi$",
+      "D": "$\\pi&gt;\\theta_1&gt;\\theta_2&gt;\\frac{\\pi}{2}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The following figures show the variation of displacement with time of a particular object.</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4gir894/6fe4cbc6-5818-4d14-9a33-27cba5d843d3/290d4080-b5e4-11ef-9ac5-8dc0a637bbfc/file-jaoe38c1m4gir895.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4gir894/6fe4cbc6-5818-4d14-9a33-27cba5d843d3/290d4080-b5e4-11ef-9ac5-8dc0a637bbfc/file-jaoe38c1m4gir895.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Motion Question 19 English\"></p>",
+    "options": {
+      "A": "Figure (a) and (b) show object at rest and object moving with uniform velocity in positive $x$ direction respectively.",
+      "B": "Figure (b) and (c) show object at rest and object moving with uniform velocity in negative $x$ direction respectively.",
+      "C": "Figure (c) and (d) show object at rest and object moving with uniform velocity in negative x direction respectively.",
+      "D": "Figure (a) and (b) show object at rest."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A particle of mass ' m ' is rotating in a circular path of radius ' $r$ '. Its angular momentum is ' $L$ ' The centripetal force acting on it is ' $F$ '. The relation between ' $F$ ', ' $L$ ', ' $r$ ' and ' $m$ ' is</p>",
+    "options": {
+      "A": "$\\mathrm{F}=\\frac{\\mathrm{L}}{\\mathrm{mr}^2}$",
+      "B": "$\\mathrm{L}=\\mathrm{m}^2 \\mathrm{Fr}^2$",
+      "C": "$\\frac{\\mathrm{L}^2}{\\mathrm{~m}}=\\mathrm{Fr}^3$",
+      "D": "$\\frac{\\mathrm{F}}{\\mathrm{L}^3}=\\mathrm{mr}^2$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Two identical galvanometers are converted into voltmeter and millivoltmeter. As compared to the series resistance of voltmeter, the series resistance of millivoltmeter will be\n</p>",
+    "options": {
+      "A": "equal",
+      "B": "more",
+      "C": "less",
+      "D": "zero"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The diagram shows the propagation of a progressive wave. A, B, C, D, E are five points on this wave</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4gjp85l/14268b76-013e-4eb8-b6fe-9b4e5551aa45/da7c8080-b5e7-11ef-8e9f-25db2c636e01/file-jaoe38c1m4gjp85m.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4gjp85l/14268b76-013e-4eb8-b6fe-9b4e5551aa45/da7c8080-b5e7-11ef-8e9f-25db2c636e01/file-jaoe38c1m4gjp85m.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Waves Question 92 English\"></p>\n<p>Which of the following points are in the same state of vibration?</p>",
+    "options": {
+      "A": "A, B",
+      "B": "B, C",
+      "C": "B, D",
+      "D": "E, B"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Using Einstein's photoelectric equation, the graph between kinetic energy of emitted photoelectrons and the frequency of incident radiation is shown correctly by graph</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4gkhmxw/230b2eef-53ea-47c4-ae96-f21c578e7878/f090a240-b5ea-11ef-9f0a-9f0b02950d16/file-jaoe38c1m4gkhmxx.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4gkhmxw/230b2eef-53ea-47c4-ae96-f21c578e7878/f090a240-b5ea-11ef-9f0a-9f0b02950d16/file-jaoe38c1m4gkhmxx.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Dual Nature of Radiation Question 49 English\"></p>",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A string of mass 0.2 Kg is under a tension of 2.5 N . The length of the string is 2 m. A transverse wave starts from one end of the string. The time taken by the wave to reach the other end is</p>",
+    "options": {
+      "A": "0.2 s",
+      "B": "0.4 s",
+      "C": "0.6 s",
+      "D": "0.8 s"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>In the Young's double slit experiment, the intensity at a point on the screen, where the path difference is $\\lambda(\\lambda=$ wavelength $)$ is $\\beta$. The intensity at a point where the path difference is $\\lambda / 3$, will be $\\left.\\cos \\frac{\\pi}{3}=1 / 2\\right]$</p>",
+    "options": {
+      "A": "$\\beta$",
+      "B": "$\\beta / 2$",
+      "C": "$\\frac{\\beta}{4}$",
+      "D": "$\\beta / 8$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The P-V diagrams for particular gas of different thermodynamic processes are given by</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4gowlhg/58b7b4df-bedf-4b73-bbb0-e84ae78bf126/35180f50-b5fc-11ef-819e-bf540d1ea233/file-jaoe38c1m4gowlhh.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4gowlhg/58b7b4df-bedf-4b73-bbb0-e84ae78bf126/35180f50-b5fc-11ef-819e-bf540d1ea233/file-jaoe38c1m4gowlhh.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Heat and Thermodynamics Question 136 English\"></p>",
+    "options": {
+      "A": "Figure (a) and (b) show isobaric curve and isothermal curve respectively.",
+      "B": "Figure (a) and (c) show isothermal curve and isochoric curve respectively.",
+      "C": "Figure (b) and (c) show isobaric curve and isochoric curve respectively.",
+      "D": "Figure (a) and (c) show isothermal curve and isobaric curve respectively."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A musical instrument ' $P$ ' produces sound waves of frequency ' $n$ ' and amplitude ' $A$ '. Another musical instrument ' $Q$ ' produces sound waves of frequency $\\frac{\\mathrm{n}}{4}$. The waves produced by ' $P$ ' and ' $Q$ ' have equal energies. If the amplitude of waves produced by ' $P$ ' is ' $A_P$ ', the amplitude of waves produced by ' $Q$ ' will be</p>",
+    "options": {
+      "A": "$2 \\mathrm{~A}_{\\mathrm{P}}$",
+      "B": "$4 \\mathrm{~A}_{\\mathrm{P}}$",
+      "C": "&nbsp; $6 \\mathrm{~A}_{\\mathrm{p}}$",
+      "D": "$9 \\mathrm{~A}_{\\mathrm{P}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Concave and convex lenses are placed touching each other. The ratio of magnitudes of their power is $2: 3$. The focal length of the system is 30 cm . The focal lengths of individual lens are</p>",
+    "options": {
+      "A": "$5 \\mathrm{~cm},-10 \\mathrm{~cm}$",
+      "B": "$10 \\mathrm{~cm},-15 \\mathrm{~cm}$",
+      "C": "$10 \\mathrm{~cm},-20 \\mathrm{~cm}$",
+      "D": "$20 \\mathrm{~cm},-30 \\mathrm{~cm}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The figure shows the variation of photocurrent with anode potential for four different radiations. Let $f_a, f_b, f_c$ and $f_d$ be the frequencies for the curves $a, b, c$ and $d$ respectively</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4gpi4lt/7b4387cd-090b-4a95-bb40-f9be19862513/8bdb2410-b5fe-11ef-95f6-3d2ce7a445dc/file-jaoe38c1m4gpi4lu.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4gpi4lt/7b4387cd-090b-4a95-bb40-f9be19862513/8bdb2410-b5fe-11ef-95f6-3d2ce7a445dc/file-jaoe38c1m4gpi4lu.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Dual Nature of Radiation Question 48 English\"></p>",
+    "options": {
+      "A": "$\\mathrm{f_a&gt;f_b&gt;f_c&gt;f_d}$",
+      "B": "$\\mathrm{f}_{\\mathrm{a}}&lt;\\mathrm{f}_{\\mathrm{b}}&lt;\\mathrm{f}_{\\mathrm{c}}&lt;\\mathrm{f}_{\\mathrm{d}}$",
+      "C": "$\\mathrm{f}_{\\mathrm{a}}&gt;\\mathrm{f}_{\\mathrm{b}}&lt;\\mathrm{f}_{\\mathrm{c}}=\\mathrm{f}_{\\mathrm{d}}$",
+      "D": "$\\mathrm{f_a=f_b&gt;f_c&gt;f_d}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A disc at rest is subjected to a uniform angular acceleration about its axis. Let $\\theta$ and $\\theta_1$ be the angle made by the disc in $2^{\\text {nd }}$ and $3^{\\text {rd }}$ second of its motion. The ratio $\\frac{\\theta}{\\theta_1}$ is</p>",
+    "options": {
+      "A": "$2: 3$",
+      "B": "$1: 2$",
+      "C": "$2: 3$",
+      "D": "$4: 5$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let ' $n$ ' is the number of liquid drops, each with surface energy ' $E$ '. These drops join to form single drop. In this process</p>",
+    "options": {
+      "A": "some energy will be absorbed",
+      "B": "energy absorbed is $\\left[E\\left(n-n^{2 / 3}\\right)\\right]$",
+      "C": "energy released will be $\\left[\\mathrm{E}\\left(\\mathrm{n}-\\mathrm{n}^{2 / 3}\\right)\\right]$",
+      "D": "energy released will be $\\left[\\mathrm{E}\\left(2^{2 / 3}-1\\right)\\right]$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The van de Graaff Generator is not based on</p>",
+    "options": {
+      "A": "the phenomenon of Corona Discharge in X-ray tube.",
+      "B": "the application of electric field and magnetic field which are perpendicular to each other.",
+      "C": "the property that charge given to a hollow conductor is transferred to its outer surface and distributed uniformly over it.",
+      "D": "the fact that a charge is continuously supplied to an isolated metallic conductor, the potential of the conductor goes on increasing."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Two coils of self-inductance 25 mH and 9 mH are placed close together such that the effective flux in one coil is completely linked with the other The mutual inductance between these coils is</p>",
+    "options": {
+      "A": "34 mH",
+      "B": "16 mH",
+      "C": "15 mH",
+      "D": "6 mH"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The electric flux over a sphere of radius ' $r$ ' is ' $\\phi$ '. If the radius of the sphere is doubled without changing the charge, the flux will be</p>",
+    "options": {
+      "A": "$4 \\phi$",
+      "B": "$2 \\phi$",
+      "C": "$\\phi$",
+      "D": "$\\frac{\\phi}{2}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Consider the following circuit. By keeping $\\mathrm{S}_1$ closed, the capacitor is fully charged and then $S_1$ is opened and $S_2$ is closed, then</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4grat99/9524bf07-1438-46d0-8ec5-87628bc2a622/92af04d0-b605-11ef-8786-e7e9c57e1f4c/file-jaoe38c1m4grat9a.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4grat99/9524bf07-1438-46d0-8ec5-87628bc2a622/92af04d0-b605-11ef-8786-e7e9c57e1f4c/file-jaoe38c1m4grat9a.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Electromagnetic Induction Question 58 English\"></p>",
+    "options": {
+      "A": "At time $\\mathrm{t}=0$, the energy stored in the circuit is purely in the form of magnetic energy.",
+      "B": "At $\\mathrm{t}&gt;0$, there is no exchange of energy between $L$ and $C$.",
+      "C": "At any time $\\mathrm{t}&gt;0$, the current in the circuit is in the same direction.",
+      "D": "At any time $\\mathrm{t}&gt;0$, the instantaneous current in the circuit may be $\\mathrm{V} \\sqrt{\\frac{\\mathrm{c}}{\\mathrm{L}}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>In the working of photodiode, the reverse current depends on</p>",
+    "options": {
+      "A": "concentration of majority carriers.",
+      "B": "concentration of minority carriers.",
+      "C": "applied voltage.",
+      "D": "recombination of holes and electrons."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A satellite is revolving around a planet in a circular orbit close to its surface. Let ' $\\rho$ ' be the mean density and ' $R$ ' be the radius of the planet. Then the period of the satellite is ( $\\mathrm{G}=$ universal constant of gravitation)</p>",
+    "options": {
+      "A": "$\\sqrt{\\frac{4 \\pi}{\\rho G}}$",
+      "B": "$\\sqrt{\\frac{\\pi}{\\rho G}}$",
+      "C": "$\\sqrt{\\frac{3 \\pi}{\\rho G}}$",
+      "D": "$\\sqrt{\\frac{2 \\pi}{\\rho G}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A current carrying circular loop of radius ' $R$ ' and current carrying long straight wire are placed in the same plane. $I_c$ and $I_w$ are the currents through circular loop and long straight wire respectively. The perpendicular distance between centre of the circular loop and wire is ' d '. The magnetic field at the centre of the loop will be zero when separation ' $d$ ' is equal to</p>",
+    "options": {
+      "A": "$\\frac{\\mathrm{RI}_w}{\\pi \\mathrm{I}_{\\mathrm{c}}}$",
+      "B": "$\\frac{\\mathrm{RI}_{\\mathrm{c}}}{\\pi \\mathrm{I}_{\\mathrm{w}}}$",
+      "C": "$\\frac{\\pi \\mathrm{I}_{\\mathrm{c}}}{R \\mathrm{I}_{\\mathrm{w}}}$",
+      "D": "$\\frac{\\pi \\mathrm{I}_{\\mathrm{w}}}{\\mathrm{R}_{\\mathrm{c}}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A square loop ABCD is moving with constant velocity ' $\\vec{v}$ ' in a uniform magnetic field ' $\\vec{B}$ ' which is perpendicular to the plane of paper and directed outward. The resistance of coil is ' $R$ ', then the rate of production of heat energy in the loop is [ L - length of side of loop]</p>",
+    "options": {
+      "A": "$\\frac{B^2 L^2 V}{R}$",
+      "B": "$\\frac{B^2 L^2 V^2}{R}$",
+      "C": "$\\frac{B^2 L V^2}{R}$",
+      "D": "$\\frac{\\mathrm{BLV}^2}{\\mathrm{R}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The fringe width in an interference pattern is ' X '. The distance between the sixth dark fringe from one side of central bright band to the fourth bright fringe on other side is</p>",
+    "options": {
+      "A": "1.5 X",
+      "B": "2 X",
+      "C": "5.5 X",
+      "D": "9.5 X"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A particle is executing a linear simple harmonic motion. Let ' $\\mathrm{V}_1$ ' and ' $\\mathrm{V}_2$ ' are its speed at distance ' $x_1$ ' and ' $x_2$ ' from the equilibrium position. The amplitude of oscillation is</p>",
+    "options": {
+      "A": "$\\sqrt{\\frac{V_1^2 x_2^2-V_2^2 x_2^2}{V_1^2-V_2^2}}$",
+      "B": "&nbsp; $\\sqrt{\\frac{V_1^2-V_2^2}{V_1^2 x_2^2-V_2^2 x_1^2}}$",
+      "C": "$\\sqrt{\\frac{V_1^2 x_2^2-V_2^2 x_1^2}{V_1^2-V_2^2}}$",
+      "D": "$\\sqrt{\\frac{V_1^2 x_1^2-V_2^2 x_2^2}{V_1^2-V_2^2}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>In hydrogen atom, if $\\mathrm{V}_{\\mathrm{n}}$ and $\\mathrm{V}_{\\mathrm{p}}$ are orbital velocities in $\\mathrm{n}^{\\text {th }}$ and $\\mathrm{p}^{\\text {th }}$ orbit respectively, then the ratio $\\mathrm{V}_{\\mathrm{p}}: \\mathrm{V}_{\\mathrm{n}}$ is</p>",
+    "options": {
+      "A": "$\\mathrm{p}: \\mathrm{n}$",
+      "B": "$\\mathrm{n}: \\mathrm{p}$",
+      "C": "$\\mathrm{p}^2: \\mathrm{n}^2$",
+      "D": "$\\mathrm{n}^2: \\mathrm{p}^2$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The work done in splitting a water drop of radius R into 64 droplets is ( $\\mathrm{T}=$ Surface tension of water)</p>",
+    "options": {
+      "A": "$6 \\pi \\mathrm{TR}^2$",
+      "B": "$12 \\pi \\mathrm{TR}^2$",
+      "C": "$8 \\pi \\mathrm{TR}^2$",
+      "D": "$24 \\pi \\mathrm{TR}^2$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The potential difference that must be applied across the series and parallel combination of 4 identical capacitors is such that the energy stored in them becomes the same. The ratio of potential difference in series to parallel combination is</p>",
+    "options": {
+      "A": "$1: 2$",
+      "B": "$1: 4$",
+      "C": "$4: 1$",
+      "D": "$2: 1$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A metal rod of weight ' $W$ ' is supported by two parallel knife-edges A and B . The rod is in equilibrium in horizontal position. The distance ' between two knife-edges is ' $r$ '. The centre of mass of the rod is at a distance ' $x$ ' from $A$. The normal reaction on A is</p>",
+    "options": {
+      "A": "$\\frac{\\mathrm{W} \\cdot \\mathrm{r}}{\\mathrm{x}}$",
+      "B": "$\\frac{\\mathrm{W} \\cdot \\mathrm{x}}{\\mathrm{r}}$",
+      "C": "$\\mathrm{\\frac{W \\cdot(r-x)}{x}}$",
+      "D": "$\\mathrm{\\frac{W \\cdot(r-x)}{r}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Potential difference between the points A and B is nearly</p>\n<p><img alt=\"MHT CET 2024 9th May Evening Shift Physics - Current Electricity Question 49 English\" src=\"https://app-content.cdn.examgoal.net/fly/1500/image/6y3zli1mnnh8muq/7696ec0d-d1f3-4b46-bdb2-d3c854d9599b/d3928920-31df-11f1-abb0-89bca57f7724/file-6y3zli1mnnh8mur.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/6y3zli1mnnh8muq/7696ec0d-d1f3-4b46-bdb2-d3c854d9599b/d3928920-31df-11f1-abb0-89bca57f7724/file-6y3zli1mnnh8mur.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\"></p>",
+    "options": {
+      "A": "10 V",
+      "B": "14 V",
+      "C": "18 V",
+      "D": "20 V"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>An ideal gas $(\\gamma=1.5)$ is expanded adiabatically.\nTo reduce root mean square velocity of molecules two times, the gas should be expanded</p>",
+    "options": {
+      "A": "20 times",
+      "B": "16 times",
+      "C": "12 times",
+      "D": "8 times"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>An e.m.f. $E=E_0 \\cos \\omega t$ is applied to circuit containing L and R in series. If $\\mathrm{X}_{\\mathrm{L}}=2 \\mathrm{R}$, then the power dissipated in the circuit is</p>",
+    "options": {
+      "A": "$\\frac{\\mathrm{E}_0{ }^2}{12 \\mathrm{R}}$",
+      "B": "$\\frac{\\mathrm{E}_0{ }^2}{10 \\mathrm{R}}$",
+      "C": "$\\frac{\\mathrm{E}_0{ }^2}{8 \\mathrm{R}}$",
+      "D": "$\\frac{\\mathrm{E}_0{ }^2}{6 \\mathrm{R}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>In the following circuit, the reading in the ammeter is</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4gwg1ke/6a12c2ff-655e-476f-b331-02688f569c91/b1cb40e0-b619-11ef-ab72-2bb21aff0bcf/file-jaoe38c1m4gwg1kf.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4gwg1ke/6a12c2ff-655e-476f-b331-02688f569c91/b1cb40e0-b619-11ef-ab72-2bb21aff0bcf/file-jaoe38c1m4gwg1kf.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Current Electricity Question 48 English\"></p>",
+    "options": {
+      "A": "25.1 mA",
+      "B": "22.5 mA",
+      "C": "21.5 mA",
+      "D": "21.25 mA"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A black body radiates power ' P ' and maximum energy is radiated by it at a wavelength $\\lambda_0$. The temperature of the black body is now so changed that it radiates maximum energy at the wavelength $\\frac{\\lambda_0}{4}$. The power radiated by it at new temperature is</p>",
+    "options": {
+      "A": "64 P",
+      "B": "256 P",
+      "C": "4 P",
+      "D": "16 P"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>In Young's double slit experiment using monochromatic light of wavelength ' $\\lambda$ ', the maximum intensity of light at a point on the screen is ' K ' units. The intensity of light at a point where the path difference is $\\frac{\\lambda}{6}$ ' is $\\left(\\cos 60^{\\circ}=\\sin 30^{\\circ}=0.5, \\sin 60^{\\circ}=\\cos 30^{\\circ}=\\sqrt{3} / 2\\right)$</p>",
+    "options": {
+      "A": "$\\frac{3 \\mathrm{~K}}{4}$",
+      "B": "$\\frac{\\mathrm{K}}{4}$",
+      "C": "$\\frac{\\mathrm{K}}{2}$",
+      "D": "$\\mathrm{K}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>When a capacitor is connected in series LR circuit, the alternating current flowing in the circuit</p>",
+    "options": {
+      "A": "is zero.",
+      "B": "remains constant.",
+      "C": "increases.",
+      "D": "decreases."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "&nbsp;<p>The correct relation between total magnetic field $(B)$, magnetic intensity $(\\mathrm{H})$, permeability of free space $\\left(\\mu_0\\right)$ and susceptibility $(\\chi)$ is</p>",
+    "options": {
+      "A": "$\\frac{B}{H}=\\mu_0(1-\\chi)$",
+      "B": "$\\frac{\\mathrm{B}}{\\mathrm{H}}=\\mu_0(1+\\chi)^2$",
+      "C": "$\\frac{\\mathrm{B}}{\\mathrm{H}}=\\mu_0(1+\\chi)$",
+      "D": "$\\frac{\\mathrm{B}}{\\mathrm{H}}=\\mu_0(1-\\chi)^2$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The resultant gate and its Boolean expression in the given circuit is</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4h0mgkt/c7a97bc1-e36f-4c6c-95ff-4114d5442e3a/08c318e0-b62a-11ef-966f-556b6bfa34e1/file-jaoe38c1m4h0mgku.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4h0mgkt/c7a97bc1-e36f-4c6c-95ff-4114d5442e3a/08c318e0-b62a-11ef-966f-556b6bfa34e1/file-jaoe38c1m4h0mgku.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Semiconductor Devices and Logic Gates Question 71 English\"></p>",
+    "options": {
+      "A": "OR, $\\mathrm{A+B}$",
+      "B": "AND, $\\mathrm{A - B}$",
+      "C": "NOR, $\\mathrm{A+B}$",
+      "D": "NAND, $\\overline{\\mathrm{A}+\\mathrm{B}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The temperature of a liquid falls from 365 K to 359 K in 3 minutes. The time during which temperature of this liquid falls from 342 K to 338 K is [Let the room temperature be 296 K ]</p>",
+    "options": {
+      "A": "6 min",
+      "B": "4 min",
+      "C": "3 min",
+      "D": "2 min"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Air capacitor has capacitance of $1 \\mu \\mathrm{~F}$. Now the space between two plates of capacitor is filled with two dielectrics as shown in figure. The capacitance of the capacitor is [ $\\mathrm{d}=$ distance between two plates of capacitor, $\\mathrm{K}_1$ and $\\mathrm{K}_2$ are dielectric constants of first dielectric and second dielectric respectively]</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4h180fb/88687a85-dfdb-4742-aaec-a500e5287784/6015c370-b62c-11ef-966f-556b6bfa34e1/file-jaoe38c1m4h180fc.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4h180fb/88687a85-dfdb-4742-aaec-a500e5287784/6015c370-b62c-11ef-966f-556b6bfa34e1/file-jaoe38c1m4h180fc.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Physics - Capacitor Question 36 English\"></p>",
+    "options": {
+      "A": "$3 \\mu \\mathrm{~F}$",
+      "B": "$6 \\mu \\mathrm{~F}$",
+      "C": "$8 \\mu \\mathrm{~F}$",
+      "D": "$12 \\mu \\mathrm{~F}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>In an isobaric process of an ideal gas, the ratio of work done by the system (W) during the expansion and the heat exchanged $(\\mathrm{Q})$ is $\\left(\\gamma=\\frac{\\mathrm{C}_{\\mathrm{p}}}{\\mathrm{C}_{\\mathrm{v}}}\\right)$</p>",
+    "options": {
+      "A": "$\\gamma$",
+      "B": "$\\gamma-1$",
+      "C": "$\\frac{\\gamma}{\\gamma-1}$",
+      "D": "$\\frac{\\gamma-1}{\\gamma}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A long solenoid carrying a current produces magnetic field B along its axis. If the number of turns per cm are tripled and the current is made $\\left(\\frac{1}{4}\\right)^{\\text {th }}$ then the new value of magnetic field will be</p>",
+    "options": {
+      "A": "$\\frac{B}{3}$",
+      "B": "$\\frac{\\mathrm{B}}{4}$",
+      "C": "$\\frac{3 B}{4}$",
+      "D": "$\\frac{2 \\mathrm{~B}}{3}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>An astronomical telescope has a large aperture to</p>",
+    "options": {
+      "A": "have high resolution.",
+      "B": "have low dispersion.",
+      "C": "increase the span of observation.",
+      "D": "have large wavelength."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A sonometer wire is in unison with a tuning fork of frequency ' $n$ ' when it is stretched by a weight of specific gravity ' $d$ '. When the weight is completely immersed in water, ' $x$ ' beats are produced per second, then</p>",
+    "options": {
+      "A": "$\\frac{\\mathrm{n}}{\\mathrm{n}-\\mathrm{x}}=\\frac{\\mathrm{d}}{\\mathrm{d}-1}$",
+      "B": "$\\frac{n}{n-x}=\\sqrt{\\frac{d}{d-1}}$",
+      "C": "$\\frac{\\mathrm{n}-\\mathrm{x}}{\\mathrm{n}}=\\frac{\\mathrm{d}-1}{\\mathrm{~d}}$",
+      "D": "$\\frac{\\mathrm{n}-\\mathrm{x}}{\\mathrm{n}}=\\sqrt{\\frac{\\mathrm{d}}{\\mathrm{d}-1}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The radius of the planet is double that of the earth, but their average densities are same. $\\mathrm{V}_{\\mathrm{p}}$ and $V_E$ are the escape velocities of planet and earth respectively. If $\\frac{V_P}{V_E}=x$, the value of ' $x$ ' is</p>",
+    "options": {
+      "A": "$\\frac{1}{4}$",
+      "B": "$\\frac{1}{2}$",
+      "C": "2",
+      "D": "4"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Three thin rods, each mass ' 2 M ' and length ' L ' are placed along $\\mathrm{x}, \\mathrm{y}$ and z axis which are mutually perpendicular. One end of each rod is at origin. Moment of inertia of the system about x - axis is</p>",
+    "options": {
+      "A": "$\\frac{4 \\mathrm{ML}^2}{3}$",
+      "B": "$\\frac{\\mathrm{ML}^2}{12}$",
+      "C": "$\\frac{\\mathrm{ML}^2}{6}$",
+      "D": "$\\frac{2 \\mathrm{ML}^2}{3}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The magnetic potential energy stored in certain inductor is $64 \\times 10^{-3} \\mathrm{~J}$, when the current in the inductor is 80 mA . This inductor is of inductance</p>",
+    "options": {
+      "A": "0.20 H",
+      "B": "2.0 H",
+      "C": "20 H",
+      "D": "200 H"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Two identical drops of water are falling through air with steady velocity ' V '. If the two drops come together to form a single drop. The new velocity of the single drop is\n</p>",
+    "options": {
+      "A": "$(2)^{1 / 3} \\mathrm{~V}$",
+      "B": "(2) ${ }^{3 / 2} \\mathrm{~V}$",
+      "C": "$(2)^{2 / 3} \\mathrm{~V}$",
+      "D": "$(2)^{1 / 4} \\mathrm{~V}$"
+    },
+    "correct": "C",
+    "solution": "<p>Let the radius of the 2 rain droplets be $r$ each. They coalesce to form a drop of radius R.</p>\n<p>As volume is conserved, $\\mathrm{R}^3=2 \\mathrm{r}^3$</p>\n<p>$$\\therefore \\quad R=2^{\\frac{1}{3}} r$$</p>\n<p>Terminal velocity $V=\\frac{2 r^2(\\rho-\\sigma) g}{\\eta}$</p>\n<p>$$\\begin{aligned}\n&amp; \\therefore \\quad \\mathrm{V} \\propto \\mathrm{r}^2 \\\\\n&amp; \\therefore \\quad \\mathrm{~V}^{\\prime}=\\mathrm{V} \\frac{\\mathrm{R}^2}{\\mathrm{r}^2}=\\mathrm{V} \\times \\frac{2^{\\frac{2}{3}} \\mathrm{r}^2}{\\mathrm{r}^2}=\\mathrm{V} \\cdot 2^{2 / 3}\n\\end{aligned}$$</p>",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The equations of two waves are given as</p>\n<p>$$\\begin{aligned}\n&amp; y_1=a \\sin \\left(\\omega t+\\phi_1\\right) \\\\\n&amp; y_2=a \\sin \\left(\\omega t+\\phi_2\\right)\n\\end{aligned}$$</p>\n<p>If amplitude and time period of resultant wave is same as the individual waves, then $\\left(\\phi_1-\\phi_2\\right)$ is</p>",
+    "options": {
+      "A": "$\\cos ^{-1}\\left(\\frac{-1}{2}\\right)$",
+      "B": "$\\cos ^{-1}\\left(\\frac{-1}{4}\\right)$",
+      "C": "$\\cos ^{-1}\\left(-\\frac{1}{6}\\right)$",
+      "D": "$\\cos ^{-1}\\left(-\\frac{1}{8}\\right)$"
+    },
+    "correct": "A",
+    "solution": "<p>Let's start by writing down the two wave equations:</p>\n<p>$$y_1 = a \\sin (\\omega t + \\phi_1)$$</p>\n<p>$$y_2 = a \\sin (\\omega t + \\phi_2)$$</p>\n<p>When we add these two waves, we can use the trigonometric identity:</p>\n<p>$$\\sin A + \\sin B = 2 \\sin\\left(\\frac{A+B}{2}\\right) \\cos\\left(\\frac{A-B}{2}\\right)$$</p>\n<p>Letting </p>\n<p>$$A = \\omega t + \\phi_1 \\quad \\text{and} \\quad B = \\omega t + \\phi_2,$$</p>\n<p>the sum becomes:</p>\n<p>$$y = y_1 + y_2 = 2a \\cos\\left(\\frac{\\phi_1 - \\phi_2}{2}\\right) \\sin \\left(\\omega t + \\frac{\\phi_1 + \\phi_2}{2}\\right)$$</p>\n<p>This represents a single sinusoidal wave with:</p>\n\n<p></p><p>Amplitude: $$A' = 2a \\left|\\cos\\left(\\frac{\\phi_1 - \\phi_2}{2}\\right)\\right|$$</p><p></p>\n<p></p><p>Angular frequency: $$\\omega$$ (and hence the same time period)</p><p></p>\n\n<p>The problem states that the amplitude of the resultant wave is the same as that of the individual waves. Thus, we require:</p>\n<p>$$2a \\left|\\cos\\left(\\frac{\\phi_1 - \\phi_2}{2}\\right)\\right| = a$$</p>\n<p>Dividing both sides by $$a$$ (assuming $$a \\neq 0$$), we get:</p>\n<p>$$2\\left|\\cos\\left(\\frac{\\phi_1 - \\phi_2}{2}\\right)\\right| = 1$$</p>\n<p>This simplifies to:</p>\n<p>$$\\left|\\cos\\left(\\frac{\\phi_1 - \\phi_2}{2}\\right)\\right| = \\frac{1}{2}$$</p>\n<p>The cosine function equals $$\\frac{1}{2}$$ when its argument is $$\\frac{\\pi}{3}$$ (or $$-\\frac{\\pi}{3}$$, but the absolute value takes care of the sign). Similarly, $$\\cos\\left(\\frac{\\phi_1 - \\phi_2}{2}\\right)$$ equals $$-\\frac{1}{2}$$ when the argument is $$\\frac{2\\pi}{3}$$ (or $$-\\frac{2\\pi}{3}$$). In either case, the magnitude is $$\\frac{1}{2}$$.</p>\n<p>Choosing the positive difference for simplicity, we set:</p>\n<p>$$\\frac{\\phi_1 - \\phi_2}{2} = \\frac{\\pi}{3} \\quad \\Rightarrow \\quad |\\phi_1 - \\phi_2| = \\frac{2\\pi}{3}$$</p>\n<p>This result can be written as:</p>\n<p>$$\\phi_1 - \\phi_2 = \\cos^{-1}\\left(-\\frac{1}{2}\\right)$$</p>\n<p>since</p>\n<p>$$\\cos\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2}.$$</p>\n<p>Thus, the correct answer is Option A:</p>\n<p>$$\\cos^{-1}\\left(\\frac{-1}{2}\\right).$$</p>",
+    "subject": "Physics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Calculate the molar mass of an element having density $5.6 \\mathrm{~g} \\mathrm{~cm}^{-3}$ that forms bcc structure $\\left[\\mathrm{a}^3 \\times \\mathrm{N}_{\\mathrm{A}}=75 \\mathrm{~cm}^3 \\mathrm{~mol}^{-1}\\right]$</p>",
+    "options": {
+      "A": "$198 \\mathrm{~g} \\mathrm{~mol}^{-1}$",
+      "B": "$210 \\mathrm{~g} \\mathrm{~mol}^{-1}$",
+      "C": "$118 \\mathrm{~g} \\mathrm{~mol}^{-1}$",
+      "D": "$225 \\mathrm{~g} \\mathrm{~mol}^{-1}$"
+    },
+    "correct": "B",
+    "solution": "<p>In a body-centered cubic (bcc) structure, there are 2 atoms per unit cell. The molar volume is given by $$ a^3 \\times N_{\\text{A}} = 75 \\, \\text{cm}^3 \\, \\text{mol}^{-1} $$, where $N_{\\text{A}}$ is Avogadro's number, approximately $6.022 \\times 10^{23} \\, \\text{mol}^{-1}$.</p>\n<p>First, calculate the volume of the unit cell $ a^3 $:</p>\n<p>$  a^3 = \\frac{75}{N_{\\text{A}}} \\, \\text{cm}^3  $</p>\n<p>Number of atoms per unit cell for bcc = 2.</p>\n<p>The relationship between density ($\\rho$), molar mass ($M$), and molar volume is:</p>\n<p>$$  \\rho = \\frac{Z \\cdot M}{a^3 \\cdot N_{\\text{A}}}  $$ </p>\n<p>where $ Z $ is the number of atoms in the crystal structure per unit cell, which for bcc is 2.</p>\n<p>Using the provided density, let's solve for the molar mass $ M $:</p>\n<p>Given:  </p>\n<p>$  \\rho = 5.6 \\, \\text{g cm}^{-3}  $</p>\n<p>Thus:</p>\n<p>$  5.6 = \\frac{2 \\cdot M}{75}  $</p>\n<p>Solving for $ M $:</p>\n<p>$ M = \\frac{5.6 \\times 75}{2}  $</p>\n<p>$  M = 210 \\, \\text{g mol}^{-1} $</p>\n<p>Thus, the molar mass of the element is $ 210 \\, \\text{g mol}^{-1} $, which corresponds to Option B.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the products obtained in the ozonolysis of propene.</p>",
+    "options": {
+      "A": "Methanol and Ethanol",
+      "B": "Methanal and Ethanol",
+      "C": "Methanal and Ethanal",
+      "D": "Methanol and Ethanal"
+    },
+    "correct": "C",
+    "solution": "<div class=\"flex flex-col gap-2 max-md:card max-md:pt-3\"><div class=\"flex items-center justify-between gap-3 px-4 pb-2 border-b-gray-100 dark:border-opacity-20\" style=\"border-bottom-width: 1px;border-bottom-style: solid\"><div class=\"flex items-center gap-3\"><div class=\"flex items-center justify-center text-white dark:text-blue-400 bg-blue-600 dark:bg-opacity-10 text-sm shrink-0\" style=\"width: 25px;height: 25px;border-radius: 50%\">2</div> <div class=\"flex flex-col gap-1.5\"><div class=\"font-semibold text-sm max-md:text-xs\">MHT CET 2024 9th May Evening Shift</div> <div class=\"flex items-center gap-1.5 text-xs\"><div class=\"px-1.5 py-0.5 bg-opacity-10 rounded-sm text-blue-700 bg-blue-600 dark:text-blue-400 text-ellipsis overflow-hidden whitespace-nowrap\">MCQ (Single Correct Answer)</div> <div class=\"px-1.5 py-0.5 bg-opacity-5 rounded-sm text-green-700 bg-green-600 dark:text-green-400 \">+1</div> <div class=\"px-1.5 py-0.5 bg-opacity-5 rounded-sm text-red-700 bg-red-600 dark:text-red-400 \">-0</div> </div></div></div> <div class=\"flex justify-end gap-2\"> <button class=\"shrink-0\" data-svelte-h=\"svelte-13jvmh6\"><img class=\"border-2\" src=\"/image/warning.png\" alt=\"Report Question\" style=\"width: 30px;height: 30px;padding: 4px;border-radius: 50%\"></button></div></div>   <div class=\"question xl:text-lg px-4 py-2.5\"><p>Identify the hybridisation and geometry of $\\mathrm{SF}_4$ molecule respectively.</p></div></div> <div class=\"options md:px-4 flex flex-col gap-2 lg:gap-4\"><div role=\"button\" tabindex=\"0\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">A</div>  <div class=\"grow question xl:text-lg\"> $\\mathrm{sp}^3d$ and Trigonal bipyramidal\n</div> </div><div role=\"button\" tabindex=\"1\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">B</div>  <div class=\"grow question xl:text-lg\"> $\\mathrm{sp}^3$ and trigonal bipyramidal\n</div> </div><div role=\"button\" tabindex=\"2\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">C</div>  <div class=\"grow question xl:text-lg\"> $\\mathrm{sp}^3 \\mathrm{~d}^2$ and trigonal bipyramidal\n</div> </div><div role=\"button\" tabindex=\"3\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">D</div>  <div class=\"grow question xl:text-lg\"> $\\mathrm{sp}^3 \\mathrm{~d}^2$ and octahedral</div> </div></div>  <div class=\"text-center\"><button class=\"shadow drop-shadow-sm bg-blue-600 text-white px-4 py-2 rounded hover:font-bold transition-all select-none\" aria-label=\"Check Answer Button\" data-svelte-h=\"svelte-18k306m\">Check Answer</button></div>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the hybridisation and geometry of $\\mathrm{SF}_4$ molecule respectively.</p>",
+    "options": {
+      "A": "$\\mathrm{sp}^3d$ and Trigonal bipyramidal",
+      "B": "$\\mathrm{sp}^3$ and trigonal bipyramidal",
+      "C": "$\\mathrm{sp}^3 \\mathrm{~d}^2$ and trigonal bipyramidal",
+      "D": "$\\mathrm{sp}^3 \\mathrm{~d}^2$ and octahedral"
+    },
+    "correct": "A",
+    "solution": "<p>The molecule $\\mathrm{SF}_4$ has sulfur ($\\mathrm{S}$) as the central atom, which is bonded to four fluorine ($\\mathrm{F}$) atoms. Sulfur has a total of six valence electrons, and with four of these used in bonding with the fluorine atoms, two electrons remain as a lone pair on the sulfur atom.</p>\n<p>The hybridization of the central atom can be determined by counting the number of regions of electron density around it—these include both the bonded atoms and any lone pairs.</p>\n\n<p></p><p><strong>Hybridization:</strong> Sulfur in $\\mathrm{SF}_4$ forms four sigma bonds with the fluorine atoms and has one lone pair. This sums up to five regions of electron density. The hybridization that accommodates five electron pairs is $\\mathrm{sp}^3d$.</p><p></p>\n<p></p><p><strong>Geometry:</strong> The presence of one lone pair and four bonded pairs leads to a molecular geometry known as the \"see-saw\" shape. While the electron pair geometry of a molecule with $\\mathrm{sp}^3d$ hybridization is trigonal bipyramidal, the actual molecular geometry (considering only bonding pairs) is \"see-saw.\"</p><p></p>\n\n<p>Therefore, the correct identification for hybridization and the associated electron pair geometry of $\\mathrm{SF}_4$ is:</p>\n\n<p></p><p><strong>Hybridization:</strong> $\\mathrm{sp}^3d$</p><p></p>\n<p></p><p><strong>Geometry:</strong> Trigonal bipyramidal (electron pair geometry)</p><p></p>\n\n<p>The answer is <strong>Option A</strong>: $\\mathrm{sp}^3d$ and Trigonal bipyramidal.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following buffers is used to maintain the pH of human blood naturally?</p>",
+    "options": {
+      "A": "Hydrogen cyanide and sodium cyanide",
+      "B": "Copper hydroxide and copper chloride",
+      "C": "Carbonic acid and salt of carbonic acid",
+      "D": "Ammonium hydroxide and ammonium chloride"
+    },
+    "correct": "C",
+    "solution": "<p>The pH of human blood is maintained naturally at $7.36-7.42$ by $\\left(\\mathrm{HCO}_3^{-}+\\mathrm{H}_2 \\mathrm{CO}_3\\right)$ buffer.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the carbon atoms of glucose and of fructose forming glycosidic bond in sucrose.</p>",
+    "options": {
+      "A": "C -1 of $\\alpha$-glucose and $\\mathrm{C}-2$ of $\\beta$-fructose",
+      "B": "C -1 of $\\beta$-glucose and C -2 of $\\beta$-fructose",
+      "C": "C -2 of $\\alpha$-glucose and C -2 of $\\beta$-fructose",
+      "D": "C-3 of $\\alpha$-glucose and $C-1$ of $\\beta$-fructose"
+    },
+    "correct": "A",
+    "solution": "<p>Structure of sucrose contains glycosidic linkage between $\\mathrm{C}-1$ of $\\alpha$-glucose and C -2 of $\\beta$-fructose. Aldehyde and ketone groups of both the monosaccharide units are involved in formation of the glycosidic bond.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Resistance and conductivity of a cell containing 0.1 M KCl solution at 298 K are 115 ohm and $1.90 \\times 10^{-6} \\mathrm{~S} \\mathrm{~cm}^{-1}$ respectively. What is the value of cell constant?</p>",
+    "options": {
+      "A": "$0.165 \\mathrm{~cm}^{-1}$",
+      "B": "$1.601 \\mathrm{~cm}^{-1}$",
+      "C": "$2.185 \\mathrm{~cm}^{-1}$",
+      "D": "$0.218 \\mathrm{~cm}^{-1}$"
+    },
+    "correct": "D",
+    "solution": "<p>The cell constant ($G^*$) can be calculated using the formula that relates it to resistance ($R$) and conductivity ($\\kappa$):</p>\n<p>$$ G^* = R \\times \\kappa $$</p>\n<p>Given:</p>\n\n<p></p><p>Resistance $R = 115 \\, \\text{ohm}$</p><p></p>\n<p></p><p>Conductivity $\\kappa = 1.90 \\times 10^{-6} \\, \\text{S cm}^{-1}$</p><p></p>\n\n<p>Substitute these values into the formula:</p>\n<p>$$ G^* = 115 \\, \\text{ohm} \\times 1.90 \\times 10^{-6} \\, \\text{S cm}^{-1} $$</p>\n<p>Perform the multiplication:</p>\n<p>$$ G^* = 218.5 \\times 10^{-6} \\, \\text{cm}^{-1} $$</p>\n<p>Convert to a more conventional form:</p>\n<p>$$ G^* = 0.2185 \\, \\text{cm}^{-1} $$</p>\n<p>Thus, the value of the cell constant is approximately $0.218 \\, \\text{cm}^{-1}$.</p>\n<p>The correct option is <strong>Option D</strong>: $0.218 \\, \\text{cm}^{-1}$.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>10 g each of $\\mathrm{NH}_3, \\mathrm{~N}_2, \\mathrm{Cl}_2$ and $\\mathrm{H}_2 \\mathrm{~S}$ are expanded isothermally and reversibly at same temperature. Identify gas that performs maximum work.</p>",
+    "options": {
+      "A": "$\\mathrm{N}_2$",
+      "B": "$\\mathrm{Cl}_2$",
+      "C": "$\\mathrm{H}_2 \\mathrm{S}$",
+      "D": "$\\mathrm{NH}_3$"
+    },
+    "correct": "D",
+    "solution": "<p>$$\\mathrm{W}_{\\max }=-2.303 \\mathrm{nRT} \\log _{10} \\frac{\\mathrm{~V}_2}{\\mathrm{~V}_1}$$</p>\n<p>Hence, $\\mathrm{W}_{\\text {max }} \\propto \\mathrm{n}$</p>\n<p>(Given: $\\mathrm{R}, \\mathrm{T}, \\mathrm{V}_2, \\mathrm{~V}_1=$ Constant)</p>\n<p>$$\\mathrm{W}_{\\max } \\propto \\frac{1}{\\mathrm{M} \\cdot \\mathrm{~W}} \\text { (Given: equal mass) }$$</p>\n<p>Hence, lower the molecular mass, greater is the work done. Among the given, $\\mathrm{NH}_3$ has the lowest molecular mass which performs maximum work.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A solution of non volatile solute has boiling point elevation 0.5 K . Calculate molality of solution $\\left[\\mathrm{K}_{\\mathrm{b}}=2.40 \\mathrm{~K} \\mathrm{~kg} \\mathrm{~mol}^{-1}\\right]$.</p>",
+    "options": {
+      "A": "$0.12 \\mathrm{~mol} \\mathrm{~kg}^{-1}$",
+      "B": "$0.16 \\mathrm{~mol} \\mathrm{~kg}^{-1}$",
+      "C": "$0.21 \\mathrm{~mol} \\mathrm{~kg}^{-1}$",
+      "D": "$\\mathrm{0.28 ~mol~ kg}$"
+    },
+    "correct": "C",
+    "solution": "<p>The elevation in boiling point for a solution can be calculated using the formula for boiling point elevation:</p>\n<p>$$ \\Delta T_b = i \\cdot K_b \\cdot m $$</p>\n<p>where:</p>\n\n<p></p><p>$ \\Delta T_b $ is the boiling point elevation,</p><p></p>\n<p></p><p>$ i $ is the van't Hoff factor (for non-volatile solute, $ i = 1 $),</p><p></p>\n<p></p><p>$ K_b $ is the ebullioscopic constant of the solvent,</p><p></p>\n<p></p><p>$ m $ is the molality of the solution.</p><p></p>\n\n<p>Given that:</p>\n\n<p></p><p>$ \\Delta T_b = 0.5 \\, \\text{K} $</p><p></p>\n<p></p><p>$ K_b = 2.40 \\, \\text{K kg mol}^{-1} $</p><p></p>\n\n<p>Since the solute is non-volatile, the van't Hoff factor $ i = 1 $. Substituting these values into the formula:</p>\n<p>$$ 0.5 = 1 \\cdot 2.40 \\cdot m $$</p>\n<p>Solving for $ m $ (molality):</p>\n<p>$$ m = \\frac{0.5}{2.40} $$</p>\n<p>Calculating:</p>\n<p>$$ m = \\frac{0.5}{2.40} = 0.2083 \\, \\text{mol kg}^{-1} $$</p>\n<p>Rounding to two decimal places, the molality is approximately:</p>\n<p>$$ m = 0.21 \\, \\text{mol kg}^{-1} $$</p>\n<p>Therefore, the correct answer is <strong>Option C: $0.21 \\, \\text{mol kg}^{-1}$.</strong></p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Chlorine has two isotopes ${ }^{35} \\mathrm{Cl}$ and ${ }^{37} \\mathrm{Cl}$ with average atomic mass of 35.5 . What is the ratio of their relative abundance respectively?</p>",
+    "options": {
+      "A": "$1: 1$",
+      "B": "$2: 1$",
+      "C": "$1: 3$",
+      "D": "$3: 1$"
+    },
+    "correct": "D",
+    "solution": "<p>Average atomic mass</p>\n<p>$$=\\frac{\\text {(atomic mass of }{ }^{37} \\mathrm{Cl} \\times \\text { percentage)}+ \\text { (atomic mass of }{ }^{37} \\mathrm{Cl} \\times \\text { percentage) }}{100}$$</p>\n<p>Let the $\\%$ abundance of ${ }^{35} \\mathrm{Cl}$ isotope $=x$.</p>\n<p>$\\%$ abundance of ${ }^{37} \\mathrm{Cl}$ isotope $=100-x$.</p>\n<p>Average atomic mass $=35.5$</p>\n<p>From formula, average atomic mass</p>\n<p>$$\\begin{array}{ll} \n&amp; =\\frac{35 \\times x+37 \\times(100-x)}{100}=35.5 \\\\\n\\therefore &amp; 35 x+3700-37 x=35.5 \\times 100 \\\\\n\\therefore &amp; -2 x=-3700+3550 \\\\\n\\therefore &amp; -2 x=-150 \\\\\n\\therefore &amp; x=75 \\% \\text { and }(100-x)=25 \\%\n\\end{array}$$</p>\n<p>Ratio of relative abundance</p>\n<p>$$=\\frac{\\% \\text { abundance of }{ }^{35} \\mathrm{Cl}}{\\% \\text { abundance of }{ }^{37} \\mathrm{Cl}}=\\frac{75}{25}=3: 1$$</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which among the following is NOT a true statement regarding enantiomers?</p>",
+    "options": {
+      "A": "Enantiomers have identical refractive index.",
+      "B": "Enantiomers have same chemical properties.",
+      "C": "Enantiomers are superimposable mirror images of each other.",
+      "D": "Enantiomers have equal but opposite optical rotation."
+    },
+    "correct": "C",
+    "solution": "<p>Option C is NOT a true statement regarding enantiomers.</p>\n<p>Enantiomers are non-superimposable mirror images of each other. Each enantiomer in a pair has opposite configurations at all chiral centers, resulting in compounds that cannot be placed on top of one another and give the same structure in three-dimensional space. This non-superimposable nature is what makes them distinct from one another in terms of their optical activity, although they have identical physical properties like melting point and boiling point, except for the direction in which they rotate plane-polarized light.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following polymers is believed to leach human carcinogen in to food when used as household plastic?</p>",
+    "options": {
+      "A": "LDPE",
+      "B": "PP",
+      "C": "PS",
+      "D": "PET"
+    },
+    "correct": "C",
+    "solution": "<p><strong>Option C: PS (Polystyrene)</strong></p>\n<p>Polystyrene (PS) is believed to leach a human carcinogen known as styrene into food when used as household plastic. Styrene is a chemical that can migrate from the containers into food, particularly when these containers are heated or used with fatty or acidic foods. The concern over styrene arises from studies that suggest it can have carcinogenic effects, as classified by environmental health organizations.</p>\n<p>Polystyrene is commonly found in disposable coffee cups, food containers, and plastic utensils. To minimize exposure, it is advisable to avoid heating foods in polystyrene containers and to consider alternative materials for food storage and consumption, such as glass or stainless steel.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following molecules has trigonal planar geometry?</p>",
+    "options": {
+      "A": "$\\mathrm{CH}_4$",
+      "B": "$\\mathrm{C}_2 \\mathrm{H}_2$",
+      "C": "$\\mathrm{NH}_3$",
+      "D": "$\\mathrm{BF}_3$"
+    },
+    "correct": "D",
+    "solution": "<p><style type=\"text/css\">\n.tg  {border-collapse:collapse;border-spacing:0;}\n.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n.tg .tg-0lax{text-align:left;vertical-align:top}\n</style>\n</p><table class=\"tg\" style=\"undefined;table-layout: fixed; width: 339px\"><colgroup>\n<col style=\"width: 144px\">\n<col style=\"width: 195px\">\n</colgroup>\n<thead>\n  <tr>\n    <th class=\"tg-baqh\">Molecule</th>\n    <th class=\"tg-baqh\">Geometry</th>\n  </tr></thead>\n<tbody>\n  <tr>\n    <td class=\"tg-0lax\">$\\mathrm{CH_4}$</td>\n    <td class=\"tg-0lax\">Tetrahedral</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0lax\">$\\mathrm{C_2H_2}$</td>\n    <td class=\"tg-0lax\">Linear</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0lax\">$\\mathrm{NH_3}$</td>\n    <td class=\"tg-0lax\">Trigonal pyramidal</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0lax\">$\\mathrm{BF_3}$</td>\n    <td class=\"tg-0lax\">Trigonal planar</td>\n  </tr>\n</tbody>\n</table><p></p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following polymers is grouped under elastomers?</p>",
+    "options": {
+      "A": "Buna-S",
+      "B": "Nylon 6,6",
+      "C": "Terylene",
+      "D": "Polythene"
+    },
+    "correct": "A",
+    "solution": "<p><strong>Elastomers</strong> are polymers that possess elastomeric properties, meaning they can be stretched extensively and return to their original shape once the stress is released. Among the options provided, Option A, <strong>Buna-S</strong>, is grouped under elastomers.</p>\n<p>Buna-S, also known as Styrene-Butadiene Rubber (SBR), is a synthetic rubber commonly used in the production of automobile tires, conveyor belts, rubber mats, and other flexible products where durable elasticity is required. It is created through the copolymerization of styrene and butadiene, giving it enhanced abrasion resistance and good aging properties compared to natural rubber. </p>\n<p>In contrast, the other options do not fall under elastomers:</p>\n\n<p></p><p><strong>Nylon 6,6</strong> (Option B) is a polyamide, which is a type of synthetic polymer known for its strength and thermal resistance. It is commonly used in textiles, engineering plastics, and automotive components.</p><p></p>\n<p></p><p><strong>Terylene</strong> (Option C), also known as polyester, is primarily used in the textile industry to make fabrics. It is not considered an elastomer because it does not exhibit the stretchy, elastic characteristics typical of elastomers.</p><p></p>\n<p></p><p><strong>Polythene</strong> (Option D), or polyethylene, is a widely used plastic found in products like plastic bags, bottles, and toys. While it has some flexibility, it lacks the significant elasticity and resilience found in elastomers.</p><p></p>\n\n<p>In summary, only Buna-S from the given list qualifies as an elastomer.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>What type of following compounds is obtained in first step of Wolf-Kishner reduction of carbonyl compounds?</p>",
+    "options": {
+      "A": "Carboxylic Acids",
+      "B": "Alcohols",
+      "C": "Hydrazones",
+      "D": "Alkenes"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The reaction $2 \\mathrm{~A}+\\mathrm{B}+\\mathrm{C} \\longrightarrow \\mathrm{D}+\\mathrm{E}$ is found to be first order in A , second order in B and zero order in C . What is the effect of increasing concentration of all reactants twice?</p>",
+    "options": {
+      "A": "Rate of reaction increases 8 times.",
+      "B": "Rate of reaction increases 24 times.",
+      "C": "Rate of reaction increases 36 times.",
+      "D": "Rate of reaction remains unaffected."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Calculate mass in kg of $4.48 \\mathrm{dm}^3$ carbon dioxide at STP.</p>",
+    "options": {
+      "A": "$2.2 \\times 10^{-3}$",
+      "B": "&nbsp; $4.4 \\times 10^{-3}$",
+      "C": "$6.6 \\times 10^{-3}$",
+      "D": "$8.8 \\times 10^{-3}$"
+    },
+    "correct": "D",
+    "solution": "<p>To calculate the mass of carbon dioxide ($\\text{CO}_2$) at Standard Temperature and Pressure (STP), first determine the number of moles of the gas, and then use that to find the mass.</p>\n<p>At STP, 1 mole of any ideal gas occupies $22.4 \\, \\text{dm}^3$. Given $4.48 \\, \\text{dm}^3$ of $\\text{CO}_2$, the number of moles $(n)$ can be calculated as:</p>\n<p>$$ n = \\frac{\\text{Volume}}{\\text{Volume of 1 mole at STP}} = \\frac{4.48 \\, \\text{dm}^3}{22.4 \\, \\text{dm}^3/\\text{mole}} $$</p>\n<p>Performing the calculation gives:</p>\n<p>$$ n = \\frac{4.48}{22.4} = 0.2 \\, \\text{moles} $$</p>\n<p>Next, the molar mass of $\\text{CO}_2$ (Carbon Dioxide) is the sum of the atomic masses of carbon ($C$) and oxygen ($O$): </p>\n\n<p></p><p>Atomic mass of $C = 12.01 \\, \\text{g/mol}$</p><p></p>\n<p></p><p>Atomic mass of $O = 16.00 \\, \\text{g/mol}$ (since there are two oxygen atoms, this becomes $2 \\times 16.00$)</p><p></p>\n\n<p>Thus, the molar mass of $\\text{CO}_2$ is:</p>\n<p>$$ \\text{Molar mass of } \\text{CO}_2 = 12.01 + 2 \\times 16.00 = 44.01 \\, \\text{g/mol} $$</p>\n<p>Now, calculate the mass $(m)$ using the formula:</p>\n<p>$$ m = n \\times \\text{Molar Mass} = 0.2 \\, \\text{moles} \\times 44.01 \\, \\text{g/mol} $$</p>\n<p>Calculating this gives:</p>\n<p>$$ m = 8.802 \\, \\text{g} $$</p>\n<p>Convert the mass from grams to kilograms:</p>\n<p>$$ m = 8.802 \\, \\text{g} \\times \\frac{1 \\, \\text{kg}}{1000 \\, \\text{g}} = 8.802 \\times 10^{-3} \\, \\text{kg} $$</p>\n<p>Rounding the final result, the mass in kg is:</p>\n<p>$$ 8.8 \\times 10^{-3} \\, \\text{kg} $$</p>\n<p>Therefore, the correct option is <strong>Option D: $8.8 \\times 10^{-3}$</strong>.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Calculate the molar mass of solute in a solution prepared by dissolving 1 gram in $0.3 \\mathrm{~dm}^3$ solvent having osmotic pressure 0.2 atm at 300 K.</p>\n<p>$$\\left[\\mathrm{R}=0.082 \\mathrm{~dm}^3 \\mathrm{~atm} \\mathrm{~K}^{-1} \\mathrm{~mol}^{-1}\\right]$$</p>",
+    "options": {
+      "A": "$442 \\mathrm{~g} \\mathrm{~mol}^{-1}$",
+      "B": "$372 \\mathrm{~g} \\mathrm{~mol}^{-1}$",
+      "C": "$390 \\mathrm{~g} \\mathrm{~mol}^{-1}$",
+      "D": "$410 \\mathrm{~g} \\mathrm{~mol}^{-1}$"
+    },
+    "correct": "D",
+    "solution": "<p>The molar mass of the solute can be calculated using the formula for osmotic pressure:</p>\n<p>$$ \\Pi = \\frac{n}{V}RT $$</p>\n<p>Where:</p>\n\n<p></p><p>$\\Pi$ is the osmotic pressure (0.2 atm),</p><p></p>\n<p></p><p>$n$ is the number of moles of solute,</p><p></p>\n<p></p><p>$V$ is the volume of the solution in liters (0.3 dm$^3$),</p><p></p>\n<p></p><p>$R$ is the gas constant (0.082 dm$^3$ atm K$^{-1}$ mol$^{-1}$),</p><p></p>\n<p></p><p>$T$ is the temperature in Kelvin (300 K).</p><p></p>\n\n<p>Since the number of moles ($n$) can be expressed as mass ($w$) divided by molar mass ($M$), $n = \\frac{w}{M}$, we can substitute this into the osmotic pressure formula:</p>\n<p>$$ \\Pi = \\frac{w}{MV}RT $$</p>\n<p>Rearranging to solve for the molar mass ($M$), we get:</p>\n<p>$$ M = \\frac{wRT}{\\Pi V} $$</p>\n<p>Substituting the given values into the equation:</p>\n\n<p></p><p>$w = 1 \\text{ g}$</p><p></p>\n<p></p><p>$R = 0.082 \\text{ dm}^3 \\text{ atm K}^{-1} \\text{ mol}^{-1}$</p><p></p>\n<p></p><p>$T = 300 \\text{ K}$</p><p></p>\n<p></p><p>$\\Pi = 0.2 \\text{ atm}$</p><p></p>\n<p></p><p>$V = 0.3 \\text{ dm}^3$</p><p></p>\n\n<p>$$ M = \\frac{1 \\times 0.082 \\times 300}{0.2 \\times 0.3} $$</p>\n<p>Simplifying this equation:</p>\n<p>$$ M = \\frac{24.6}{0.06} $$</p>\n<p>$$ M = 410 \\text{ g mol}^{-1} $$</p>\n<p>Therefore, the molar mass of the solute is 410 g mol$^{-1}$, which corresponds to Option D.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the product obtained when chlorobenzene is heated with conc. $\\mathrm{HNO}_3$ in presence of conc. $\\mathrm{H}_2 \\mathrm{SO}_4$.</p>",
+    "options": {
+      "A": "Only 1-chloro-4-nitrobenzene",
+      "B": "Only 1-chloro-2-nitrobenzene",
+      "C": "Mixture of 1-chloro-4-nitrobenzene and 1-chloro-2-nitrobenzene",
+      "D": "2,4,6-trinitrochlorobenzene"
+    },
+    "correct": "C",
+    "solution": "<div class=\"flex flex-col gap-2 max-md:card max-md:pt-3\"><div class=\"flex items-center justify-between gap-3 px-4 pb-2 border-b-gray-100 dark:border-opacity-20\" style=\"border-bottom-width: 1px;border-bottom-style: solid\"><div class=\"flex items-center gap-3\"><div class=\"flex items-center justify-center text-white dark:text-blue-400 bg-blue-600 dark:bg-opacity-10 text-sm shrink-0\" style=\"width: 25px;height: 25px;border-radius: 50%\">2</div> <div class=\"flex flex-col gap-1.5\"><div class=\"font-semibold text-sm max-md:text-xs\">MHT CET 2024 9th May Evening Shift</div> <div class=\"flex items-center gap-1.5 text-xs\"><div class=\"px-1.5 py-0.5 bg-opacity-10 rounded-sm text-blue-700 bg-blue-600 dark:text-blue-400 text-ellipsis overflow-hidden whitespace-nowrap\">MCQ (Single Correct Answer)</div> <div class=\"px-1.5 py-0.5 bg-opacity-5 rounded-sm text-green-700 bg-green-600 dark:text-green-400 \">+1</div> <div class=\"px-1.5 py-0.5 bg-opacity-5 rounded-sm text-red-700 bg-red-600 dark:text-red-400 \">-0</div> </div></div></div> <div class=\"flex justify-end gap-2\"> <button class=\"shrink-0\" data-svelte-h=\"svelte-13jvmh6\"><img class=\"border-2\" src=\"/image/warning.png\" alt=\"Report Question\" style=\"width: 30px;height: 30px;padding: 4px;border-radius: 50%\"></button></div></div>   <div class=\"question xl:text-lg px-4 py-2.5\"><p>Which from following is a correct priority order for selection of principal functional group for nomenclature of polyfunctional compound?</p></div></div> <div class=\"options md:px-4 flex flex-col gap-2 lg:gap-4\"><div role=\"button\" tabindex=\"0\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">A</div>  <div class=\"grow question xl:text-lg\"> $-\\mathrm{COOH}&gt;-\\mathrm{SO}_3 \\mathrm{H}&gt;-\\mathrm{COOR}$\n</div> </div><div role=\"button\" tabindex=\"1\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">B</div>  <div class=\"grow question xl:text-lg\"> $-\\mathrm{COOR}&gt;-\\mathrm{COOH}&gt;-\\mathrm{SO}_3 \\mathrm{H}$\n</div> </div><div role=\"button\" tabindex=\"2\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">C</div>  <div class=\"grow question xl:text-lg\"> $-\\mathrm{SO}_3 \\mathrm{H}&gt;-\\mathrm{COOR}&gt;-\\mathrm{COOH}$\n</div> </div><div role=\"button\" tabindex=\"3\" class=\"flex items-center gap-2 max-md:card md:rounded px-4 py-4 card-border-color md:border cursor-pointer select-none transition-all relative bg-opacity-20   hover:border   \"><div class=\"shrink-0 flex items-center justify-center text-white text-sm rounded-[50%] w-[25px] h-[25px] bg-blue-600  \">D</div>  <div class=\"grow question xl:text-lg\"> $-\\mathrm{COOR}&gt;-\\mathrm{SO}_3 \\mathrm{H}&gt;-\\mathrm{COOH}$</div> </div></div>  <div class=\"text-center\"><button class=\"shadow drop-shadow-sm bg-blue-600 text-white px-4 py-2 rounded hover:font-bold transition-all select-none\" aria-label=\"Check Answer Button\" data-svelte-h=\"svelte-18k306m\">Check Answer</button></div>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following is a correct priority order for selection of principal functional group for nomenclature of polyfunctional compound?</p>",
+    "options": {
+      "A": "$-\\mathrm{COOH}&gt;-\\mathrm{SO}_3 \\mathrm{H}&gt;-\\mathrm{COOR}$",
+      "B": "$-\\mathrm{COOR}&gt;-\\mathrm{COOH}&gt;-\\mathrm{SO}_3 \\mathrm{H}$",
+      "C": "$-\\mathrm{SO}_3 \\mathrm{H}&gt;-\\mathrm{COOR}&gt;-\\mathrm{COOH}$",
+      "D": "$-\\mathrm{COOR}&gt;-\\mathrm{SO}_3 \\mathrm{H}&gt;-\\mathrm{COOH}$"
+    },
+    "correct": "A",
+    "solution": "<p>The principal functional group is decided on the basis of the following order of priority:</p>\n<p><img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4h8v00x/795244f6-52f8-49b4-a996-5aa0d275096c/3f4a6510-b64a-11ef-bc18-73e24d18e2ad/file-jaoe38c1m4h8v00y.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4h8v00x/795244f6-52f8-49b4-a996-5aa0d275096c/3f4a6510-b64a-11ef-bc18-73e24d18e2ad/file-jaoe38c1m4h8v00y.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Chemistry - IUPAC Nomenclatures Question 29 English Explanation\"></p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which of the following is used to avoid leakage of electrolyte in dry cell?</p>",
+    "options": {
+      "A": "Paste of $\\mathrm{MnO}_2$",
+      "B": "Paste of $\\mathrm{NH}_4 \\mathrm{Cl}$",
+      "C": "Starch",
+      "D": "Paste of $\\mathrm{ZnCl}_2$"
+    },
+    "correct": "C",
+    "solution": "<p>Option C, Starch, is often used in dry cells to avoid the leakage of the electrolyte. The starch acts as a binder and thickening agent to stabilize the electrolyte mixture, preventing it from leaking out of the cell and maintaining the integrity and functionality of the dry cell.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the polymer used to obtain LCD screen from following.</p>",
+    "options": {
+      "A": "Polyacrylamide",
+      "B": "Buna-N",
+      "C": "Polycarbonate",
+      "D": "Perspex"
+    },
+    "correct": "D",
+    "solution": "Currently no explanation available",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the product X in the following reaction.</p>\n<p>Sodium propanoate $\\xrightarrow[\\Delta]{\\text { soda-lime }} \\mathrm{X}+$ sodium carbonate</p>",
+    "options": {
+      "A": "Propane",
+      "B": "Ethene",
+      "C": "Methane",
+      "D": "Butane"
+    },
+    "correct": "B",
+    "solution": "<p>$\\begin{aligned} &amp; \\underset{\\text { (Sodium proportonate) }}{\\mathrm{C}_2 \\mathrm{H}_5-\\mathrm{COONa}} \\xrightarrow[\\Delta]{\\text { (Sodium propanoate) }} \\underset{\\text { (Ethane) }}{\\mathrm{C}_2 \\mathrm{H}_6}+\\mathrm{Na}_2 \\mathrm{CO}_3 \\\\ \\end{aligned}$</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which of the following changes involves transfer of 5 electrons?</p>",
+    "options": {
+      "A": "$\\mathrm{MnO}_4^{-} \\longrightarrow \\mathrm{Mn}^{2+}$",
+      "B": "$\\mathrm{CrO}_4^{2-} \\longrightarrow \\mathrm{Cr}^{3+}$",
+      "C": "$\\mathrm{NO}_3^{-} \\longrightarrow \\mathrm{NH}_4^{+}$",
+      "D": "$\\mathrm{Cr}_2 \\mathrm{O}_7^{2-} \\longrightarrow 2 \\mathrm{Cr}^{3+}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify order of following reaction.</p>\n<p>$$\\mathrm{H}_2 \\mathrm{O}_{2(\\mathrm{~g})} \\longrightarrow 2 \\mathrm{H}_2 \\mathrm{O}_{(\\mathrm{l})}+\\mathrm{O}_{2(\\mathrm{~g})}$$</p>",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "1.5",
+      "D": "2"
+    },
+    "correct": "B",
+    "solution": "<p>To determine the order of a reaction, it's essential to analyze the rate law, which is usually determined experimentally. However, without experimental data or a given rate expression, predicting the order solely from the chemical equation is not possible.</p>\n<p>For the decomposition of hydrogen peroxide:</p>\n<p>$$ \\text{H}_2 \\text{O}_{2(\\text{g})} \\rightarrow 2 \\text{H}_2 \\text{O}_{(\\text{l})} + \\text{O}_{2(\\text{g})} $$</p>\n<p>Experimentally, the decomposition of hydrogen peroxide is typically found to be a first-order reaction with respect to $\\text{H}_2\\text{O}_2$. Thus, the total reaction order is:</p>\n<p><strong>Option B: 1</strong></p>\n<p>This is based on common experimental findings for the decomposition of hydrogen peroxide in gaseous form.</p>",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Assuming complete ionisation, arrange the following solutions in order of increasing osmotic pressure.</p>\n<p>a) $0.5 \\mathrm{~m} \\mathrm{~Li}_2 \\mathrm{SO}_4$</p>\n<p>b) $\\mathrm{0.5 ~m~KCl}$</p>\n<p>c) $0.5 \\mathrm{~m} \\mathrm{~Al}_2\\left(\\mathrm{SO}_4\\right)_3$</p>\n<p>d) $0.1 \\mathrm{~m~BaCl}_2$</p>",
+    "options": {
+      "A": "d &lt; b &lt; a &lt; c",
+      "B": "b &lt; d &lt; c &lt; a",
+      "C": "a &lt; d &lt; c &lt; b",
+      "D": "c &lt; d &lt; b &lt; a"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which isomer of $\\mathrm{C}_4 \\mathrm{H}_9 \\mathrm{OH}$ has lower boiling point?</p>",
+    "options": {
+      "A": "n-Butyl alcohol",
+      "B": "Isobutyl alcohol",
+      "C": "Sec-Butyl alcohol",
+      "D": "tert-Butyl alcohol"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which element from following in +2 state exhibits highest magnetic moment?</p>",
+    "options": {
+      "A": "Fe",
+      "B": "Cr",
+      "C": "Mn",
+      "D": "Ni"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following anions has maximum coagulating power for precipitation of positive sol?</p>",
+    "options": {
+      "A": "$\\left[\\mathrm{Fe}(\\mathrm{CN})_6\\right]^{4-}$",
+      "B": "$\\mathrm{Cl}^{-}$",
+      "C": "$\\mathrm{SO}_4^{--}$",
+      "D": "$\\mathrm{PO}_4^{--}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>What is the oxidation state of central metal ion in $\\left[\\mathrm{Fe}(\\mathrm{CN})_6\\right]^{4-}$ complex?</p>",
+    "options": {
+      "A": "+2",
+      "B": "$-$6",
+      "C": "$-$4",
+      "D": "+3"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which one of the following compounds does not react with acetyl chloride?</p>",
+    "options": {
+      "A": "$\\mathrm{CH}_3 \\mathrm{CH}_2 \\mathrm{NH}_2$",
+      "B": "$\\mathrm{CH}_3 \\mathrm{CH}_2 \\mathrm{CH}_2 \\mathrm{NHCH}_3$",
+      "C": "$\\left(\\mathrm{CH}_3 \\mathrm{CH}_2\\right)_3 \\mathrm{N}$",
+      "D": "$\\left(\\mathrm{CH}_3\\right)_3 \\mathrm{CNH}_2$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>For the reaction, $\\mathrm{N}_{2(\\mathrm{g})}+3 \\mathrm{H}_{2(\\mathrm{g})} \\longrightarrow 2 \\mathrm{NH}_{3(\\mathrm{g})}$\n$\\mathrm{NH}_3$ is formed at a rate of $0.088 \\mathrm{~mol} \\mathrm{~dm}^{-3} \\mathrm{~s}^{-1}$. Calculate consumption rate of $\\mathrm{N}_{2(\\mathrm{g})}$.</p>",
+    "options": {
+      "A": "$0.011 \\mathrm{~mol} \\mathrm{~dm}^{-3} \\mathrm{~s}^{-1}$",
+      "B": "$0.022 \\mathrm{~mol} \\mathrm{~dm}^{-3} \\mathrm{~s}^{-1}$",
+      "C": "$0.033 \\mathrm{~mol} \\mathrm{~dm}^{-3} \\mathrm{~s}^{-1}$",
+      "D": "$0.044 \\mathrm{~mol} \\mathrm{~dm}^{-3} \\mathrm{~s}^{-1}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>What is the coordination number of a particle in fcc structure?</p>",
+    "options": {
+      "A": "12",
+      "B": "2",
+      "C": "4",
+      "D": "6"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which of the following elements does not react with water to form metal hydroxide?</p>",
+    "options": {
+      "A": "Mg",
+      "B": "Ca",
+      "C": "Be",
+      "D": "Sr"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the major product formed when 2-Methylhexan-3-ol is heated with concentrated sulphuric acid.</p>",
+    "options": {
+      "A": "<img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4hcesiw/a75e3625-99fc-43d3-a52e-d9abd75f5c7d/21111680-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcesix.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4hcesiw/a75e3625-99fc-43d3-a52e-d9abd75f5c7d/21111680-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcesix.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Chemistry - Alcohol, Phenols and Ethers Question 63 English Option 1\">",
+      "B": "<img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4hcf3lq/cd21eecd-0eed-4cbd-825a-d66a2f25b2dd/299ff1e0-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcf3lr.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4hcf3lq/cd21eecd-0eed-4cbd-825a-d66a2f25b2dd/299ff1e0-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcf3lr.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Chemistry - Alcohol, Phenols and Ethers Question 63 English Option 2\">",
+      "C": "<img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4hcffqc/6ed75de4-1fdd-4392-835a-7e9c0f14f1bd/32fe5240-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcffqd.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4hcffqc/6ed75de4-1fdd-4392-835a-7e9c0f14f1bd/32fe5240-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcffqd.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Chemistry - Alcohol, Phenols and Ethers Question 63 English Option 3\">",
+      "D": "<img src=\"https://app-content.cdn.examgoal.net/fly/1500/image/jaoe38c1m4hcfr7y/bc25621b-9754-4860-95c3-b3583e6d4e46/3bde5ae0-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcfr7z.png?format=png\" data-orsrc=\"https://app-content.cdn.examgoal.net/image/jaoe38c1m4hcfr7y/bc25621b-9754-4860-95c3-b3583e6d4e46/3bde5ae0-b658-11ef-a866-a956480aa742/file-jaoe38c1m4hcfr7z.png\" loading=\"lazy\" style=\"max-width:100%;height:auto;display:block;margin:0 auto;max-height:40vh;vertical-align:baseline\" alt=\"MHT CET 2024 9th May Evening Shift Chemistry - Alcohol, Phenols and Ethers Question 63 English Option 4\">"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>What is the highest oxidation state of third row transition elements?</p>",
+    "options": {
+      "A": "+5",
+      "B": "+6",
+      "C": "+7",
+      "D": "+8"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Calculate the solubility of sparingly soluble salt BA in $\\mathrm{mol} \\mathrm{dm}^{-3}$ at 300 K if its solubility product is $4.9 \\times 10^{-9}$ at same temperature.</p>",
+    "options": {
+      "A": "$5.72 \\times 10^{-5}$",
+      "B": "$ 6.40 \\times 10^{-5}$",
+      "C": "$7.00 \\times 10^{-5}$",
+      "D": "$7.81 \\times 10^{-5}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which of the following amines undergoes acylation reaction?</p>",
+    "options": {
+      "A": "Ethyldimethylamine",
+      "B": "N -Methylaniline",
+      "C": "N, N-Dimethylmethanamine",
+      "D": "N, N-Dimethylaniline"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following is a formula of sodium hexafluoroaluminate(III)?</p>",
+    "options": {
+      "A": "$\\mathrm{Na}_3\\left[\\mathrm{AlF}_6\\right]$",
+      "B": "$\\mathrm{Na}\\left[\\mathrm{AlF}_6\\right]$",
+      "C": "$\\mathrm{Na}_2\\left[\\mathrm{AlF}_6\\right]^{2+}$",
+      "D": "$\\left[\\mathrm{Al}(\\mathrm{NaF})_6\\right]^{2+}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify the factor from following on which heat of reaction does not depend.</p>",
+    "options": {
+      "A": "Physical states of reactants and products.",
+      "B": "Total number of steps in which reaction occurs.",
+      "C": "Temperature of the reaction.",
+      "D": "Whether the reaction is carried out at constant pressure or constant volume."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>What type of following forces is present ethylene glycol?</p>",
+    "options": {
+      "A": "Dipole-induced dipole",
+      "B": "Dipole-dipole",
+      "C": "Dispersion forces",
+      "D": "Intramolecular hydrogen bonding"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Calculate the volume of fcc unit cell if radius of a particle in it is 106.05 pm.</p>",
+    "options": {
+      "A": "$7.4 \\times 10^{-23} \\mathrm{~cm}^3$",
+      "B": "$9.9 \\times 10^{-23} \\mathrm{~cm}^3$",
+      "C": "$2.7 \\times 10^{-23} \\mathrm{~cm}^3$",
+      "D": "$6.4 \\times 10^{-23} \\mathrm{~cm}^3$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Identify product ' B ' in the following reaction.</p>\n<p>Cumene $\\xrightarrow[\\Delta]{\\mathrm{KMnO}_4, \\mathrm{KOH}} \\mathrm{A} \\xrightarrow{\\mathrm{H}_3 \\mathrm{O}^{+}} \\mathrm{B}$</p>",
+    "options": {
+      "A": "Phenol",
+      "B": "Benzaldehyde",
+      "C": "Benzophenone",
+      "D": "Benzoic acid"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>What is the name of isobutyl alcohol according to carbinol system?</p>",
+    "options": {
+      "A": "Ethyl methyl carbinol",
+      "B": "Isobutyl carbinol",
+      "C": "Isopropyl carbinol",
+      "D": "Diethyl carbinol"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following elements has highest value of ionization enthalpy $\\left(\\Delta_{\\mathrm{I}} \\mathrm{H}_1\\right)$ ?</p>",
+    "options": {
+      "A": "He",
+      "B": "Ar",
+      "C": "Cl",
+      "D": "I"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Calculate the pH of buffer solution containing 0.04 M NaF and $0.02 \\mathrm{~M~HF}\\left[\\mathrm{pK}_a=3 \\cdot 142\\right]$.</p>",
+    "options": {
+      "A": "4.5",
+      "B": "3.4",
+      "C": "2.6",
+      "D": "5.1"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which from following is NOT a globular protein?</p>",
+    "options": {
+      "A": "Myosin",
+      "B": "Insulin",
+      "C": "Egg albumin",
+      "D": "Legumelin"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>What is the quantity of electricity required to produce 4.8 g of Mg (molar mass $=24 \\mathrm{~g} \\mathrm{~mol}^{-1}$ ) from its salt solution?</p>",
+    "options": {
+      "A": "10 F",
+      "B": "4 F",
+      "C": "1 F",
+      "D": "0.4 F"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which parameter is indicated by the number of waves passing through a given point in one second?</p>",
+    "options": {
+      "A": "Wavelength",
+      "B": "Frequency",
+      "C": "Wave number",
+      "D": "Amplitude"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>For the reaction,</p>\n<p>$$2 \\mathrm{H}_{2(\\mathrm{~g})}+\\mathrm{O}_{2(\\mathrm{~g})} \\longrightarrow 2 \\mathrm{H}_2 \\mathrm{O}_{(\\mathrm{g})}, \\Delta \\mathrm{H}^{\\circ}=-573.2 \\mathrm{~kJ}$$</p>\n<p>What is heat of decomposition of water per mol?</p>",
+    "options": {
+      "A": "$-28.66 \\mathrm{~kJ}$",
+      "B": "$\\mathrm{143.3 ~kJ}$",
+      "C": "$\\mathrm{286.6 ~kJ}$",
+      "D": "$\\mathrm{573.2 ~kJ}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Which is the most commonly used refrigerant Freon-12?</p>",
+    "options": {
+      "A": "Monochloromonofluoromethane",
+      "B": "Dichlorodifluoromethane",
+      "C": "Chlorodifluoromethane",
+      "D": "Dichlorofluoromethane"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Chemistry",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The maximum value of $z=4 x+2 y$, subject to the constraints $3 x+4 y \\geqslant 12, x+y \\leqslant 5, x, y \\geqslant 0$ is</p>",
+    "options": {
+      "A": "8",
+      "B": "20",
+      "C": "24",
+      "D": "16"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The value of $\\int \\frac{x+1}{x\\left(1+x \\mathrm{e}^x\\right)^2} \\mathrm{dx}$ is equal to</p>",
+    "options": {
+      "A": "$\\log \\left(\\frac{x \\mathrm{e}^x}{1+x \\mathrm{e}^x}\\right)+\\frac{x}{1+x \\mathrm{e}^x}+\\mathrm{c}$, where c is a constant of integration",
+      "B": "$\\log \\left(\\frac{x \\mathrm{e}^x}{1+x \\mathrm{e}^x}\\right)+\\frac{\\mathrm{e}^x}{1+x \\mathrm{e}^x}+\\mathrm{c}$, where c is a constant of integration",
+      "C": "$\\log \\left(\\frac{x \\mathrm{e}^x}{1+x \\mathrm{e}^x}\\right)+\\frac{1}{1+x \\mathrm{e}^x}+\\mathrm{c}$, where c is a constant of integration",
+      "D": "$\\log \\left(\\frac{x \\mathrm{e}^x}{1+x \\mathrm{e}^x}\\right)-\\frac{x}{1+x \\mathrm{e}^x}+\\mathrm{c}$, where c is a constant of integration"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>If $\\mathrm{p} \\rightarrow(\\sim \\mathrm{p} \\vee \\sim \\mathrm{q})$ is false, then the truth values of p and q are respectively</p>",
+    "options": {
+      "A": "$\\mathrm{F, F}$",
+      "B": "$\\mathrm{F}, \\mathrm{T}$",
+      "C": "$\\mathrm{T, T}$",
+      "D": "$\\mathrm{T}, \\mathrm{F}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $\\alpha, \\beta$ be the roots of the equation $x^2-\\mathrm{p} x+\\mathrm{r}=0$ and $\\frac{\\alpha}{2}, 2 \\beta$ be the roots of the equation $x^2-q x+r=0$. Then the value of r is</p>",
+    "options": {
+      "A": "$\\frac{2}{9}(\\mathrm{p}-\\mathrm{q})(2 \\mathrm{q}-\\mathrm{p})$",
+      "B": "$\\frac{2}{9}(\\mathrm{q}-\\mathrm{p})(2 \\mathrm{p}-\\mathrm{q})$",
+      "C": "$\\frac{2}{9}(q-2 p)(2 q-p)$",
+      "D": "$\\frac{2}{9}(2 p-q)(2 q-p)$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $\\quad \\overline{\\mathrm{a}}=\\alpha \\hat{\\mathrm{i}}+3 \\hat{\\mathrm{j}}-\\hat{\\mathrm{k}}, \\quad \\overline{\\mathrm{b}}=3 \\hat{\\mathrm{i}}-\\beta \\hat{\\mathrm{j}}+4 \\hat{\\mathrm{k}} \\quad$ and $\\overline{\\mathrm{c}}=\\hat{\\mathrm{i}}+2 \\hat{\\mathrm{j}}-2 \\hat{\\mathrm{k}}$, where $\\alpha, \\beta \\in \\mathbb{R}$, be three vectors. If the projection at $\\overline{\\mathrm{a}}$ on $\\overline{\\mathrm{c}}$ is $\\frac{10}{3}$ and $\\overline{\\mathrm{b}} \\times \\overline{\\mathrm{c}}=-6 \\hat{\\mathrm{i}}+10 \\hat{\\mathrm{j}}+7 \\hat{\\mathrm{k}}$, then the value of $\\alpha^2+\\beta^2-\\alpha \\beta$ is equal to</p>",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The function $\\mathrm{f}(x)=2 x^3-6 x+5$ is an increasing function, if</p>",
+    "options": {
+      "A": "$0&lt; x&lt;1$",
+      "B": "$-1&lt; x&lt;1$",
+      "C": "$x&lt;-1$ or $x&gt;1$",
+      "D": "$-1&lt; x&lt;-\\frac{1}{2}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $2 \\sin ^2 x+3 \\sin x-2&gt;0$ and $x^2-x-2&lt;0$ ($x$ is measured in radians).\nThen $x$ lies in the interval</p>",
+    "options": {
+      "A": "$\\left(\\frac{\\pi}{6}, \\frac{5 \\pi}{6}\\right)$",
+      "B": "$\\left(-1, \\frac{5 \\pi}{6}\\right)$",
+      "C": "$(-1,2)$",
+      "D": "$\\left(\\frac{\\pi}{6}, 2\\right)$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $\\overline{\\mathrm{a}}, \\overline{\\mathrm{b}}$ and $\\overline{\\mathrm{c}}$ be vectors of magnitude 2,3 and 4 respectively. If $\\bar{a}$ is perpendicular to $(\\bar{b}+\\bar{c}), \\bar{b}$ is perpendicular to $(\\bar{c}+\\bar{a})$ and $\\bar{c}$ is perpendicular to $(\\bar{a}+\\bar{b})$, then the magnitude of $\\overline{\\mathrm{a}}+\\overline{\\mathrm{b}}+\\overline{\\mathrm{c}}$ is equal to</p>",
+    "options": {
+      "A": "29",
+      "B": "$\\sqrt{29}$",
+      "C": "26",
+      "D": "$\\sqrt{26}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A square plate is contracting at the uniform rate $3 \\mathrm{~cm}^2 / \\mathrm{sec}$, then the rate at which the perimeter is decreasing, when the side of the square is 15 cm , is</p>",
+    "options": {
+      "A": "$\\frac{1}{5} \\mathrm{~cm} / \\mathrm{sec}$",
+      "B": "$\\frac{2}{5} \\mathrm{~cm} / \\mathrm{sec}$",
+      "C": "$\\frac{1}{10} \\mathrm{~cm} / \\mathrm{sec}$",
+      "D": "$\\frac{3}{10} \\mathrm{~cm} / \\mathrm{sec}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The area (in sq. units), in the first quadrant bounded by the curve $y=x^2+2$ and the lines $y=x+1, x=0$ and $x=2$, is</p>",
+    "options": {
+      "A": "$\\frac{1}{3}$",
+      "B": "$\\frac{2}{3}$",
+      "C": "$\\frac{5}{3}$",
+      "D": "$\\frac{8}{3}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The vector $\\bar{a}=\\alpha \\hat{i}+2 \\hat{j}+\\beta \\hat{k}$ lies in the plane of the vectors $\\overline{\\mathrm{b}}=\\hat{\\mathrm{i}}+\\hat{\\mathrm{j}}$ and $\\overline{\\mathrm{c}}=\\hat{\\mathrm{j}}+\\hat{\\mathrm{k}}$ and bisects the angle between $\\overline{\\mathrm{b}}$ and $\\overline{\\mathrm{c}}$. Then which one of the following gives possible values of $\\alpha$ and $\\beta$ ?</p>",
+    "options": {
+      "A": "$\\alpha=1, \\beta=1$",
+      "B": "$\\alpha=2, \\beta=2$",
+      "C": "$\\alpha=1, \\beta=2$",
+      "D": "$\\alpha=2, \\beta=1$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>$2 \\pi-\\left(\\sin ^{-1} \\frac{4}{5}+\\sin ^{-1} \\frac{5}{13}+\\sin ^{-1} \\frac{16}{65}\\right)$ is equal to</p>",
+    "options": {
+      "A": "$\\frac{\\pi}{2}$",
+      "B": "$\\frac{5 \\pi}{4}$",
+      "C": "$\\frac{7 \\pi}{4}$",
+      "D": "$\\frac{3 \\pi}{2}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>For the matrix $A=\\left[\\begin{array}{ccc}2 &amp; 0 &amp; -1 \\\\ 3 &amp; 1 &amp; 2 \\\\ -1 &amp; 1 &amp; 2\\end{array}\\right]$, the matrix of cofactors is</p>",
+    "options": {
+      "A": "$\\left[\\begin{array}{ccc}0 &amp; 8 &amp; -4 \\\\ -1 &amp; 3 &amp; 2 \\\\ 1 &amp; -7 &amp; 2\\end{array}\\right]$",
+      "B": "$\\left[\\begin{array}{ccc}0 &amp; -8 &amp; 4 \\\\ -1 &amp; 3 &amp; -2 \\\\ 1 &amp; -7 &amp; 2\\end{array}\\right]$",
+      "C": "$\\left[\\begin{array}{ccc}0 &amp; 8 &amp; -4 \\\\ 1 &amp; -3 &amp; 2 \\\\ -1 &amp; 7 &amp; -2\\end{array}\\right]$",
+      "D": "$\\left[\\begin{array}{ccc}0 &amp; -8 &amp; 4 \\\\ -1 &amp; 3 &amp; 2 \\\\ -1 &amp; -7 &amp; 2\\end{array}\\right]$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>If $y=\\sin ^{-1}\\left(\\frac{3 x}{2}-\\frac{x^3}{2}\\right)$, then $\\frac{\\mathrm{d} y}{\\mathrm{~d} x}$ is equal to</p>",
+    "options": {
+      "A": "$\\frac{3}{2 \\sqrt{x^2-4}}$",
+      "B": "$\\frac{3}{\\sqrt{4-x^2}}$",
+      "C": "$\\frac{3}{2 \\sqrt{1-x^2}}$",
+      "D": "$\\frac{4}{\\sqrt{4-x^2}}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A unit vector coplanar with $\\hat{i}+\\hat{j}+\\hat{k}$ and $2 \\hat{i}+\\hat{j}+\\hat{k}$ and perpendicular to $\\hat{i}+\\hat{j}-\\hat{k}$ is</p>",
+    "options": {
+      "A": "$+\\frac{1}{\\sqrt{2}}(-\\hat{\\mathrm{j}}-\\hat{\\mathrm{k}})$",
+      "B": "$\\frac{(\\hat{j}-\\hat{k})}{\\sqrt{2}}$",
+      "C": "$\\frac{-\\hat{\\mathrm{j}}+2 \\hat{\\mathrm{k}}}{\\sqrt{5}}$",
+      "D": "$+\\frac{1}{\\sqrt{26}}(\\hat{\\mathrm{j}}+5 \\hat{\\mathrm{k}})$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Negation of the statement ' Horses have wings if and only if crows have tails. ' is</p>",
+    "options": {
+      "A": "Horses have wings but crows do not have tails. or crows have tails but horses do not have wings.",
+      "B": "Horses do not have wings if and only if crows do not have tails.",
+      "C": "Horses do not have wings and crows have tails. or Horses have wings and crows have tails.",
+      "D": "Horses do not have wings and crows do not have tails."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A plane which is perpendicular to two planes $2 x-2 y+z=0$ and $x-y+2 z=4$, passes through $(1,2,1)$. The distance of the plane from the point $(2,3,4)$ is</p>",
+    "options": {
+      "A": "$\\sqrt{\\frac{2}{5}}$ units",
+      "B": "$\\frac{2 \\sqrt{2}}{5}$ units",
+      "C": "$\\frac{2}{\\sqrt{5}}$ units",
+      "D": "$\\frac{1}{\\sqrt{5}}$ units"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>If $\\log (x+y)=\\sin (x+y)$, then $\\frac{\\mathrm{d} y}{\\mathrm{~d} x}$ is</p>",
+    "options": {
+      "A": "2",
+      "B": "1",
+      "C": "0",
+      "D": "$-$1"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>$$\\int \\sqrt{\\mathrm{e}^x-1} \\mathrm{dx}=$$</p>",
+    "options": {
+      "A": "$\\sqrt{\\mathrm{e}^x-1}+\\tan ^{-1} \\sqrt{\\mathrm{e}^x-1}+\\mathrm{c}$, (where c is constant of integration)",
+      "B": "$2 \\sqrt{\\mathrm{e}^x-1}+\\tan ^{-1} \\sqrt{\\mathrm{e}^x-1}+\\mathrm{c}$, (where c is constant of integration)",
+      "C": "$2 \\sqrt{\\mathrm{e}^x-1}-2 \\tan ^{-1} \\sqrt{\\mathrm{e}^x-1}+\\mathrm{c}$, (where c is constant of integration)",
+      "D": "$2 \\sqrt{\\mathrm{e}^x-1}-\\tan ^{-1} \\sqrt{\\mathrm{e}^x-1}+\\mathrm{c}$, (where c is constant of integration)"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The variance of 20 observations is 5 . If each observation is multiplied by 3 and then 8 is added to each number, then variance of resulting observations is</p>",
+    "options": {
+      "A": "$\\frac{3}{4}$",
+      "B": "$\\frac{4}{3}$",
+      "C": "$\\frac{5}{3}$",
+      "D": "$\\frac{3}{5}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The value of m such that $\\frac{x-4}{1}=\\frac{y-2}{1}=\\frac{z+m}{2}$ lies in the plane $2 x-4 y+z=7$ is</p>",
+    "options": {
+      "A": "7",
+      "B": "$-$7",
+      "C": "no real value",
+      "D": "4"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Four persons can hit a target correctly with probabilities $\\frac{1}{2}, \\frac{1}{3}, \\frac{1}{4}$ and $\\frac{1}{5}$ respectively. If all hit at the target independently, then the probability that the target would be hit, is</p>",
+    "options": {
+      "A": "$\\frac{1}{5}$",
+      "B": "$\\frac{3}{5}$",
+      "C": "$\\frac{2}{5}$",
+      "D": "$\\frac{4}{5}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A poster is to be printed on a rectangular sheet of paper of area $18 \\mathrm{~m}^2$. The margins at the top and bottom of 75 cm each and at the sides 50 cm each are to be left. Then the dimensions i.e. height and breadth of the sheet so that the space available for printing is maximum, are\n_______ respectively.</p>",
+    "options": {
+      "A": "$2 \\sqrt{3} \\mathrm{~m}, 3 \\sqrt{3} \\mathrm{~m}$",
+      "B": "$3 \\sqrt{3} \\mathrm{~m}, 2 \\sqrt{3} \\mathrm{~m}$",
+      "C": "$3 \\mathrm{~m}, 6 \\mathrm{~m}$",
+      "D": "$6 \\mathrm{~m}, 3 \\mathrm{~m}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The approximate value of $(3.978)^{3 / 2}$ is</p>",
+    "options": {
+      "A": "7.096",
+      "B": "8.096",
+      "C": "7.934",
+      "D": "8.934"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The number of integral values of $k$, for which the equation $7 \\cos x+5 \\sin x=2 \\mathrm{k}+1$ has a solution, is</p>",
+    "options": {
+      "A": "4",
+      "B": "8",
+      "C": "10",
+      "D": "2"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The domain of definition of the function $f(x)$ given by the equation $2^x+2^y=2$ is</p>",
+    "options": {
+      "A": "$0&lt; x \\leqslant 1$",
+      "B": "$0 \\leqslant x \\leqslant 1$",
+      "C": "$-\\infty&lt; x \\leqslant 0$",
+      "D": "$-\\infty&lt; x&lt;1$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $\\bar{a}=3 \\hat{i}-\\alpha \\hat{j}+\\hat{k}$ and $\\bar{b}=\\hat{i}+\\alpha \\hat{j}+3 \\hat{k}$. If the area of the parallelogram whose adjacent sides are represented by the vectors $\\overline{\\mathrm{a}}$ and $\\overline{\\mathrm{b}}$, is $8 \\sqrt{3}$ sq. units, then $\\overline{\\mathrm{a}} \\cdot \\overline{\\mathrm{b}}$ is equal to</p>",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>If $\\mathrm{A}, \\mathrm{B}, \\mathrm{C}$ are the angles of a triangle with $\\tan \\frac{A}{2}=\\frac{1}{3}, \\tan \\frac{B}{2}=\\frac{2}{3}$ then the value of $\\tan \\frac{C}{2}$ is</p>",
+    "options": {
+      "A": "$\\frac{-7}{9}$",
+      "B": "$\\frac{7}{9}$",
+      "C": "$\\frac{9}{7}$",
+      "D": "$\\frac{-9}{7}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A line with positive direction cosines passes through the point $\\mathrm{P}(2,1,2)$ and makes equal angles with the coordinate axes. The line meets the plane $2 x+y+\\mathrm{z}=9$ at point Q . The length of the line segment PQ equals $\\qquad$ units.</p>",
+    "options": {
+      "A": "$\\frac{5}{\\sqrt{3}}$",
+      "B": "$2 \\sqrt{3}$",
+      "C": "$\\frac{4}{\\sqrt{3}}$",
+      "D": "$4 \\sqrt{3}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The equation of the tangent to the curve $x=\\operatorname{acos}^3 \\theta, y=\\operatorname{asin}^3 \\theta$ at $\\theta=\\frac{\\pi}{4}$ is</p>",
+    "options": {
+      "A": "$x+y=\\frac{\\mathrm{a}}{\\sqrt{2}}$",
+      "B": "$x+y=\\frac{a}{2}$",
+      "C": "$x+y=\\frac{a}{2 \\sqrt{2}}$",
+      "D": "$x+y=\\frac{\\mathrm{a}}{8}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>$$\\lim _\\limits{x \\rightarrow \\frac{\\pi}{2}} \\frac{(1-\\sin x)\\left(8 x^3-\\pi^3\\right) \\cos x}{(\\pi-2 x)^4}$$</p>",
+    "options": {
+      "A": "$\\frac{\\pi^2}{16}$",
+      "B": "$\\frac{3 \\pi^2}{16}$",
+      "C": "$\\frac{-3 \\pi^2}{16}$",
+      "D": "$\\frac{-\\pi^2}{16}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The integral $\\int_{\\frac{\\pi}{6}}^{\\frac{\\pi}{4}} \\frac{d x}{\\sin 2 x\\left(\\tan ^5 x+\\cot ^5 x\\right)}$ is equal to</p>",
+    "options": {
+      "A": "$\\frac{1}{5}\\left(\\frac{\\pi}{4}-\\tan ^{-1}\\left(\\frac{1}{3 \\sqrt{3}}\\right)\\right)$",
+      "B": "$\\frac{1}{10}\\left(\\frac{\\pi}{4}-\\tan ^{-1}\\left(\\frac{1}{9 \\sqrt{3}}\\right)\\right)$",
+      "C": "$\\frac{1}{20} \\tan ^{-1}\\left(\\frac{1}{9 \\sqrt{3}}\\right)$",
+      "D": "$\\frac{\\pi}{40}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The equation of the circle, concentric with the circle $x^2+y^2-6 x-4 y-12=0$ and touching the $\\mathrm{X}$-axis is</p>",
+    "options": {
+      "A": "$x^2+y^2-6 x-4 y+5=0$",
+      "B": "$x^2+y^2-6 x-4 y+17=0$",
+      "C": "$x^2+y^2-6 x-4 y+9=0$",
+      "D": "$x^2+y^2-6 x-4 y+4=0$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $\\mathrm{f}(x)=\\mathrm{e}^x, \\mathrm{~g}(x)=\\sin ^{-1} x$ and $\\mathrm{h}(x)=\\mathrm{f}(\\mathrm{g}(x))$, then $\\left(\\frac{h^{\\prime}(x)}{h(x)}\\right)^2$ is equal to</p>",
+    "options": {
+      "A": "$\\frac{1}{\\sqrt{1-x^2}}$",
+      "B": "$\\left(1-x^2\\right)^2$",
+      "C": "$\\frac{1}{1-x^2}$",
+      "D": "$\\left(1-x^2\\right)$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The joint equation of pair of lines through the origin and making an angle of $\\frac{\\pi}{6}$ with the line $3 x+y-6=0$ is</p>",
+    "options": {
+      "A": "$13 x^2+12 x y+3 y^2=0$",
+      "B": "$13 x^2-12 x y+3 y^2=0$",
+      "C": "$13 x^2+12 x y-3 y^2=0$",
+      "D": "$13 x^2-12 x y-3 y^2=0$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A line $4 x+y=1$ passes through the point $\\mathrm{A}(2,-7)$ meets the line BC whose equation is $3 x-4 y+1=0$ at the point $B$. The equation of the line $A C$ so that $A B=A C$ is</p>",
+    "options": {
+      "A": "$52 x+89 y+519=0$",
+      "B": "$52 x+89 y-727=0$",
+      "C": "$52 x-89 y+519=0$",
+      "D": "$52 x-89 y-727=0$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The value of $\\int \\frac{\\mathrm{d} x}{(x+1)^{3 / 4}(x-2)^{5 / 4}}$ is equal to</p>",
+    "options": {
+      "A": "$4\\left(\\frac{x+1}{x-2}\\right)^{1 / 4}+\\mathrm{c}$, where c is a constant of integration.",
+      "B": "$4\\left(\\frac{x-2}{x-1}\\right)^{1 / 4}+\\mathrm{c}$, where c is a constant of integration.",
+      "C": "$\\frac{-4}{3}\\left(\\frac{x-2}{x+1}\\right)^{1 / 4}+\\mathrm{c}$, where c is a constant of integration.",
+      "D": "$\\frac{-4}{3}\\left(\\frac{x+1}{x-2}\\right)^{1 / 4}+\\mathrm{c}$, where c is a constant of integration."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The smallest positive value of $x$ in degrees satisfying the\nequation $\\tan \\left(x+100^{\\circ}\\right)=\\tan \\left(x+50^{\\circ}\\right) \\tan (x) \\tan \\left(x-50^{\\circ}\\right)$ is</p>",
+    "options": {
+      "A": "$30^{\\circ}$",
+      "B": "$15^{\\circ}$",
+      "C": "$45^{\\circ}$",
+      "D": "$60^{\\circ}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>If $\\int \\frac{\\cos x-\\sin x}{\\sqrt{8-\\sin 2 x}} d x=a \\sin ^{-1}\\left(\\frac{\\sin x+\\cos x}{b}\\right)+c$\nWhere c is a constant of integration, then the ordered pair $(\\mathrm{a}, \\mathrm{b})$ is equal to</p>",
+    "options": {
+      "A": "$(1,3)$",
+      "B": "$(3,1)$",
+      "C": "$(-1,3)$",
+      "D": "$(-3,1)$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let L be the line of intersection of the planes $2 x+3 y+z=1$ and $x+3 y+2 z=2$. If L makes an angle $\\alpha$ with the positive X -axis, then $\\cos \\alpha$ equals</p>",
+    "options": {
+      "A": "1",
+      "B": "$\\frac{1}{\\sqrt{2}}$",
+      "C": "$\\frac{1}{\\sqrt{3}}$",
+      "D": "$\\frac{1}{2}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Consider a group of 5 boys and 7 girls. The number of different teams, consisting of 2 boys and 3 girls that can be formed from this group if there are two specific girls A and B , who refuse to be the members of the same team, is</p>",
+    "options": {
+      "A": "350",
+      "B": "300",
+      "C": "200",
+      "D": "500"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>If the mean and the variance of a Binomial variate X are 2 and 1 respectively, then the probability that X takes a value greater than one is equal to</p>",
+    "options": {
+      "A": "$\\frac{5}{16}$",
+      "B": "$\\frac{11}{16}$",
+      "C": "$\\frac{12}{16}$",
+      "D": "$\\frac{15}{16}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The general solution of the differential equation $\\frac{\\mathrm{d} y}{\\mathrm{~d} x}=\\frac{y+\\sqrt{x^2-y^2}}{x}$ is</p>",
+    "options": {
+      "A": "$\\sin ^{-1} y=\\log x+c$, where c is a constant of integration.",
+      "B": "$\\frac{y}{x}=\\sin ^{-1} x+\\mathrm{c}$, where c is a constant of integration.",
+      "C": "$\\frac{y}{x}=\\sqrt{x^2-y^2}+\\mathrm{c}$, where c is a constant of integration.",
+      "D": "$\\sin ^{-1}\\left(\\frac{y}{x}\\right)=\\log x+\\mathrm{c}$, where c is a constant of integration."
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A bag contains 4 red and 3 black balls. One ball is drawn and then replaced in the bag and the process is repeated. Let X denote the number of times black ball is drawn in 3 draws. Assuming that at each draw each ball is equally likely to be selected, then probability distribution of $X$ is given by</p>",
+    "options": {
+      "A": "<style type=\"text/css\">\n.tg  {border-collapse:collapse;border-spacing:0;}\n.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n</style>\n<table class=\"tg\" style=\"undefined;table-layout: fixed; width: 426px\"><colgroup>\n<col style=\"width: 75px\">\n<col style=\"width: 86px\">\n<col style=\"width: 93px\">\n<col style=\"width: 87px\">\n<col style=\"width: 85px\">\n</colgroup>\n<thead>\n  <tr>\n    <th class=\"tg-baqh\">$x$</th>\n    <th class=\"tg-baqh\">0</th>\n    <th class=\"tg-baqh\">1</th>\n    <th class=\"tg-baqh\">2</th>\n    <th class=\"tg-baqh\">3</th>\n  </tr></thead>\n<tbody>\n  <tr>\n    <td class=\"tg-baqh\">$\\mathrm{P}(x)$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{4}{7}\\right)^3$</td>\n    <td class=\"tg-baqh\">$\\frac{9}{7} \\cdot\\left(\\frac{4}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\frac{12}{7} \\cdot\\left(\\frac{3}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{3}{7}\\right)^3$</td>\n  </tr>\n</tbody>\n</table>",
+      "B": "<style type=\"text/css\">\n.tg  {border-collapse:collapse;border-spacing:0;}\n.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n</style>\n<table class=\"tg\" style=\"undefined;table-layout: fixed; width: 426px\"><colgroup>\n<col style=\"width: 75px\">\n<col style=\"width: 86px\">\n<col style=\"width: 93px\">\n<col style=\"width: 87px\">\n<col style=\"width: 85px\">\n</colgroup>\n<thead>\n  <tr>\n    <th class=\"tg-baqh\">$x$</th>\n    <th class=\"tg-baqh\">0</th>\n    <th class=\"tg-baqh\">1</th>\n    <th class=\"tg-baqh\">2</th>\n    <th class=\"tg-baqh\">3</th>\n  </tr></thead>\n<tbody>\n  <tr>\n    <td class=\"tg-baqh\">$\\mathrm{P}(x)$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{3}{7}\\right)^3$</td>\n    <td class=\"tg-baqh\">$\\frac{12}{7} \\cdot\\left(\\frac{3}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\frac{9}{7} \\cdot\\left(\\frac{4}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{4}{7}\\right)^3$</td>\n  </tr>\n</tbody>\n</table>",
+      "C": "<style type=\"text/css\">\n.tg  {border-collapse:collapse;border-spacing:0;}\n.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n</style>\n<table class=\"tg\" style=\"undefined;table-layout: fixed; width: 426px\"><colgroup>\n<col style=\"width: 75px\">\n<col style=\"width: 86px\">\n<col style=\"width: 93px\">\n<col style=\"width: 87px\">\n<col style=\"width: 85px\">\n</colgroup>\n<thead>\n  <tr>\n    <th class=\"tg-baqh\">$x$</th>\n    <th class=\"tg-baqh\">0</th>\n    <th class=\"tg-baqh\">1</th>\n    <th class=\"tg-baqh\">2</th>\n    <th class=\"tg-baqh\">3</th>\n  </tr></thead>\n<tbody>\n  <tr>\n    <td class=\"tg-baqh\">$\\mathrm{P}(x)$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{3}{7}\\right)^3$</td>\n    <td class=\"tg-baqh\">$\\frac{9}{7} \\cdot\\left(\\frac{4}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\frac{12}{7} \\cdot\\left(\\frac{3}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{4}{7}\\right)^3$</td>\n  </tr>\n</tbody>\n</table>",
+      "D": "<style type=\"text/css\">\n.tg  {border-collapse:collapse;border-spacing:0;}\n.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n</style>\n<table class=\"tg\" style=\"undefined;table-layout: fixed; width: 426px\"><colgroup>\n<col style=\"width: 75px\">\n<col style=\"width: 86px\">\n<col style=\"width: 93px\">\n<col style=\"width: 87px\">\n<col style=\"width: 85px\">\n</colgroup>\n<thead>\n  <tr>\n    <th class=\"tg-baqh\">$x$</th>\n    <th class=\"tg-baqh\">0</th>\n    <th class=\"tg-baqh\">1</th>\n    <th class=\"tg-baqh\">2</th>\n    <th class=\"tg-baqh\">3</th>\n  </tr></thead>\n<tbody>\n  <tr>\n    <td class=\"tg-baqh\">$\\mathrm{P}(x)$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{4}{7}\\right)^3$</td>\n    <td class=\"tg-baqh\">$\\frac{12}{7} \\cdot\\left(\\frac{4}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\frac{9}{7} \\cdot\\left(\\frac{3}{7}\\right)^2$</td>\n    <td class=\"tg-baqh\">$\\left(\\frac{3}{7}\\right)^3$</td>\n  </tr>\n</tbody>\n</table>"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>In a certain culture of bacteria, the rate of increase is proportional to the number present. If there are $10^4$ at the end of 3 hours and $4 \\cdot 10^4$ at the end of 5 hours, then there were _________ the beginning.</p>",
+    "options": {
+      "A": "$10^4$",
+      "B": "$\\frac{10^4}{4}$",
+      "C": "$410^4$",
+      "D": "$\\frac{10^4}{8}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>The number of solutions, of $2^{1+|\\cos x|+|\\cos x|^2+\\ldots \\ldots \\cdots \\cdots}=4$ in $(-\\pi, \\pi)$, is</p>",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "6"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $\\mathrm{f}(x)=x\\left[\\frac{x}{2}\\right]$, for $-10&lt; x&lt;10$, where $[t]$ denotes the greatest integer function. Then the number of points of discontinuity of $f$ is equal to</p>",
+    "options": {
+      "A": "10",
+      "B": "9",
+      "C": "6",
+      "D": "8"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Let $\\hat{a}$ and $\\hat{b}$ be two unit vectors. If the vectors $\\overline{\\mathrm{c}}=\\hat{\\mathrm{a}}+2 \\hat{\\mathrm{~b}}$ and $\\overline{\\mathrm{d}}=5 \\hat{\\mathrm{a}}+4 \\hat{\\mathrm{~b}}$ are perpendicular to each other, then the angle between $\\hat{a}$ and $\\hat{b}$ is</p>",
+    "options": {
+      "A": "$\\frac{\\pi}{6}$",
+      "B": "$\\cos ^{-1}\\left(\\frac{13}{14}\\right)$",
+      "C": "$\\frac{\\pi}{3}$",
+      "D": "$\\cos ^{-1}\\left(\\frac{-13}{14}\\right)$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>Integrating factor of the differential equation $\\frac{\\mathrm{d} y}{\\mathrm{~d} x}+y=\\frac{1+y}{x}$ is</p>",
+    "options": {
+      "A": "$\\frac{x}{\\mathrm{e}^x}$",
+      "B": "$x e^x$",
+      "C": "$e^x$",
+      "D": "$\\frac{\\mathrm{e}^x}{x}$"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  },
+  {
+    "question": "<p>A service station manager sells gas at an average of ₹ 100 per hour on a rainy day, ₹ 150 per hour on a dubious day, ₹ 250 per hour on a fair day and ₹ $300$ on a clear sky. If weather bureau statistics show the probabilities of weather as follows, then his mathematical expectation is</p>\n<p><style type=\"text/css\">\n.tg  {border-collapse:collapse;border-spacing:0;}\n.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;\n  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}\n.tg .tg-baqh{text-align:center;vertical-align:top}\n</style>\n</p><table class=\"tg\" style=\"undefined;table-layout: fixed; width: 487px\"><colgroup>\n<col style=\"width: 136px\">\n<col style=\"width: 86px\">\n<col style=\"width: 93px\">\n<col style=\"width: 87px\">\n<col style=\"width: 85px\">\n</colgroup>\n<thead>\n  <tr>\n    <th class=\"tg-baqh\">Weather</th>\n    <th class=\"tg-baqh\">Clear</th>\n    <th class=\"tg-baqh\">Fair</th>\n    <th class=\"tg-baqh\">Dubious</th>\n    <th class=\"tg-baqh\">Rainy</th>\n  </tr></thead>\n<tbody>\n  <tr>\n    <td class=\"tg-baqh\">Probability</td>\n    <td class=\"tg-baqh\">0.50</td>\n    <td class=\"tg-baqh\">0.30</td>\n    <td class=\"tg-baqh\">0.15</td>\n    <td class=\"tg-baqh\">0.05</td>\n  </tr>\n</tbody>\n</table><p></p>",
+    "options": {
+      "A": "257.5",
+      "B": "252.5",
+      "C": "250",
+      "D": "247.5"
+    },
+    "correct": "A",
+    "solution": "",
+    "subject": "Mathematics",
+    "year": 2024,
+    "shift": "9 May Evening"
+  }
+]

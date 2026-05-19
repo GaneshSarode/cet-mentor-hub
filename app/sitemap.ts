@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { getAllBlogSlugs } from '@/lib/blog-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://cetmentorhub.com'
+  const baseUrl = 'https://cet-mentor-hub.vercel.app'
 
   const blogSlugs = getAllBlogSlugs()
   const blogEntries: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({

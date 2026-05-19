@@ -31,15 +31,7 @@ import {
   BookOpen,
   AlertCircle,
 } from "lucide-react";
-import { createClient } from "@supabase/supabase-js";
-
-// Create Supabase client — uses env vars on Vercel, hardcoded fallback for reliability
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://viumptzaddtysapjtskk.supabase.co";
-// Use service_role key if anon key is not a valid JWT
-const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.startsWith("eyJ")
-  ? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpdW1wdHphZGR0eXNhcGp0c2trIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTgwODg0NywiZXhwIjoyMDkxMzg0ODQ3fQ.edjV25oydKGyy2paV2ONwz7n_wZ2NQLvyqVu4Iocvg4";
-const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+// NOTE: Cutoff queries are handled server-side via /api/predict to protect credentials
 
 // ─── MHT-CET Category Definitions ───
 // These map exactly to what's stored in the Supabase `cutoffs.category` column
@@ -276,7 +268,7 @@ export default function PredictPage() {
     }
   };
 
-  // ─── Fetch Predictions from Supabase ───
+  // ─── Fetch Predictions via server-side API ───
   useEffect(() => {
     if (!showResults) return;
 
@@ -286,37 +278,23 @@ export default function PredictPage() {
       setPredictions([]);
 
       try {
-        const academicYear = dataset === "cap3_24" ? "24-25" : "25-26";
-        const capRound = dataset === "cap3_24" ? 3 : 1;
-
-        // Query cutoffs table with joins to branches and colleges
-        const { data, error: dbError } = await supabaseClient
-          .from("cutoffs")
-          .select(
-            `
-            percentile,
+        // Call server-side API route (keeps Supabase credentials safe)
+        const res = await fetch('/api/predict', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            percentile: userPercentile,
             category,
-            merit_no,
-            cap_round,
-            branch:branches!inner(
-              name,
-              college:colleges!inner(
-                name
-              )
-            )
-          `
-          )
-          .eq("category", category)
-          .eq("cap_round", capRound)
-          .eq("academic_year", academicYear)
-          .gte("percentile", userPercentile - 15)
-          .lte("percentile", userPercentile + 5)
-          .order("percentile", { ascending: false })
-          .limit(1500);
+            dataset,
+          }),
+        });
 
-        if (dbError) {
-          throw new Error(dbError.message);
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || 'Failed to fetch predictions');
         }
+
+        const { cutoffs: data } = await res.json();
 
         if (!data || data.length === 0) {
           setPredictions([]);

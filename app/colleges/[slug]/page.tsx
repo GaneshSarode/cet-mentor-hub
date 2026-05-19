@@ -358,7 +358,7 @@ export default function CollegeDetailPage({
             <TabsContent value="branches">
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {college.branches.map((branch) => {
-                  const branchCutoff = college.cutoffs[branch];
+                  const branchCutoff = (college.cutoffs as Record<string, { open?: number; obc?: number; sc?: number; st?: number } | undefined>)[branch];
                   return (
                     <Card key={branch} className="border-border/50">
                       <CardContent className="p-6">

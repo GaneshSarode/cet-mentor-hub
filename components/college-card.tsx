@@ -15,19 +15,20 @@ interface CollegeCardProps {
     type: string;
     naacGrade: string;
     branches: string[];
-    cutoffs: Record<string, Record<string, number>>;
+    cutoffs: Record<string, Record<string, number> | undefined>;
     rating: number;
     reviewCount: number;
   };
 }
 
 export function CollegeCard({ college }: CollegeCardProps) {
-  const lowestCutoff = Math.min(
-    ...Object.values(college.cutoffs).map((c) => c.open || 100)
-  );
-  const highestCutoff = Math.max(
-    ...Object.values(college.cutoffs).map((c) => c.open || 0)
-  );
+  const definedCutoffs = Object.values(college.cutoffs).filter((c): c is Record<string, number> => c != null);
+  const lowestCutoff = definedCutoffs.length > 0
+    ? Math.min(...definedCutoffs.map((c) => c.open || 100))
+    : 0;
+  const highestCutoff = definedCutoffs.length > 0
+    ? Math.max(...definedCutoffs.map((c) => c.open || 0))
+    : 0;
 
   return (
     <Card className="group relative overflow-hidden border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">

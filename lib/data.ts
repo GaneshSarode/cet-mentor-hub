@@ -1401,8 +1401,18 @@ export const mentors = [
 // ⚠️ DEPRECATED: mockTests and papers are superseded by the Supabase PYQ system.
 // Keeping empty exports to avoid breaking any leftover imports.
 // Real data comes from /api/pyq/papers and /api/pyq/sessions.
-export const mockTests: never[] = [];
-export const papers: never[] = [];
+interface MockTest {
+  id: string;
+  topic: string;
+  subject: string;
+  questions: number;
+  duration: number;
+  difficulty: string;
+  attempts: number;
+  avgScore: number;
+}
+export const mockTests: MockTest[] = [];
+export const papers: { id: string; title: string; year: number }[] = [];
 
 export const testimonials = [
   {
