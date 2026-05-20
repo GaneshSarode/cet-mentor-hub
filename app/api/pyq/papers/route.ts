@@ -27,7 +27,28 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ papers: data });
+    // Sort papers chronologically:
+    // 1. Year descending (2025 papers first, then 2024)
+    // 2. Exam date ascending (e.g. April 19th before April 26th)
+    // 3. Shift (morning before evening)
+    const sortedData = data ? [...data].sort((a, b) => {
+      if (b.year !== a.year) {
+        return b.year - a.year;
+      }
+
+      const dateA = a.exam_date || "";
+      const dateB = b.exam_date || "";
+      if (dateA !== dateB) {
+        return dateA.localeCompare(dateB);
+      }
+
+      if (a.shift === "morning" && b.shift === "evening") return -1;
+      if (a.shift === "evening" && b.shift === "morning") return 1;
+
+      return 0;
+    }) : [];
+
+    return NextResponse.json({ papers: sortedData });
   } catch (err) {
     return NextResponse.json({ error: 'Failed to fetch papers' }, { status: 500 });
   }
