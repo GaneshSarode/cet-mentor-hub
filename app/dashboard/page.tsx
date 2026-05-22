@@ -4,8 +4,18 @@ import { useState, useEffect, useMemo } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -20,6 +30,7 @@ import {
   XCircle,
   BarChart2,
   AlertTriangle,
+  User as UserIcon,
 } from "lucide-react";
 import { PyqTestSession, PyqPaper } from "@/lib/types/database";
 import {
@@ -153,6 +164,56 @@ export default function DashboardPage() {
           Here&apos;s an overview of your progress
         </p>
       </div>
+
+      {/* Profile Section */}
+      <Card className="border-border/50 mb-8">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <UserIcon className="h-5 w-5" />
+            Profile Details
+          </CardTitle>
+          <CardDescription>
+            Update your personal information for better predictions
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="category">Category</Label>
+              <Select defaultValue="open">
+                <SelectTrigger id="category">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="open">Open</SelectItem>
+                  <SelectItem value="obc">OBC</SelectItem>
+                  <SelectItem value="sc">SC</SelectItem>
+                  <SelectItem value="st">ST</SelectItem>
+                  <SelectItem value="vj">VJ/NT</SelectItem>
+                  <SelectItem value="ews">EWS</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="district">Home District</Label>
+              <Select defaultValue="mumbai">
+                <SelectTrigger id="district">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="mumbai">Mumbai</SelectItem>
+                  <SelectItem value="pune">Pune</SelectItem>
+                  <SelectItem value="nagpur">Nagpur</SelectItem>
+                  <SelectItem value="nashik">Nashik</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <Button className="bg-primary hover:bg-primary/90">
+            Save Profile
+          </Button>
+        </CardContent>
+      </Card>
 
       {/* Stats Grid */}
       {isLoading ? (

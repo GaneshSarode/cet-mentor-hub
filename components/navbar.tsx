@@ -105,7 +105,7 @@ export function Navbar() {
             {/* Auth Buttons */}
             {!isSignedIn ? (
               <>
-                <SignInButton mode="modal">
+                <SignInButton mode="modal" forceRedirectUrl="/dashboard">
                   <Button
                     variant="ghost"
                     className={`${
@@ -117,7 +117,7 @@ export function Navbar() {
                     Sign In
                   </Button>
                 </SignInButton>
-                <SignUpButton mode="modal">
+                <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
                   <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                     Get Started
                   </Button>
@@ -184,12 +184,12 @@ export function Navbar() {
                   <div className="flex flex-col gap-3 pt-4 border-t">
                     {!isSignedIn ? (
                       <>
-                        <SignInButton mode="modal">
+                        <SignInButton mode="modal" forceRedirectUrl="/dashboard">
                           <Button variant="outline" className="w-full">
                             Sign In
                           </Button>
                         </SignInButton>
-                        <SignUpButton mode="modal">
+                        <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
                           <Button className="w-full bg-primary hover:bg-primary/90">
                             Get Started
                           </Button>
