@@ -26,7 +26,7 @@ const sidebarLinks = [
   { href: "/dashboard/tests", label: "Test History", icon: FileText },
   { href: "/dashboard/bookmarks", label: "Bookmarks", icon: BookmarkCheck },
   // { href: "/dashboard/saved", label: "Saved Colleges", icon: Heart },
-  // { href: "/dashboard/settings", label: "Settings", icon: Settings },
+  { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
 function SidebarContent({ pathname, user }: { pathname: string; user?: { firstName?: string | null; lastName?: string | null; emailAddresses?: { emailAddress: string }[]; fullName?: string | null } | null }) {

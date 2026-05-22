@@ -173,44 +173,22 @@ export default function DashboardPage() {
             Profile Details
           </CardTitle>
           <CardDescription>
-            Update your personal information for better predictions
+            Update your name
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="category">Category</Label>
-              <Select defaultValue="open">
-                <SelectTrigger id="category">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="open">Open</SelectItem>
-                  <SelectItem value="obc">OBC</SelectItem>
-                  <SelectItem value="sc">SC</SelectItem>
-                  <SelectItem value="st">ST</SelectItem>
-                  <SelectItem value="vj">VJ/NT</SelectItem>
-                  <SelectItem value="ews">EWS</SelectItem>
-                </SelectContent>
-              </Select>
+              <Label htmlFor="firstName">First Name</Label>
+              <Input id="firstName" defaultValue={user?.firstName || ""} placeholder="Enter your first name" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="district">Home District</Label>
-              <Select defaultValue="mumbai">
-                <SelectTrigger id="district">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="mumbai">Mumbai</SelectItem>
-                  <SelectItem value="pune">Pune</SelectItem>
-                  <SelectItem value="nagpur">Nagpur</SelectItem>
-                  <SelectItem value="nashik">Nashik</SelectItem>
-                </SelectContent>
-              </Select>
+              <Label htmlFor="lastName">Last Name</Label>
+              <Input id="lastName" defaultValue={user?.lastName || ""} placeholder="Enter your last name" />
             </div>
           </div>
           <Button className="bg-primary hover:bg-primary/90">
-            Save Profile
+            Save Name
           </Button>
         </CardContent>
       </Card>
