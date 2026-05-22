@@ -10,6 +10,7 @@ import { Menu, GraduationCap, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/dashboard", label: "Dashboard" },
   { href: "/colleges", label: "Colleges" },
   { href: "/predict", label: "Predict" },
   { href: "/papers", label: "Tests" },
