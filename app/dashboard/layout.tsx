@@ -22,10 +22,10 @@ import {
 
 const sidebarLinks = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
-  { href: "/dashboard/bookings", label: "My Bookings", icon: Calendar },
+  // { href: "/dashboard/bookings", label: "My Bookings", icon: Calendar },
   { href: "/dashboard/tests", label: "Test History", icon: FileText },
   { href: "/dashboard/bookmarks", label: "Bookmarks", icon: BookmarkCheck },
-  { href: "/dashboard/saved", label: "Saved Colleges", icon: Heart },
+  // { href: "/dashboard/saved", label: "Saved Colleges", icon: Heart },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
