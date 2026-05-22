@@ -16,8 +16,10 @@ import { Footer } from "@/components/footer";
 import { PaperCard } from "@/components/paper-card";
 import { PaperGridSkeleton } from "@/components/paper-card-skeleton";
 import { ErrorBoundary } from "@/components/error-boundary";
-import { FileText, BookOpen, Sparkles, AlertCircle } from "lucide-react";
+import { FileText, BookOpen, Sparkles, AlertCircle, Bookmark } from "lucide-react";
 import { PyqPaper } from "@/lib/types/database";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const paperTypes = ["All", "Previous Year", "Mock"];
 const subjects = ["All", "PCM", "PCB"];
@@ -158,10 +160,11 @@ export default function PapersPage() {
       {/* Filter Bar */}
       <section className="sticky top-16 z-40 bg-background/80 backdrop-blur-lg border-b py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full">
             
-            {/* Subject Pills */}
-            <Tabs value={activeGroup} onValueChange={setActiveGroup}>
+            <div className="flex flex-wrap items-center gap-4">
+              {/* Subject Pills */}
+              <Tabs value={activeGroup} onValueChange={setActiveGroup}>
               <TabsList className="bg-muted/50 h-auto flex-wrap">
                 {subjects.map((subject) => (
                   <TabsTrigger
@@ -204,6 +207,14 @@ export default function PapersPage() {
                 ))}
               </SelectContent>
             </Select>
+            </div>
+
+            <Button asChild variant="secondary" className="shrink-0 bg-primary/10 text-primary hover:bg-primary/20 border-0">
+              <Link href="/dashboard/bookmarks">
+                <Bookmark className="w-4 h-4 mr-2" />
+                My Bookmarks
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
