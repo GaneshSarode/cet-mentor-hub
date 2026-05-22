@@ -359,7 +359,7 @@ export default function TestPage({
             </div>
 
             <div className="pt-4 flex gap-3">
-              <Button variant="outline" onClick={() => router.back()} className="flex-1">
+              <Button variant="outline" onClick={() => router.push('/papers')} className="flex-1">
                 Cancel
               </Button>
               <Button
