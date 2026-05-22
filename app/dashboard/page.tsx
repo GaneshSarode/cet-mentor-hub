@@ -56,6 +56,36 @@ export default function DashboardPage() {
   const [analytics, setAnalytics] = useState<{ trends: any[]; topics: any[] } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [firstNameInput, setFirstNameInput] = useState("");
+  const [lastNameInput, setLastNameInput] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveSuccess, setSaveSuccess] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setFirstNameInput(user.firstName || "");
+      setLastNameInput(user.lastName || "");
+    }
+  }, [user]);
+
+  const handleSaveName = async () => {
+    if (!user) return;
+    setIsSaving(true);
+    setSaveSuccess(false);
+    try {
+      await user.update({
+        firstName: firstNameInput,
+        lastName: lastNameInput,
+      });
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 3000);
+    } catch (err) {
+      console.error("Failed to update name:", err);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   useEffect(() => {
     async function fetchData() {
       if (!isLoaded) return;
@@ -180,15 +210,15 @@ export default function DashboardPage() {
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name</Label>
-              <Input id="firstName" defaultValue={user?.firstName || ""} placeholder="Enter your first name" />
+              <Input id="firstName" value={firstNameInput} onChange={(e) => setFirstNameInput(e.target.value)} placeholder="Enter your first name" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="lastName">Last Name</Label>
-              <Input id="lastName" defaultValue={user?.lastName || ""} placeholder="Enter your last name" />
+              <Input id="lastName" value={lastNameInput} onChange={(e) => setLastNameInput(e.target.value)} placeholder="Enter your last name" />
             </div>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
-            Save Name
+          <Button onClick={handleSaveName} disabled={isSaving} className={`transition-colors ${saveSuccess ? "bg-emerald-500 hover:bg-emerald-600 text-white" : "bg-primary hover:bg-primary/90"}`}>
+            {isSaving ? "Saving..." : saveSuccess ? "Saved Successfully!" : "Save Name"}
           </Button>
         </CardContent>
       </Card>
