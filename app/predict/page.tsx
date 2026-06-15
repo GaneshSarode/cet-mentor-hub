@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -240,6 +241,50 @@ export default function PredictPage() {
   const [error, setError] = useState<string | null>(null);
   const [totalFound, setTotalFound] = useState(0);
   const [statusFilter, setStatusFilter] = useState<"all" | "safe" | "moderate" | "reach">("all");
+
+  const [chatMessages, setChatMessages] = useState<Array<{role: 'user'|'model', content: string}>>([]);
+  const [chatInput, setChatInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const chatScrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatScrollRef.current) {
+      chatScrollRef.current.scrollTop = chatScrollRef.current.scrollHeight;
+    }
+  }, [chatMessages, isTyping]);
+
+  const handleSendChat = async (message: string) => {
+    if (!message.trim() || isTyping) return;
+    
+    const newMsg = { role: 'user' as const, content: message };
+    const updatedMessages = [...chatMessages, newMsg].slice(-8); // Keep last 8 max
+    
+    setChatMessages(updatedMessages);
+    setChatInput('');
+    setIsTyping(true);
+
+    try {
+      const res = await fetch('/api/college-counselor', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: chatMessages,
+          userMessage: message
+        }),
+      });
+      
+      const data = await res.json();
+      if (res.ok && data.reply) {
+        setChatMessages(prev => [...prev, { role: 'model' as const, content: data.reply }].slice(-8));
+      } else {
+        setChatMessages(prev => [...prev, { role: 'model' as const, content: "LEO couldn't connect right now. Please try again." }].slice(-8));
+      }
+    } catch (err) {
+      setChatMessages(prev => [...prev, { role: 'model' as const, content: "LEO couldn't connect right now. Please try again." }].slice(-8));
+    } finally {
+      setIsTyping(false);
+    }
+  };
 
   // Derive the actual percentile number from input
   const userPercentile = parseFloat(percentileInput) || 0;
@@ -490,7 +535,14 @@ export default function PredictPage() {
 
       <section className="py-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          {!showResults ? (
+          <Tabs defaultValue="predictor" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8 bg-muted/50 p-1 rounded-xl">
+              <TabsTrigger value="predictor" className="rounded-lg font-semibold py-2.5 text-sm sm:text-base">📊 College Predictor</TabsTrigger>
+              <TabsTrigger value="chat" className="rounded-lg font-semibold py-2.5 text-sm sm:text-base">🦁 Chat with LEO</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="predictor" className="mt-0">
+              {!showResults ? (
             <>
               {/* Progress */}
               <div className="mb-8">
@@ -1077,6 +1129,102 @@ export default function PredictPage() {
               )}
             </div>
           )}
+            </TabsContent>
+
+            <TabsContent value="chat" className="mt-0">
+              <Card className="border-border/50 overflow-hidden flex flex-col h-[600px] max-h-[70vh]">
+                <CardHeader className="border-b bg-muted/30 py-4 px-6 shrink-0">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-xl">🦁</div>
+                    <div>
+                      <CardTitle className="text-lg">Chat with LEO</CardTitle>
+                      <p className="text-xs text-muted-foreground">Your AI College Counselor</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                
+                <CardContent className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4" ref={chatScrollRef}>
+                  {chatMessages.length === 0 ? (
+                    <div className="h-full flex flex-col items-center justify-center text-center max-w-md mx-auto py-8">
+                      <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center text-3xl mb-4">🦁</div>
+                      <h3 className="text-xl font-semibold mb-2 text-foreground">Hi, I'm LEO!</h3>
+                      <p className="text-sm text-muted-foreground mb-8">
+                        I can help you find the best colleges based on your CET score. Ask me to compare colleges, find safe options, or suggest branches!
+                      </p>
+                      
+                      <div className="flex flex-col gap-2 w-full">
+                        {[
+                          "I got 90%ile OBC, which CSE colleges in Mumbai?",
+                          "Best colleges in Pune for Mechanical?",
+                          "Compare VJTI vs SPIT vs COEP"
+                        ].map((chip) => (
+                          <button
+                            key={chip}
+                            onClick={() => setChatInput(chip)}
+                            className="px-4 py-3 rounded-xl border border-border bg-muted/30 hover:bg-muted text-sm text-left transition-colors text-foreground shadow-sm hover:border-primary/50"
+                          >
+                            {chip}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      {chatMessages.map((msg, i) => (
+                        <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                          {msg.role === 'model' && (
+                            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-sm mr-2 shrink-0 mt-auto mb-2">🦁</div>
+                          )}
+                          <div className={`max-w-[80%] rounded-2xl px-4 py-3 shadow-sm ${msg.role === 'user' ? 'bg-blue-600 text-white rounded-br-sm' : 'bg-slate-800 border border-slate-700 rounded-bl-sm'}`}>
+                            {msg.role === 'model' && <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">LEO</div>}
+                            <div className={`text-sm whitespace-pre-wrap leading-relaxed ${msg.role === 'user' ? 'text-white' : 'text-slate-200'}`}>
+                              {msg.content}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      {isTyping && (
+                        <div className="flex justify-start">
+                          <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-sm mr-2 shrink-0 mt-auto mb-2">🦁</div>
+                          <div className="max-w-[80%] rounded-2xl px-4 py-3 bg-slate-800 border border-slate-700 rounded-bl-sm shadow-sm">
+                            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">LEO</div>
+                            <div className="flex items-center gap-1.5 h-5">
+                              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </CardContent>
+                
+                <div className="p-4 border-t bg-muted/30 shrink-0">
+                  <form 
+                    onSubmit={(e) => { e.preventDefault(); handleSendChat(chatInput); }}
+                    className="flex items-center gap-2"
+                  >
+                    <Input
+                      value={chatInput}
+                      onChange={(e) => setChatInput(e.target.value)}
+                      placeholder="Ask LEO anything..."
+                      disabled={isTyping}
+                      className="flex-1 rounded-full bg-background border-border h-12 px-5 shadow-sm focus-visible:ring-blue-500"
+                    />
+                    <Button 
+                      type="submit" 
+                      disabled={isTyping || !chatInput.trim()} 
+                      size="icon"
+                      className="rounded-full shrink-0 bg-blue-600 hover:bg-blue-700 h-12 w-12 shadow-sm transition-transform active:scale-95"
+                    >
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </Button>
+                  </form>
+                </div>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
