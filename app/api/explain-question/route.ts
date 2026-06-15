@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
+  console.log('GEMINI_API_KEY present:', !!process.env.GEMINI_API_KEY);
   try {
     const { question, options, correctAnswer, studentAnswer, subject } = await req.json();
 
@@ -25,8 +26,9 @@ clear — like a helpful senior student, not a formal teacher.
    
    Keep total response under 180 words. Simple language for a 12th-grade student.`;
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    const geminiResponse = await fetch(
+      geminiUrl,
       {
         method: "POST",
         headers: {
@@ -39,12 +41,26 @@ clear — like a helpful senior student, not a formal teacher.
       }
     );
 
-    if (!response.ok) {
-      throw new Error(`Gemini API error: ${response.statusText}`);
+    if (!geminiResponse.ok) {
+      const errorText = await geminiResponse.text();
+      console.error('Gemini API HTTP error:', geminiResponse.status, errorText);
+      return NextResponse.json(
+        { error: `Gemini API error: ${geminiResponse.status}` }, 
+        { status: 500 }
+      );
     }
 
-    const data = await response.json();
-    const explanation = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const data = await geminiResponse.json();
+
+    if (!data.candidates || !data.candidates[0]) {
+      console.error('Gemini returned no candidates:', JSON.stringify(data));
+      return NextResponse.json(
+        { error: 'Gemini returned empty response' }, 
+        { status: 500 }
+      );
+    }
+
+    const explanation = data.candidates[0].content.parts[0].text;
 
     if (!explanation) {
       throw new Error("Failed to extract explanation from Gemini response");
@@ -52,7 +68,8 @@ clear — like a helpful senior student, not a formal teacher.
 
     return NextResponse.json({ explanation });
   } catch (error) {
-    console.error("Error generating explanation:", error);
+    console.error('LEO API Error:', error);
+    console.error('LEO API Error details:', JSON.stringify(error));
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }

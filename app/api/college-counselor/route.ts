@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminClient } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
+  console.log('GEMINI_API_KEY present:', !!process.env.GEMINI_API_KEY);
   try {
     const { messages, userMessage } = await req.json();
 
@@ -11,29 +12,38 @@ export async function POST(req: NextRequest) {
     }
 
     const supabase = getAdminClient();
-    const { data: cutoffsData, error: dbError } = await supabase
-      .from("cutoffs")
-      .select("percentile, category, branch:branches!inner(name, college:colleges!inner(name))")
-      .limit(500);
-
-    if (dbError) {
-      console.error("Database error fetching cutoffs:", dbError);
-      return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 });
+    
+    let collegeData: any[] = [];
+    try {
+      const { data, error } = await supabase
+        .from('cutoffs')
+        .select('percentile, category, branch:branches!inner(name, college:colleges!inner(name))')
+        .limit(500);
+      if (!error && data) collegeData = data;
+    } catch (supabaseError) {
+      console.error('Supabase fetch failed, continuing without college data:', supabaseError);
+      // Do NOT throw — continue to Gemini even without college data
     }
 
-    const formattedData = cutoffsData
-      ?.map(
-        (c: any) =>
-          `- ${c.branch?.college?.name} | ${c.branch?.name} | ${c.category} | ${c.percentile}%ile`
-      )
-      .join("\n");
+    let collegeContext = "";
+    if (collegeData.length > 0) {
+      const formattedData = collegeData
+        .map(
+          (c: any) =>
+            `- ${c.branch?.college?.name} | ${c.branch?.name} | ${c.category} | ${c.percentile}%ile`
+        )
+        .join("\n");
+      collegeContext = `Here is the actual CAP Round cutoff data:\n${formattedData}`;
+    } else {
+      collegeContext = `I don't have live cutoff data right now, but I can still give general 
+     guidance based on my knowledge of Maharashtra engineering admissions.`;
+    }
 
     const systemPrompt = `Your name is LEO, the AI assistant for CET Mentor Hub. You are an
    MHT-CET college counselor for Maharashtra engineering admissions 2024.
    Be friendly and conversational — like a helpful senior student who
    cracked MHT-CET, not a formal advisor.
-   Here is the actual CAP Round cutoff data:
-   ${formattedData}
+   ${collegeContext}
    
    Rules:
    - Always cite actual cutoff percentiles from the data when recommending colleges
@@ -57,8 +67,9 @@ export async function POST(req: NextRequest) {
       generationConfig: { maxOutputTokens: 300, temperature: 0.8 },
     };
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    const geminiResponse = await fetch(
+      geminiUrl,
       {
         method: "POST",
         headers: {
@@ -68,14 +79,26 @@ export async function POST(req: NextRequest) {
       }
     );
 
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error(`Gemini API error: ${response.status} ${response.statusText}`, errText);
-      throw new Error(`Gemini API error: ${response.statusText}`);
+    if (!geminiResponse.ok) {
+      const errorText = await geminiResponse.text();
+      console.error('Gemini API HTTP error:', geminiResponse.status, errorText);
+      return NextResponse.json(
+        { error: `Gemini API error: ${geminiResponse.status}` }, 
+        { status: 500 }
+      );
     }
 
-    const data = await response.json();
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const data = await geminiResponse.json();
+    
+    if (!data.candidates || !data.candidates[0]) {
+      console.error('Gemini returned no candidates:', JSON.stringify(data));
+      return NextResponse.json(
+        { error: 'Gemini returned empty response' }, 
+        { status: 500 }
+      );
+    }
+
+    const reply = data.candidates[0].content.parts[0].text;
 
     if (!reply) {
       throw new Error("Failed to extract reply from Gemini response");
@@ -83,7 +106,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ reply });
   } catch (error) {
-    console.error("Error generating counselor reply:", error);
+    console.error('LEO API Error:', error);
+    console.error('LEO API Error details:', JSON.stringify(error));
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }
