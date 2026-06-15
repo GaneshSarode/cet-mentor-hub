@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const apiKey = process.env.GEMINI_API_KEY;
   const keyPresent = !!apiKey;
+  const keyLast4 = apiKey ? `...${apiKey.slice(-4)}` : "none";
   let geminiWorking = false;
   let responseText = "";
   let errorText = "";
@@ -14,7 +15,7 @@ export async function GET() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: "Say hello as LEO" }] }],
+          contents: [{ parts: [{ text: "Say hello as LEO in one sentence" }] }],
           generationConfig: { maxOutputTokens: 50 },
         }),
       });
@@ -39,6 +40,7 @@ export async function GET() {
 
   return NextResponse.json({
     keyPresent,
+    keyLast4,
     geminiWorking,
     response: responseText,
     error: errorText,
