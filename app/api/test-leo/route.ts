@@ -3,32 +3,22 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const apiKey = process.env.GEMINI_API_KEY;
   const keyPresent = !!apiKey;
-  let geminiWorking = false;
-  let responseText = "";
+  let availableModels: any[] = [];
   let errorText = "";
 
   if (keyPresent) {
     try {
-      const geminiUrl = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-      const geminiResponse = await fetch(geminiUrl, {
-        method: "POST",
+      const listUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
+      const response = await fetch(listUrl, {
+        method: "GET",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: "Say hello as LEO" }] }],
-          generationConfig: { maxOutputTokens: 50 },
-        }),
       });
 
-      if (geminiResponse.ok) {
-        const data = await geminiResponse.json();
-        if (data.candidates && data.candidates[0]) {
-          geminiWorking = true;
-          responseText = data.candidates[0].content.parts[0].text;
-        } else {
-          errorText = "API responded ok, but no candidates returned: " + JSON.stringify(data);
-        }
+      if (response.ok) {
+        const data = await response.json();
+        availableModels = data.models?.map((m: any) => m.name) || [];
       } else {
-        errorText = `HTTP ${geminiResponse.status}: ${await geminiResponse.text()}`;
+        errorText = `HTTP ${response.status}: ${await response.text()}`;
       }
     } catch (err: any) {
       errorText = err.message || JSON.stringify(err);
@@ -39,8 +29,7 @@ export async function GET() {
 
   return NextResponse.json({
     keyPresent,
-    geminiWorking,
-    response: responseText,
+    availableModels,
     error: errorText,
   });
 }
