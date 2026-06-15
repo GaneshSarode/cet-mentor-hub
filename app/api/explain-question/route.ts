@@ -26,7 +26,7 @@ clear — like a helpful senior student, not a formal teacher.
    
    Keep total response under 180 words. Simple language for a 12th-grade student.`;
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`;
     const geminiResponse = await fetch(
       geminiUrl,
       {
