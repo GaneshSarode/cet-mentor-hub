@@ -2,17 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdminClient } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
-  console.log('GEMINI_API_KEY present:', !!process.env.GEMINI_API_KEY);
+  console.log('GROQ_API_KEY present:', !!process.env.GROQ_API_KEY);
   try {
     const { messages, userMessage } = await req.json();
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: "API key not configured" }, { status: 500 });
     }
 
     const supabase = getAdminClient();
-    
+
     let collegeData: any[] = [];
     try {
       const { data, error } = await supabase
@@ -22,7 +22,6 @@ export async function POST(req: NextRequest) {
       if (!error && data) collegeData = data;
     } catch (supabaseError) {
       console.error('Supabase fetch failed, continuing without college data:', supabaseError);
-      // Do NOT throw — continue to Gemini even without college data
     }
 
     let collegeContext = "";
@@ -52,56 +51,57 @@ export async function POST(req: NextRequest) {
    - Keep replies under 120 words, use bullet points for college lists
    - If you don't have data for something, say 'I don't have that data'`;
 
-    // Only keep last 8 messages
+    // Only keep last 8 messages, convert to OpenAI format
     const recentMessages = messages.slice(-8);
+    const chatHistory = recentMessages.map((msg: any) => ({
+      role: msg.role === "model" ? "assistant" : "user",
+      content: msg.content,
+    }));
 
-    const payload = {
-      system_instruction: { parts: [{ text: systemPrompt }] },
-      contents: [
-        ...recentMessages.map((msg: any) => ({
-          role: msg.role === "user" ? "user" : "model",
-          parts: [{ text: msg.content }],
-        })),
-        { role: "user", parts: [{ text: userMessage }] },
-      ],
-      generationConfig: { maxOutputTokens: 300, temperature: 0.8 },
-    };
-
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`;
-    const geminiResponse = await fetch(
-      geminiUrl,
+    const groqResponse = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`,
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          model: "llama-3.1-8b-instant",
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...chatHistory,
+            { role: "user", content: userMessage },
+          ],
+          max_tokens: 300,
+          temperature: 0.8,
+        }),
       }
     );
 
-    if (!geminiResponse.ok) {
-      const errorText = await geminiResponse.text();
-      console.error('Gemini API HTTP error:', geminiResponse.status, errorText);
+    if (!groqResponse.ok) {
+      const errorText = await groqResponse.text();
+      console.error('Groq API HTTP error:', groqResponse.status, errorText);
       return NextResponse.json(
-        { error: `Gemini API error: ${geminiResponse.status}` }, 
+        { error: `Groq API error: ${groqResponse.status}` },
         { status: 500 }
       );
     }
 
-    const data = await geminiResponse.json();
-    
-    if (!data.candidates || !data.candidates[0]) {
-      console.error('Gemini returned no candidates:', JSON.stringify(data));
+    const data = await groqResponse.json();
+
+    if (!data.choices || !data.choices[0]) {
+      console.error('Groq returned no choices:', JSON.stringify(data));
       return NextResponse.json(
-        { error: 'Gemini returned empty response' }, 
+        { error: 'Groq returned empty response' },
         { status: 500 }
       );
     }
 
-    const reply = data.candidates[0].content.parts[0].text;
+    const reply = data.choices[0].message.content;
 
     if (!reply) {
-      throw new Error("Failed to extract reply from Gemini response");
+      throw new Error("Failed to extract reply from Groq response");
     }
 
     return NextResponse.json({ reply });

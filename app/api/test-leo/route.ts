@@ -1,47 +1,53 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   const keyPresent = !!apiKey;
   const keyLast4 = apiKey ? `...${apiKey.slice(-4)}` : "none";
-  let geminiWorking = false;
+  let groqWorking = false;
   let responseText = "";
   let errorText = "";
 
   if (keyPresent) {
     try {
-      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`;
-      const geminiResponse = await fetch(geminiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: "Say hello as LEO in one sentence" }] }],
-          generationConfig: { maxOutputTokens: 50 },
-        }),
-      });
+      const groqResponse = await fetch(
+        "https://api.groq.com/openai/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({
+            model: "llama-3.1-8b-instant",
+            messages: [{ role: "user", content: "Say hello as LEO in one sentence" }],
+            max_tokens: 50,
+          }),
+        }
+      );
 
-      if (geminiResponse.ok) {
-        const data = await geminiResponse.json();
-        if (data.candidates && data.candidates[0]) {
-          geminiWorking = true;
-          responseText = data.candidates[0].content.parts[0].text;
+      if (groqResponse.ok) {
+        const data = await groqResponse.json();
+        if (data.choices && data.choices[0]) {
+          groqWorking = true;
+          responseText = data.choices[0].message.content;
         } else {
-          errorText = "API responded ok, but no candidates returned: " + JSON.stringify(data);
+          errorText = "API responded ok, but no choices returned: " + JSON.stringify(data);
         }
       } else {
-        errorText = `HTTP ${geminiResponse.status}: ${await geminiResponse.text()}`;
+        errorText = `HTTP ${groqResponse.status}: ${await groqResponse.text()}`;
       }
     } catch (err: any) {
       errorText = err.message || JSON.stringify(err);
     }
   } else {
-    errorText = "No API key found in environment";
+    errorText = "No GROQ_API_KEY found in environment";
   }
 
   return NextResponse.json({
     keyPresent,
     keyLast4,
-    geminiWorking,
+    groqWorking,
     response: responseText,
     error: errorText,
   });

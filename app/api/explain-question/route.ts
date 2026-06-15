@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  console.log('GEMINI_API_KEY present:', !!process.env.GEMINI_API_KEY);
+  console.log('GROQ_API_KEY present:', !!process.env.GROQ_API_KEY);
   try {
     const { question, options, correctAnswer, studentAnswer, subject } = await req.json();
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: "API key not configured" }, { status: 500 });
     }
@@ -26,44 +26,46 @@ clear — like a helpful senior student, not a formal teacher.
    
    Keep total response under 180 words. Simple language for a 12th-grade student.`;
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`;
-    const geminiResponse = await fetch(
-      geminiUrl,
+    const groqResponse = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { maxOutputTokens: 400, temperature: 0.7 },
+          model: "llama-3.1-8b-instant",
+          messages: [{ role: "user", content: prompt }],
+          max_tokens: 400,
+          temperature: 0.7,
         }),
       }
     );
 
-    if (!geminiResponse.ok) {
-      const errorText = await geminiResponse.text();
-      console.error('Gemini API HTTP error:', geminiResponse.status, errorText);
+    if (!groqResponse.ok) {
+      const errorText = await groqResponse.text();
+      console.error('Groq API HTTP error:', groqResponse.status, errorText);
       return NextResponse.json(
-        { error: `Gemini API error: ${geminiResponse.status}` }, 
+        { error: `Groq API error: ${groqResponse.status}` },
         { status: 500 }
       );
     }
 
-    const data = await geminiResponse.json();
+    const data = await groqResponse.json();
 
-    if (!data.candidates || !data.candidates[0]) {
-      console.error('Gemini returned no candidates:', JSON.stringify(data));
+    if (!data.choices || !data.choices[0]) {
+      console.error('Groq returned no choices:', JSON.stringify(data));
       return NextResponse.json(
-        { error: 'Gemini returned empty response' }, 
+        { error: 'Groq returned empty response' },
         { status: 500 }
       );
     }
 
-    const explanation = data.candidates[0].content.parts[0].text;
+    const explanation = data.choices[0].message.content;
 
     if (!explanation) {
-      throw new Error("Failed to extract explanation from Gemini response");
+      throw new Error("Failed to extract explanation from Groq response");
     }
 
     return NextResponse.json({ explanation });
