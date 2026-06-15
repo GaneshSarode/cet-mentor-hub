@@ -277,10 +277,11 @@ export default function PredictPage() {
       if (res.ok && data.reply) {
         setChatMessages(prev => [...prev, { role: 'model' as const, content: data.reply }].slice(-8));
       } else {
-        setChatMessages(prev => [...prev, { role: 'model' as const, content: "LEO couldn't connect right now. Please try again." }].slice(-8));
+        const debugInfo = data.debug ? ` (Debug: ${data.debug})` : '';
+        setChatMessages(prev => [...prev, { role: 'model' as const, content: `LEO couldn't connect right now.${debugInfo}` }].slice(-8));
       }
-    } catch (err) {
-      setChatMessages(prev => [...prev, { role: 'model' as const, content: "LEO couldn't connect right now. Please try again." }].slice(-8));
+    } catch (err: any) {
+      setChatMessages(prev => [...prev, { role: 'model' as const, content: `LEO couldn't connect right now. (Error: ${err?.message || 'Network error'})` }].slice(-8));
     } finally {
       setIsTyping(false);
     }
