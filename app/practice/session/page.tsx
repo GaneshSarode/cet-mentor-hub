@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { MathRenderer } from "@/components/MathRenderer";
-import { CheckCircle, XCircle, ArrowLeft, ArrowRight, Home, RotateCcw } from "lucide-react";
+import { CheckCircle, XCircle, ArrowLeft, ArrowRight, Home, RotateCcw, Sparkles, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface PracticeQuestion {
   id: string;
@@ -40,6 +41,8 @@ function PracticeSessionContent() {
   const [isLoading, setIsLoading] = useState(true);
   const [score, setScore] = useState({ correct: 0, wrong: 0, total: 0 });
   const [isFinished, setIsFinished] = useState(false);
+  const [explanation, setExplanation] = useState('');
+  const [loadingExplanation, setLoadingExplanation] = useState(false);
 
   useEffect(() => {
     async function fetchQuestions() {
@@ -81,6 +84,8 @@ function PracticeSessionContent() {
     setCurrentIndex((prev) => prev + 1);
     setSelectedOption(null);
     setIsRevealed(false);
+    setExplanation('');
+    setLoadingExplanation(false);
   };
 
   const handleSkip = () => {
@@ -91,6 +96,38 @@ function PracticeSessionContent() {
     setCurrentIndex((prev) => prev + 1);
     setSelectedOption(null);
     setIsRevealed(false);
+    setExplanation('');
+    setLoadingExplanation(false);
+  };
+
+  const handleAskLeo = async () => {
+    setLoadingExplanation(true);
+    setExplanation('');
+    try {
+      const options = (["A", "B", "C", "D"] as const).map(opt => `${opt}: ${currentQuestion[("option_" + opt.toLowerCase()) as keyof PracticeQuestion]}`);
+      
+      const res = await fetch('/api/explain-question', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: currentQuestion.question_text,
+          options,
+          correctAnswer: currentQuestion.correct_option,
+          studentAnswer: selectedOption || 'Skipped',
+          subject: currentQuestion.subject
+        })
+      });
+      const data = await res.json();
+      if (res.ok && data.explanation) {
+        setExplanation(data.explanation);
+      } else {
+        setExplanation("Couldn't load explanation. Please try again.");
+      }
+    } catch (err) {
+      setExplanation("Couldn't load explanation. Please try again.");
+    } finally {
+      setLoadingExplanation(false);
+    }
   };
 
   if (isLoading) {
@@ -156,7 +193,7 @@ function PracticeSessionContent() {
               <Button asChild variant="outline" className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-800">
                 <Link href="/practice"><Home className="h-4 w-4 mr-2" />Home</Link>
               </Button>
-              <Button onClick={() => { setCurrentIndex(0); setSelectedOption(null); setIsRevealed(false); setScore({ correct: 0, wrong: 0, total: 0 }); setIsFinished(false); }} className="flex-1 bg-primary hover:bg-primary/90">
+              <Button onClick={() => { setCurrentIndex(0); setSelectedOption(null); setIsRevealed(false); setExplanation(''); setLoadingExplanation(false); setScore({ correct: 0, wrong: 0, total: 0 }); setIsFinished(false); }} className="flex-1 bg-primary hover:bg-primary/90">
                 <RotateCcw className="h-4 w-4 mr-2" />Retry
               </Button>
             </div>
@@ -220,6 +257,40 @@ function PracticeSessionContent() {
             );
           })}
         </div>
+
+        {/* AI Explanation Feature */}
+        {isRevealed && (
+          <div className="mb-6">
+            {!explanation && !loadingExplanation ? (
+              <Button onClick={handleAskLeo} variant="outline" className="border-slate-600 text-slate-300 bg-[#1E2530]/50">
+                <Sparkles className="h-4 w-4 mr-2 text-indigo-400" /> Ask LEO ✨
+              </Button>
+            ) : null}
+
+            {(loadingExplanation || explanation) && (
+              <div className="relative mt-2">
+                <div className="flex justify-between items-center mb-2 px-1">
+                  <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">LEO says</span>
+                  <button onClick={() => { setExplanation(''); setLoadingExplanation(false); }} className="text-slate-500 hover:text-slate-300">
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+                <div className="p-4 rounded-lg border-l-4 border-blue-500 bg-slate-800 text-sm text-slate-200 whitespace-pre-wrap">
+                  {loadingExplanation ? (
+                    <div className="space-y-3">
+                      <p className="text-indigo-400 font-medium">LEO is thinking...</p>
+                      <Skeleton className="h-4 w-full bg-slate-700/50" />
+                      <Skeleton className="h-4 w-[90%] bg-slate-700/50" />
+                      <Skeleton className="h-4 w-[75%] bg-slate-700/50" />
+                    </div>
+                  ) : (
+                    explanation
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Solution */}
         {isRevealed && currentQuestion.solution_text && (

@@ -6,8 +6,9 @@ import { useUser } from "@clerk/nextjs";
 import { MathRenderer } from "@/components/MathRenderer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CheckCircle, XCircle, Bookmark, BookmarkCheck } from "lucide-react";
+import { ArrowLeft, CheckCircle, XCircle, Bookmark, BookmarkCheck, Sparkles, X } from "lucide-react";
 import { PyqPaper, PyqQuestion, PyqTestSession, PyqTestAnswer } from "@/lib/types/database";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ReviewPage({
   params,
@@ -27,6 +28,9 @@ export default function ReviewPage({
   const [activeSubject, setActiveSubject] = useState<'Physics' | 'Chemistry' | 'Mathematics' | 'all'>('Physics');
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set());
   const [bookmarkLoading, setBookmarkLoading] = useState<string | null>(null);
+  
+  const [explanation, setExplanation] = useState('');
+  const [loadingExplanation, setLoadingExplanation] = useState(false);
 
   useEffect(() => {
     async function loadReviewData() {
@@ -116,6 +120,35 @@ export default function ReviewPage({
     finally { setBookmarkLoading(null); }
   };
 
+  const handleAskLeo = async () => {
+    setLoadingExplanation(true);
+    setExplanation('');
+    try {
+      const options = (["A", "B", "C", "D"] as const).map(opt => `${opt}: ${currentQuestion[("option_" + opt.toLowerCase()) as keyof PyqQuestion]}`);
+      
+      const res = await fetch('/api/explain-question', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: currentQuestion.question_text,
+          options,
+          correctAnswer: currentQuestion.correct_option,
+          studentAnswer: currentAnswer?.selected_option || 'Skipped',
+          subject: currentQuestion.subject
+        })
+      });
+      const data = await res.json();
+      if (res.ok && data.explanation) {
+        setExplanation(data.explanation);
+      } else {
+        setExplanation("Couldn't load explanation. Please try again.");
+      }
+    } catch (err) {
+      setExplanation("Couldn't load explanation. Please try again.");
+    } finally {
+      setLoadingExplanation(false);
+    }
+  };
 
   if (isLoading) return <div className="min-h-screen bg-[#1E2530] text-slate-200 flex items-center justify-center">Loading Review...</div>;
   if (!questions.length || !paper) return <div className="min-h-screen bg-[#1E2530] text-white flex items-center justify-center">Error loading review data.</div>;
@@ -161,6 +194,8 @@ export default function ReviewPage({
                          key={q.id}
                          onClick={() => {
                             setCurrentQuestionIndex(globalIdx);
+                            setExplanation('');
+                            setLoadingExplanation(false);
                          }}
                          className={`relative group shrink-0 transition-transform ${isCurrent ? 'scale-110 shadow-lg shadow-black/50 z-10' : 'hover:scale-105'} flex items-center justify-center`}
                       >
@@ -184,7 +219,11 @@ export default function ReviewPage({
                     onClick={() => {
                        setActiveSubject(subj as any);
                        const firstIdx = questions.findIndex(q => q.subject === subj);
-                       if (firstIdx !== -1) setCurrentQuestionIndex(firstIdx);
+                       if (firstIdx !== -1) {
+                         setCurrentQuestionIndex(firstIdx);
+                         setExplanation('');
+                         setLoadingExplanation(false);
+                       }
                     }}
                  >
                    {subj}
@@ -270,8 +309,40 @@ export default function ReviewPage({
                       )}
                    </div>
                 );
-             })}
-          </div>
+              })}
+           </div>
+
+           {/* AI Explanation Feature */}
+           <div className="mb-8">
+             {!explanation && !loadingExplanation ? (
+               <Button onClick={handleAskLeo} variant="outline" className="border-slate-600 text-slate-300 bg-[#1E2530]/50">
+                 <Sparkles className="h-4 w-4 mr-2 text-indigo-400" /> Ask LEO ✨
+               </Button>
+             ) : null}
+
+             {(loadingExplanation || explanation) && (
+               <div className="relative mt-2">
+                 <div className="flex justify-between items-center mb-2 px-1">
+                   <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">LEO says</span>
+                   <button onClick={() => { setExplanation(''); setLoadingExplanation(false); }} className="text-slate-500 hover:text-slate-300">
+                     <X className="h-4 w-4" />
+                   </button>
+                 </div>
+                 <div className="p-4 rounded-lg border-l-4 border-blue-500 bg-slate-800 text-sm text-slate-200 whitespace-pre-wrap">
+                   {loadingExplanation ? (
+                     <div className="space-y-3">
+                       <p className="text-indigo-400 font-medium">LEO is thinking...</p>
+                       <Skeleton className="h-4 w-full bg-slate-700/50" />
+                       <Skeleton className="h-4 w-[90%] bg-slate-700/50" />
+                       <Skeleton className="h-4 w-[75%] bg-slate-700/50" />
+                     </div>
+                   ) : (
+                     explanation
+                   )}
+                 </div>
+               </div>
+             )}
+           </div>
 
           <div className="mt-10 border-t border-slate-700/50 pt-8 mb-24">
              <h4 className="text-sm font-bold text-slate-300 mb-4 inline-flex items-center gap-2">
@@ -289,7 +360,7 @@ export default function ReviewPage({
           <Button 
              variant="outline" 
              disabled={currentQuestionIndex === 0}
-             onClick={() => setCurrentQuestionIndex(prev => prev - 1)}
+             onClick={() => { setCurrentQuestionIndex(prev => prev - 1); setExplanation(''); setLoadingExplanation(false); }}
              className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white px-8 rounded-lg h-12 flex-1 max-w-[200px]"
           >
              Previous
@@ -297,7 +368,7 @@ export default function ReviewPage({
 
           <Button 
              disabled={currentQuestionIndex === questions.length - 1}
-             onClick={() => setCurrentQuestionIndex(prev => prev + 1)}
+             onClick={() => { setCurrentQuestionIndex(prev => prev + 1); setExplanation(''); setLoadingExplanation(false); }}
              className="border-0 bg-slate-200 text-slate-900 hover:bg-white font-bold px-8 rounded-lg h-12 flex-1 max-w-[200px]"
           >
              Next
