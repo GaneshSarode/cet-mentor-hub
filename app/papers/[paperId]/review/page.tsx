@@ -141,10 +141,11 @@ export default function ReviewPage({
       if (res.ok && data.explanation) {
         setExplanation(data.explanation);
       } else {
-        setExplanation("Couldn't load explanation. Please try again.");
+        const debugInfo = data.debug ? ` (Debug: ${data.debug})` : '';
+        setExplanation(`Couldn't load explanation. Please try again.${debugInfo}`);
       }
-    } catch (err) {
-      setExplanation("Couldn't load explanation. Please try again.");
+    } catch (err: any) {
+      setExplanation(`Couldn't load explanation. Please try again. (Error: ${err?.message || 'Network error'})`);
     } finally {
       setLoadingExplanation(false);
     }

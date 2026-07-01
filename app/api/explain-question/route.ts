@@ -47,7 +47,7 @@ clear — like a helpful senior student, not a formal teacher.
       const errorText = await groqResponse.text();
       console.error('Groq API HTTP error:', groqResponse.status, errorText);
       return NextResponse.json(
-        { error: `Groq API error: ${groqResponse.status}` },
+        { error: `Groq API error: ${groqResponse.status}`, debug: errorText },
         { status: 500 }
       );
     }
@@ -57,7 +57,7 @@ clear — like a helpful senior student, not a formal teacher.
     if (!data.choices || !data.choices[0]) {
       console.error('Groq returned no choices:', JSON.stringify(data));
       return NextResponse.json(
-        { error: 'Groq returned empty response' },
+        { error: 'Groq returned empty response', debug: JSON.stringify(data) },
         { status: 500 }
       );
     }
@@ -69,9 +69,11 @@ clear — like a helpful senior student, not a formal teacher.
     }
 
     return NextResponse.json({ explanation });
-  } catch (error) {
+  } catch (error: any) {
     console.error('LEO API Error:', error);
-    console.error('LEO API Error details:', JSON.stringify(error));
-    return NextResponse.json({ error: "Failed" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed", debug: error?.message || String(error) }, 
+      { status: 500 }
+    );
   }
 }
