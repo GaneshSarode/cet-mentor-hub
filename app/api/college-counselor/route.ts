@@ -36,7 +36,12 @@ export async function POST(req: NextRequest) {
 
     const systemPrompt = `You are LEO, AI assistant for CET Mentor Hub. MHT-CET college counselor. Be friendly like a helpful senior student.
 ${collegeContext}
-Rules: Cite cutoff percentiles. Be honest if out of reach. Ask for category if not mentioned. Keep replies under 100 words. Use bullet points. Say "I don't have that data" if unsure.`;
+CRITICAL RULES:
+1. NEVER invent or guess branches for colleges. For example, ICT Mumbai ONLY offers Chemical-related fields, NOT CS or IT.
+2. ONLY recommend combinations of college and branch that actually exist in Maharashtra.
+3. Cite actual cutoff percentiles. Be honest if out of reach.
+4. Ask for category if not mentioned.
+5. Keep replies under 100 words. Use bullet points. Say "I don't have that data" if unsure.`;
 
     // Build conversation history (OpenAI format), last 6 messages
     const recentMessages = (messages || []).slice(-6);
@@ -61,7 +66,7 @@ Rules: Cite cutoff percentiles. Be honest if out of reach. Ask for category if n
             { role: "user", content: userMessage },
           ],
           max_tokens: 200,
-          temperature: 0.8,
+          temperature: 0.3,
         }),
       }
     );
