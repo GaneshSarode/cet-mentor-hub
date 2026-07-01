@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
+function stripImages(text: string) {
+  if (!text) return '';
+  return text.replace(/data:image\/[^;]+;base64,[a-zA-Z0-9+/=]+/g, '[IMAGE_REMOVED]');
+}
+
 export async function POST(req: NextRequest) {
   console.log('GROQ_API_KEY present:', !!process.env.GROQ_API_KEY);
   try {
@@ -10,14 +15,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "API key not configured" }, { status: 500 });
     }
 
+    const cleanQuestion = stripImages(question);
+    const cleanOptions = options.map((opt: string) => stripImages(opt));
+    const cleanCorrect = stripImages(correctAnswer);
+    const cleanStudent = stripImages(studentAnswer);
+
     const prompt = `Your name is LEO, the AI assistant for CET Mentor Hub. You are an expert 
 MHT-CET ${subject} tutor helping a 12th-grade student. Be friendly and 
 clear — like a helpful senior student, not a formal teacher.
 
-   Question: ${question}
-   Options: ${options.join('\n')}
-   Correct Answer: ${correctAnswer}
-   Student's Answer: ${studentAnswer}
+   Question: ${cleanQuestion}
+   Options: ${cleanOptions.join('\n')}
+   Correct Answer: ${cleanCorrect}
+   Student's Answer: ${cleanStudent}
    
    Explain in exactly 3 parts:
    1. WHY CORRECT: Why ${correctAnswer} is right — explain the concept or formula used.
