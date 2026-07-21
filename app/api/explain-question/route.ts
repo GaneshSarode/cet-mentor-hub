@@ -5,7 +5,7 @@ function sanitizeForAI(text: string) {
   // 1. Remove base64 raster images
   let clean = text.replace(/data:image\/[^;]+;base64,[a-zA-Z0-9+/=]+/g, '[IMAGE_REMOVED]');
   // 2. Remove massive MathJax SVG tags (leaves the <mjx-assistive-mml> MathML intact for the AI!)
-  clean = clean.replace(/<svg\b[^>]*>.*?<\/svg>/gs, '');
+  clean = clean.replace(/<svg\b[^>]*>[\s\S]*?<\/svg>/g, '');
   return clean;
 }
 

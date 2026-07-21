@@ -16,7 +16,7 @@ if (supabaseUrl) {
 
 // Admin client for server-side API routes (uses service_role key)
 export function getAdminClient() {
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
   if (!supabaseUrl || !serviceRoleKey) {
     throw new Error('Missing Supabase credentials for admin client');
   }

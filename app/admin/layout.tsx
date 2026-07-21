@@ -1,6 +1,16 @@
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  // We'll trust the Clerk auth wrapper or middleware for real routes,
-  // but let's just make it a basic layout for now.
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const { userId } = await auth();
+
+  // Check if user is authenticated and in the admin allowlist
+  const adminIds = (process.env.ADMIN_USER_IDS || '').split(',').map(id => id.trim()).filter(Boolean);
+
+  if (!userId || !adminIds.includes(userId)) {
+    redirect('/');
+  }
+
   return (
     <div className="min-h-screen bg-muted/20">
       <div className="border-b bg-card">

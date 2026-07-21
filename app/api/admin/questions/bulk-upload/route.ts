@@ -5,9 +5,14 @@ import { auth } from '@clerk/nextjs/server';
 export async function POST(request: NextRequest) {
   try {
     const { userId } = await auth();
-    // In a real app, verify userId is an admin
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // Verify userId is in the admin allowlist
+    const adminIds = (process.env.ADMIN_USER_IDS || '').split(',').map(id => id.trim()).filter(Boolean);
+    if (!adminIds.includes(userId)) {
+      return NextResponse.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
     }
 
     const body = await request.json();

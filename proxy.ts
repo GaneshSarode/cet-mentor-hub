@@ -1,6 +1,13 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+const isAdminRoute = createRouteMatcher(['/admin(.*)']);
+
+export default clerkMiddleware(async (auth, req) => {
+  // Force authentication for all /admin routes at the middleware level
+  if (isAdminRoute(req)) {
+    await auth.protect();
+  }
+});
 
 export const config = {
   matcher: [
