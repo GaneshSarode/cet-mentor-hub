@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,7 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const { isSignedIn } = useUser();
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -63,19 +65,25 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isScrolled
-                    ? "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-white text-slate-900 rounded-full"
+                    : `rounded-lg ${
+                        isScrolled
+                          ? "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          : "text-white/80 hover:text-white hover:bg-white/10"
+                      }`
                 }`}
               >
                 {link.label}
               </Link>
-            ))}
+            )})}
 
           </div>
 
@@ -169,16 +177,22 @@ export function Navbar() {
                     </Link>
                   </div>
                   <nav className="flex flex-col gap-2">
-                    {navLinks.map((link) => (
+                    {navLinks.map((link) => {
+                      const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                      return (
                       <Link
                         key={link.href}
                         href={link.href}
                         onClick={() => setIsOpen(false)}
-                        className="px-4 py-3 rounded-lg text-foreground font-medium hover:bg-muted transition-colors"
+                        className={`px-4 py-3 font-medium transition-colors ${
+                          isActive
+                            ? "bg-white text-slate-900 rounded-full"
+                            : "rounded-lg text-foreground hover:bg-muted"
+                        }`}
                       >
                         {link.label}
                       </Link>
-                    ))}
+                    )})}
                     
                   </nav>
                   <div className="flex flex-col gap-3 pt-4 border-t">
