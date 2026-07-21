@@ -182,10 +182,10 @@ export default function HomePage() {
               },
               {
                 icon: FileQuestion,
-                title: "Mock Tests",
+                title: "Subject-wise Practice",
                 description:
-                  "Practice with CET-pattern interactive tests. More tests added regularly.",
-                href: "/mock-tests",
+                  "Focus on one subject at a time. No timer, instant answer reveal, and detailed solutions.",
+                href: "/practice",
                 color: "bg-amber-500/10 text-amber-600",
               },
               {
