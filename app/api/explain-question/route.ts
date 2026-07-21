@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
-function stripImages(text: string) {
+function sanitizeForAI(text: string) {
   if (!text) return '';
-  return text.replace(/data:image\/[^;]+;base64,[a-zA-Z0-9+/=]+/g, '[IMAGE_REMOVED]');
+  // 1. Remove base64 raster images
+  let clean = text.replace(/data:image\/[^;]+;base64,[a-zA-Z0-9+/=]+/g, '[IMAGE_REMOVED]');
+  // 2. Remove massive MathJax SVG tags (leaves the <mjx-assistive-mml> MathML intact for the AI!)
+  clean = clean.replace(/<svg\b[^>]*>.*?<\/svg>/gs, '');
+  return clean;
 }
 
 export async function POST(req: NextRequest) {
@@ -15,10 +19,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "API key not configured" }, { status: 500 });
     }
 
-    const cleanQuestion = stripImages(question);
-    const cleanOptions = options.map((opt: string) => stripImages(opt));
-    const cleanCorrect = stripImages(correctAnswer);
-    const cleanStudent = stripImages(studentAnswer);
+    const cleanQuestion = sanitizeForAI(question);
+    const cleanOptions = options.map((opt: string) => sanitizeForAI(opt));
+    const cleanCorrect = sanitizeForAI(correctAnswer);
+    const cleanStudent = sanitizeForAI(studentAnswer);
 
     const prompt = `Your name is LEO, the AI assistant for CET Mentor Hub. You are an expert 
 MHT-CET ${subject} tutor helping a 12th-grade student. Be friendly and 
