@@ -2,6 +2,7 @@
 
 import { use, useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 import { useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -25,7 +26,9 @@ import {
   Flag,
   AlertCircle,
   PlayCircle,
-  Grid3X3
+  Grid3X3,
+  Sun,
+  Moon
 } from "lucide-react";
 import { PyqPaper, PyqQuestion, PyqTestSession, PyqTestAnswer } from "@/lib/types/database";
 // We would import 'katex/dist/katex.min.css' here, but letting client render it raw or use a React KaTeX wrapper
@@ -43,6 +46,8 @@ export default function TestPage({
   const [questions, setQuestions] = useState<PyqQuestion[]>([]);
   const [session, setSession] = useState<PyqTestSession | null>(null);
   const [answers, setAnswers] = useState<Record<string, PyqTestAnswer>>({}); // keyed by question_id
+
+  const { theme, setTheme } = useTheme();
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -379,12 +384,15 @@ export default function TestPage({
   // --- Main Test UI ---
   return (
     <div className="min-h-screen bg-background flex flex-col h-screen overflow-hidden">
-      {/* Top Bar */}
+       {/* Top Bar */}
       <header className="h-14 flex items-center justify-between px-4 border-b bg-card shrink-0">
          <div className="font-semibold text-foreground truncate max-w-[50%]">
            {paper.title}
          </div>
          <div className="flex items-center gap-4">
+           <Button variant="ghost" size="icon" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="h-9 w-9">
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+           </Button>
            <div className={`flex items-center gap-2 px-3 py-1.5 rounded-md font-mono font-bold text-lg tracking-wider ${timeRemaining < 300 ? 'text-white bg-destructive animate-pulse' : 'bg-muted text-foreground'}`}>
              <Clock className="w-4 h-4" />
              {formatTime(timeRemaining)}
