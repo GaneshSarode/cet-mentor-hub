@@ -135,3 +135,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hide watermarks on scraped images (Supabase and ExamGoal) */
+img[src*="question-images"], img[src*="examgoal"] {
+  /* Blow out faint colors in light mode */
+  filter: contrast(300%) brightness(120%);
+  mix-blend-mode: multiply;
+}
+
+.dark img[src*="question-images"], .dark img[src*="examgoal"] {
+  /* In dark mode, the best way to hide faint dark watermarks on transparent images 
+     is to use color-dodge or screen blend mode with high contrast. */
+  filter: contrast(500%) brightness(120%) grayscale(100%);
+  mix-blend-mode: color-dodge;
+  opacity: 0.8;
+}

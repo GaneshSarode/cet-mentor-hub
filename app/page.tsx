@@ -74,23 +74,46 @@ export default function HomePage() {
           <div className="text-center max-w-4xl mx-auto">
 
             {/* ✅ Honest beta badge */}
-            <Badge className="bg-primary/20 text-primary border-0 mb-6 py-1.5 px-4">
-              <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-              Early Access — Free for All Students
-            </Badge>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Badge className="bg-primary/20 text-primary border-0 mb-6 py-1.5 px-4">
+                <Sparkles className="h-3.5 w-3.5 mr-1.5" />
+                Early Access — Free for All Students
+              </Badge>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight text-balance">
-              Get Mentored by Students from{" "}
-              <span className="text-primary">VJTI</span>
-            </h1>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight text-balance">
+                Get Mentored by Students from{" "}
+                <span className="text-primary">VJTI</span>
+              </h1>
+            </motion.div>
 
-            <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed text-pretty">
-              1:1 sessions with real students who cracked MHTCET. Get honest guidance on
-              college selection, CAP rounds, and what engineering life is actually like.{" "}
-              <span className="text-white font-semibold">Completely free.</span>
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed text-pretty">
+                1:1 sessions with real students who cracked MHTCET. Get honest guidance on
+                college selection, CAP rounds, and what engineering life is actually like.{" "}
+                <span className="text-white font-semibold">Completely free.</span>
+              </p>
+            </motion.div>
 
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
               {isSignedIn ? (
                 <Button
                   asChild
@@ -121,10 +144,15 @@ export default function HomePage() {
               >
                 <Link href="/papers">Previous Year Papers</Link>
               </Button>
-            </div>
+            </motion.div>
 
             {/* ✅ Honest trust badges */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400"
+            >
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-accent" />
                 <span>Real VJTI Student Mentor</span>
@@ -137,7 +165,7 @@ export default function HomePage() {
                 <CheckCircle className="h-4 w-4 text-accent" />
                 <span>Honest Guidance — No Scripts</span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -153,14 +181,19 @@ export default function HomePage() {
       {/* Features Section — unchanged, still accurate */}
       <section className="py-20 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center max-w-2xl mx-auto"
+          >
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-balance">
               Everything you need to crack MHTCET
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
               From college prediction to mock tests, we&apos;ve got you covered
             </p>
-          </div>
+          </motion.div>
 
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -196,26 +229,34 @@ export default function HomePage() {
                 href: "/papers",
                 color: "bg-emerald-500/10 text-emerald-600",
               },
-            ].map((feature) => (
-              <Link key={feature.title} href={feature.href} className="group">
-                <Card className="h-full border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
-                  <CardContent className="p-8">
-                    <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${feature.color}`}>
-                      <feature.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="mt-6 text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {feature.title}
-                    </h3>
-                    <p className="mt-2 text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
-                    <div className="mt-4 flex items-center text-primary font-medium text-sm">
-                      Learn more
-                      <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
+                <Link href={feature.href} className="group">
+                  <Card className="h-full border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+                    <CardContent className="p-8">
+                      <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${feature.color}`}>
+                        <feature.icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="mt-6 text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="mt-2 text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                      <div className="mt-4 flex items-center text-primary font-medium text-sm">
+                        Learn more
+                        <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -224,7 +265,12 @@ export default function HomePage() {
       {/* ✅ MHTCET Official Announcement Section */}
       <section className="py-16 bg-gradient-to-b from-background to-primary/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center max-w-2xl mx-auto mb-10"
+          >
             <Badge className="bg-amber-500/15 text-amber-600 dark:text-amber-400 border-0 mb-4 py-1.5 px-4">
               <FileText className="h-3.5 w-3.5 mr-1.5" />
               Official CET Cell Information
@@ -235,72 +281,86 @@ export default function HomePage() {
             <p className="mt-3 text-muted-foreground text-lg">
               Download the official information brochures for PCM and PCB groups from the State CET Cell
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* PCM Brochure Card */}
-            <a
-              href="https://cetcell.mahacet.org/wp-content/uploads/2023/12/CET-Registration-Notice_-MHT-CET-2026-final-with-late-fees-17-03-2026.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="See official web of CET Cell — Home - State Common Entrance Test Cell"
-              className="group"
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <Card className="h-full border border-blue-200 dark:border-blue-500/30 bg-blue-50/50 dark:bg-blue-500/5 transition-all duration-300 hover:border-blue-400 dark:hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 h-14 w-14 rounded-xl bg-blue-500/15 flex items-center justify-center">
-                      <FileText className="h-7 w-7 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        MHTCET PCM Group
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                        Physics, Chemistry & Mathematics — Information Brochure for Engineering & Technology admissions
-                      </p>
-                      <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400">
-                        <Download className="h-4 w-4" />
-                        Download PDF
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              <a
+                href="https://cetcell.mahacet.org/wp-content/uploads/2023/12/CET-Registration-Notice_-MHT-CET-2026-final-with-late-fees-17-03-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="See official web of CET Cell — Home - State Common Entrance Test Cell"
+                className="group"
+              >
+                <Card className="h-full border border-blue-200 dark:border-blue-500/30 bg-blue-50/50 dark:bg-blue-500/5 transition-all duration-300 hover:border-blue-400 dark:hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 h-14 w-14 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                        <FileText className="h-7 w-7 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          MHTCET PCM Group
+                        </h3>
+                        <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                          Physics, Chemistry & Mathematics — Information Brochure for Engineering & Technology admissions
+                        </p>
+                        <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400">
+                          <Download className="h-4 w-4" />
+                          Download PDF
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </a>
+                  </CardContent>
+                </Card>
+              </a>
+            </motion.div>
 
             {/* PCB Brochure Card */}
-            <a
-              href="https://cetcell.mahacet.org/cet-3/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="See official web of CET Cell — Home - State Common Entrance Test Cell"
-              className="group"
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <Card className="h-full border border-emerald-200 dark:border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-500/5 transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 h-14 w-14 rounded-xl bg-emerald-500/15 flex items-center justify-center">
-                      <FileText className="h-7 w-7 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                        MHTCET PCB Group
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                        Physics, Chemistry & Biology — Information Brochure for Pharmacy, Agriculture & Medical admissions
-                      </p>
-                      <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
-                        <Download className="h-4 w-4" />
-                        Download PDF
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              <a
+                href="https://cetcell.mahacet.org/cet-3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="See official web of CET Cell — Home - State Common Entrance Test Cell"
+                className="group"
+              >
+                <Card className="h-full border border-emerald-200 dark:border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-500/5 transition-all duration-300 hover:border-emerald-400 dark:hover:border-emerald-400/50 hover:shadow-lg hover:shadow-emerald-500/10 hover:-translate-y-1">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 h-14 w-14 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+                        <FileText className="h-7 w-7 text-emerald-600 dark:text-emerald-400" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                          MHTCET PCB Group
+                        </h3>
+                        <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                          Physics, Chemistry & Biology — Information Brochure for Pharmacy, Agriculture & Medical admissions
+                        </p>
+                        <div className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                          <Download className="h-4 w-4" />
+                          Download PDF
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </a>
+                  </CardContent>
+                </Card>
+              </a>
+            </motion.div>
           </div>
 
           {/* CET Cell Official Link — shown on hover tooltip is on the cards above */}
