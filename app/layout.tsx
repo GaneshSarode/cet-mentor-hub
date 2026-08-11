@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Geist_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ServiceWorkerRegistration } from '@/components/sw-register'
 import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 
-const inter = Inter({ 
+const plusJakarta = Plus_Jakarta_Sans({ 
   subsets: ["latin"],
-  variable: "--font-inter"
+  variable: "--font-plus-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
 });
 const geistMono = Geist_Mono({ 
   subsets: ["latin"],
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0f172a',
+  themeColor: '#0a0e1a',
   width: 'device-width',
   initialScale: 1,
 }
@@ -53,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${plusJakarta.variable} ${geistMono.variable} font-sans antialiased`}>
         <ClerkProvider>
           <ThemeProvider
             attribute="class"

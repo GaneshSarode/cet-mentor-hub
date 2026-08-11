@@ -67,8 +67,11 @@ export default function HomePage() {
 
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0f172a] pt-16">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+      <section className="relative overflow-hidden bg-[#0a0e1a] pt-16">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e2a3f_1px,transparent_1px),linear-gradient(to_bottom,#1e2a3f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+          <div className="hero-orb absolute top-1/3 left-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-indigo-500/20 via-violet-500/10 to-transparent blur-3xl" />
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center max-w-4xl mx-auto">
@@ -92,7 +95,7 @@ export default function HomePage() {
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight text-balance">
                 Get Mentored by Students from{" "}
-                <span className="text-primary">VJTI</span>
+                <span className="text-gradient bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400">VJTI</span>
               </h1>
             </motion.div>
 
@@ -153,15 +156,15 @@ export default function HomePage() {
               transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400"
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
                 <CheckCircle className="h-4 w-4 text-accent" />
                 <span>Real VJTI Student Mentor</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
                 <CheckCircle className="h-4 w-4 text-accent" />
                 <span>No Payment Required</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
                 <CheckCircle className="h-4 w-4 text-accent" />
                 <span>Honest Guidance — No Scripts</span>
               </div>
@@ -179,7 +182,7 @@ export default function HomePage() {
 
 
       {/* Features Section — unchanged, still accurate */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -204,6 +207,7 @@ export default function HomePage() {
                   "Enter your percentile and get college recommendations based on past CAP cutoff data.",
                 href: "/predict",
                 color: "bg-blue-500/10 text-blue-600",
+                style: { '--accent-from': '#3b82f6', '--accent-to': '#6366f1' } as React.CSSProperties,
               },
               {
                 icon: Users,
@@ -212,6 +216,7 @@ export default function HomePage() {
                   "Get honest 1:1 guidance from a real VJTI student directly on WhatsApp.",
                 href: "#join",
                 color: "bg-purple-500/10 text-purple-600",
+                style: { '--accent-from': '#8b5cf6', '--accent-to': '#a855f7' } as React.CSSProperties,
               },
               {
                 icon: FileQuestion,
@@ -220,6 +225,7 @@ export default function HomePage() {
                   "Focus on one subject at a time. No timer, instant answer reveal, and detailed solutions.",
                 href: "/practice",
                 color: "bg-amber-500/10 text-amber-600",
+                style: { '--accent-from': '#f59e0b', '--accent-to': '#ef4444' } as React.CSSProperties,
               },
               {
                 icon: BookOpenCheck,
@@ -228,6 +234,7 @@ export default function HomePage() {
                   "Download MHTCET PYQs and mock papers for offline practice.",
                 href: "/papers",
                 color: "bg-emerald-500/10 text-emerald-600",
+                style: { '--accent-from': '#10b981', '--accent-to': '#06b6d4' } as React.CSSProperties,
               },
             ].map((feature, index) => (
               <motion.div
@@ -238,9 +245,9 @@ export default function HomePage() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link href={feature.href} className="group">
-                  <Card className="h-full border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5">
+                  <Card className="card-accent-bar h-full border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5" style={feature.style}>
                     <CardContent className="p-8">
-                      <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${feature.color}`}>
+                      <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl ${feature.color}`}>
                         <feature.icon className="h-6 w-6" />
                       </div>
                       <h3 className="mt-6 text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -379,7 +386,7 @@ export default function HomePage() {
       </section>
 
       {/* Top Colleges Section — data is real, keep it */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background noise-bg relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
@@ -399,43 +406,46 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 space-y-12">
-            {TOP_COLLEGES.map((region) => (
-              <div key={region.city}>
-                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  Top Colleges in {region.city}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {region.colleges.map((college) => (
-                    <Card key={college.name} className="border border-border/50 bg-card/50 transition-all duration-300 hover:border-primary/30 hover:shadow-lg flex flex-col h-full">
-                      <CardContent className="p-5 flex flex-col h-full">
-                        <div className="flex justify-between items-start mb-4">
-                          <h4 className="font-semibold text-foreground text-lg leading-tight">{college.name}</h4>
-                          <Badge variant="secondary" className="bg-primary/10 text-primary text-xs shrink-0">{college.rank}</Badge>
-                        </div>
-                        
-                        <div className="flex-grow">
-                          <p className="text-xs text-muted-foreground mb-3 font-medium">Branches Available:</p>
-                          <div className="flex flex-wrap gap-1.5 mb-5">
-                            {college.branches.map((branch) => (
-                              <span key={branch} className="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
-                                {branch}
-                              </span>
-                            ))}
+            {TOP_COLLEGES.map((region, regionIndex) => {
+              const borderClass = ['border-blue-500/40', 'border-violet-500/40', 'border-amber-500/40'][regionIndex % 3];
+              return (
+                <div key={region.city} className={`border-l-2 ${borderClass} pl-4`}>
+                  <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                    <MapPin className="h-5 w-5 text-primary" />
+                    Top Colleges in {region.city}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {region.colleges.map((college) => (
+                      <Card key={college.name} className="border border-border/50 bg-card/50 transition-all duration-300 hover:border-primary/30 hover:shadow-lg flex flex-col h-full">
+                        <CardContent className="p-5 flex flex-col h-full">
+                          <div className="flex justify-between items-start mb-4">
+                            <h4 className="font-semibold text-foreground text-lg leading-tight">{college.name}</h4>
+                            <Badge variant="secondary" className="bg-primary/10 text-primary text-xs shrink-0">{college.rank}</Badge>
                           </div>
-                        </div>
+                          
+                          <div className="flex-grow">
+                            <p className="text-xs text-muted-foreground mb-3 font-medium">Branches Available:</p>
+                            <div className="flex flex-wrap gap-1.5 mb-5">
+                              {college.branches.map((branch) => (
+                                <span key={branch} className="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+                                  {branch}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
 
-                        <Button asChild variant="outline" size="sm" className="w-full mt-auto group">
-                          <Link href={college.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                            Visit Website <ExternalLink className="ml-1.5 h-3.5 w-3.5 group-hover:text-primary" />
-                          </Link>
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
+                          <Button asChild variant="outline" size="sm" className="w-full mt-auto group">
+                            <Link href={college.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                              Visit Website <ExternalLink className="ml-1.5 h-3.5 w-3.5 group-hover:text-primary" />
+                            </Link>
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -443,10 +453,10 @@ export default function HomePage() {
 
 
       {/* CTA Section — updated copy */}
-      <section id="join" className="py-20 bg-[#0f172a] scroll-mt-16">
+      <section id="join" className="py-20 bg-gradient-to-br from-[#0a0e1a] via-[#131835] to-[#0a0e1a] relative noise-bg scroll-mt-16">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-3xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white text-balance">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
           Ready to get real guidance for MHTCET?
         </h2>
         <p className="mt-4 text-slate-300 text-lg">
