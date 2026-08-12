@@ -276,7 +276,7 @@ function PracticeSessionContent() {
                     <X className="h-4 w-4" />
                   </button>
                 </div>
-                <div className="p-4 rounded-lg border-l-4 border-blue-500 bg-slate-800 text-sm text-slate-200 whitespace-pre-wrap">
+                <div className="p-4 rounded-lg border-l-4 border-blue-500 bg-slate-800 text-sm text-slate-200">
                   {loadingExplanation ? (
                     <div className="space-y-3">
                       <p className="text-indigo-400 font-medium">LEO is thinking...</p>
@@ -285,7 +285,15 @@ function PracticeSessionContent() {
                       <Skeleton className="h-4 w-[75%] bg-slate-700/50" />
                     </div>
                   ) : (
-                    explanation
+                    <MathRenderer 
+                      className="prose dark:prose-invert max-w-none text-slate-200 text-sm leading-relaxed" 
+                      html={explanation
+                        ? explanation
+                            .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>')
+                            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                            .replace(/\n/g, '<br/>')
+                        : ''}
+                    />
                   )}
                 </div>
               </div>
