@@ -92,7 +92,7 @@ export default function HomePage() {
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-violet-500/20 rounded-3xl blur-2xl -z-10" />
               <img 
-                src="/vjti-campus.png" 
+                src="/vjti-campus.jpg" 
                 alt="VJTI Campus" 
                 className="w-full aspect-[4/3] object-cover rounded-3xl border border-white/10 drop-shadow-2xl hover:scale-[1.02] transition-transform duration-700" 
               />
