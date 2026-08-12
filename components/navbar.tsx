@@ -8,6 +8,7 @@ import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, GraduationCap, Sun, Moon } from "lucide-react";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -45,17 +46,23 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-sm"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${
+        isScrolled ? "mt-4 px-4" : "mt-0 px-0"
       }`}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+      <nav 
+        className={`w-full transition-all duration-300 ${
+          isScrolled 
+            ? "max-w-5xl rounded-full bg-background/80 backdrop-blur-lg border border-border shadow-lg shadow-black/5" 
+            : "max-w-7xl bg-transparent"
+        }`}
+      >
+        <div className={`mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ${
+          isScrolled ? "h-14" : "h-16"
+        }`}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden transition-transform group-hover:scale-105">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden transition-transform group-hover:scale-105">
               <img src="/logo.png" alt="CET Mentor Hub Logo" className="h-full w-full object-cover" />
             </div>
             <span className={`font-bold text-lg ${isScrolled || pathname !== "/" ? "text-foreground" : "text-white"}`}>
@@ -71,16 +78,21 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-full z-10 ${
                   isActive
-                    ? "bg-white text-slate-900 rounded-full"
-                    : `rounded-lg ${
-                        isScrolled || pathname !== "/"
-                          ? "text-muted-foreground hover:text-foreground hover:bg-muted"
-                          : "text-white/80 hover:text-white hover:bg-white/10"
-                      }`
+                    ? "text-slate-900"
+                    : isScrolled || pathname !== "/"
+                      ? "text-muted-foreground hover:text-foreground"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
+                {isActive && (
+                  <motion.div
+                    layoutId="navbar-active-indicator"
+                    className="absolute inset-0 bg-white rounded-full -z-10 shadow-sm"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
                 {link.label}
               </Link>
             )})}
@@ -95,7 +107,7 @@ export function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className={`rounded-lg transition-colors ${
+                className={`rounded-full transition-colors ${
                   isScrolled || pathname !== "/"
                     ? "text-foreground hover:bg-muted"
                     : "text-white hover:bg-white/10"
@@ -116,17 +128,17 @@ export function Navbar() {
                 <SignInButton mode="modal" forceRedirectUrl="/dashboard">
                   <Button
                     variant="outline"
-                    className={
+                    className={`rounded-full ${
                       isScrolled || pathname !== "/"
                         ? "border-primary text-primary hover:bg-primary/10"
                         : "border-white/20 text-white hover:bg-white/10"
-                    }
+                    }`}
                   >
                     Login
                   </Button>
                 </SignInButton>
                 <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground">
                     Get Started
                   </Button>
                 </SignUpButton>
