@@ -81,101 +81,115 @@ export default function HomePage() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="text-center max-w-4xl mx-auto">
-
-            {/* ✅ Honest beta badge */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            
+            {/* Left: Graphic */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="relative hidden lg:block w-full max-w-lg mx-auto"
             >
-              <Badge className="bg-primary/20 text-primary border-0 mb-6 py-1.5 px-4">
-                <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-                Early Access — Free for All Students
-              </Badge>
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-violet-500/20 rounded-3xl blur-2xl -z-10" />
+              <img src="/hero-illustration.png" alt="Futuristic Learning" className="w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700 hover:rotate-2" />
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight text-balance">
-                Get Mentored by Students from{" "}
-                <span className="text-gradient bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400">VJTI</span>
-              </h1>
-            </motion.div>
+            {/* Right: Content */}
+            <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+              {/* ✅ Honest beta badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <Badge className="bg-primary/20 text-primary border-0 mb-6 py-1.5 px-4">
+                  <Sparkles className="h-3.5 w-3.5 mr-1.5" />
+                  Early Access — Free for All Students
+                </Badge>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed text-pretty">
-                1:1 sessions with real students who cracked MHTCET. Get honest guidance on
-                college selection, CAP rounds, and what engineering life is actually like.{" "}
-                <span className="text-white font-semibold">Completely free.</span>
-              </p>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight text-balance">
+                  Get Mentored by Students from{" "}
+                  <span className="text-gradient bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400">VJTI</span>
+                </h1>
+              </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              {isSignedIn ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-pretty">
+                  1:1 sessions with real students who cracked MHTCET. Get honest guidance on
+                  college selection, CAP rounds, and what engineering life is actually like.{" "}
+                  <span className="text-white font-semibold">Completely free.</span>
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              >
+                {isSignedIn ? (
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8 text-base"
+                  >
+                    <Link href="https://chat.whatsapp.com/FT9zIkNqsbt4yNQDDkEGaU" target="_blank" rel="noopener noreferrer">
+                      Join WhatsApp Group — Free
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                ) : (
+                  <SignInButton mode="modal" fallbackRedirectUrl="/">
+                    <Button
+                      size="lg"
+                      className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8 text-base cursor-pointer"
+                    >
+                      Join WhatsApp Group — Free
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </SignInButton>
+                )}
                 <Button
                   asChild
+                  variant="outline"
                   size="lg"
-                  className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8 text-base"
+                  className="bg-transparent border-slate-600 text-white hover:bg-white/10 h-12 px-8 text-base"
                 >
-                  <Link href="https://chat.whatsapp.com/FT9zIkNqsbt4yNQDDkEGaU" target="_blank" rel="noopener noreferrer">
-                    Join WhatsApp Group — Free
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
+                  <Link href="/papers">Previous Year Papers</Link>
                 </Button>
-              ) : (
-                <SignInButton mode="modal" fallbackRedirectUrl="/">
-                  <Button
-                    size="lg"
-                    className="bg-[#25D366] hover:bg-[#1EBE57] text-white h-12 px-8 text-base cursor-pointer"
-                  >
-                    Join WhatsApp Group — Free
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </SignInButton>
-              )}
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-slate-600 text-white hover:bg-white/10 h-12 px-8 text-base"
-              >
-                <Link href="/papers">Previous Year Papers</Link>
-              </Button>
-            </motion.div>
+              </motion.div>
 
-            {/* ✅ Honest trust badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400"
-            >
-              <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
-                <CheckCircle className="h-4 w-4 text-accent" />
-                <span>Real VJTI Student Mentor</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
-                <CheckCircle className="h-4 w-4 text-accent" />
-                <span>No Payment Required</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
-                <CheckCircle className="h-4 w-4 text-accent" />
-                <span>Honest Guidance — No Scripts</span>
-              </div>
-            </motion.div>
+              {/* ✅ Honest trust badges */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm text-slate-400"
+              >
+                <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
+                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <span>Real VJTI Student Mentor</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2">
+                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <span>No Payment Required</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mt-2 sm:mt-0">
+                  <CheckCircle className="h-4 w-4 text-accent" />
+                  <span>Honest Guidance</span>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
 
