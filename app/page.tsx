@@ -51,16 +51,32 @@ const TOP_COLLEGES = [
   }
 ];
 import { mentors } from "@/lib/data";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useUser, SignInButton } from "@clerk/nextjs";
 import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/json-ld";
 
 export default function HomePage() {
   const { isSignedIn } = useUser();
+  const { scrollYProgress, scrollY } = useScroll();
+  
+  // Progress bar spring
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // Hero Orb Parallax (moves slower than page)
+  const orbY = useTransform(scrollY, [0, 1000], [0, 300]);
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 origin-left bg-gradient-to-r from-indigo-500 to-violet-500 z-50"
+        style={{ scaleX }}
+      />
       <OrganizationJsonLd />
       <WebsiteJsonLd />
       <Navbar />
@@ -70,7 +86,10 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-[#0a0e1a] pt-16">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e2a3f_1px,transparent_1px),linear-gradient(to_bottom,#1e2a3f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
-          <div className="hero-orb absolute top-1/3 left-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-indigo-500/20 via-violet-500/10 to-transparent blur-3xl" />
+          <motion.div 
+            style={{ y: orbY }}
+            className="hero-orb absolute top-1/3 left-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-indigo-500/20 via-violet-500/10 to-transparent blur-3xl" 
+          />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
@@ -409,7 +428,14 @@ export default function HomePage() {
             {TOP_COLLEGES.map((region, regionIndex) => {
               const borderClass = ['border-blue-500/40', 'border-violet-500/40', 'border-amber-500/40'][regionIndex % 3];
               return (
-                <div key={region.city} className={`border-l-2 ${borderClass} pl-4`}>
+                <motion.div 
+                  key={region.city} 
+                  className={`border-l-2 ${borderClass} pl-4`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: regionIndex * 0.2 }}
+                >
                   <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-primary" />
                     Top Colleges in {region.city}
@@ -443,7 +469,7 @@ export default function HomePage() {
                       </Card>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
