@@ -159,11 +159,6 @@ export default function ResultDashboard({
              ))}
           </div>
 
-          {/* Top Info Bar */}
-          <div className="bg-[#262F3D] rounded-lg p-4 flex justify-between items-center mb-8 border border-slate-700/40">
-             <span className="text-slate-300">Syllabus</span>
-             <span className="text-blue-400 text-sm font-medium cursor-pointer flex items-center">SHOW ▾</span>
-          </div>
 
           {/* Metrics Overview Row */}
           <div className="flex flex-col md:flex-row gap-6 mb-12">
