@@ -85,13 +85,17 @@ export default function HomePage() {
             
             {/* Left: Graphic */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="relative hidden lg:block w-full max-w-lg mx-auto"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-violet-500/20 rounded-3xl blur-2xl -z-10" />
-              <img src="/hero-illustration.png" alt="Futuristic Learning" className="w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700 hover:rotate-2" />
+              <img 
+                src="/vjti-campus.png" 
+                alt="VJTI Campus" 
+                className="w-full aspect-[4/3] object-cover rounded-3xl border border-white/10 drop-shadow-2xl hover:scale-[1.02] transition-transform duration-700" 
+              />
             </motion.div>
 
             {/* Right: Content */}
