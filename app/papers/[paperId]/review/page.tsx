@@ -260,9 +260,6 @@ export default function ReviewPage({
                 >
                   {bookmarkedIds.has(currentQuestion.id) ? <BookmarkCheck className="h-5 w-5 fill-current" /> : <Bookmark className="h-5 w-5" />}
                 </Button>
-                <Button variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800 text-xs">
-                   View All Qs ›
-                </Button>
               </div>
            </div>
 
