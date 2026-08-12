@@ -57,14 +57,7 @@ import { OrganizationJsonLd, WebsiteJsonLd } from "@/components/json-ld";
 
 export default function HomePage() {
   const { isSignedIn } = useUser();
-  const { scrollYProgress, scrollY } = useScroll();
-  
-  // Progress bar spring
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const { scrollY } = useScroll();
 
   // Hero Orb Parallax (moves slower than page)
   const orbY = useTransform(scrollY, [0, 1000], [0, 300]);
@@ -72,11 +65,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 origin-left bg-gradient-to-r from-indigo-500 to-violet-500 z-50"
-        style={{ scaleX }}
-      />
       <OrganizationJsonLd />
       <WebsiteJsonLd />
       <Navbar />
@@ -206,7 +194,7 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ amount: 0.1, margin: "-80px" }}
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-balance">
@@ -260,7 +248,7 @@ export default function HomePage() {
                 key={feature.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
+                viewport={{ amount: 0.1, margin: "-80px" }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <Link href={feature.href} className="group">
@@ -294,7 +282,7 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ amount: 0.1, margin: "-80px" }}
             className="text-center max-w-2xl mx-auto mb-10"
           >
             <Badge className="bg-amber-500/15 text-amber-600 dark:text-amber-400 border-0 mb-4 py-1.5 px-4">
@@ -314,7 +302,7 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ amount: 0.1 }}
               transition={{ duration: 0.5 }}
             >
               <a
@@ -353,7 +341,7 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ amount: 0.1 }}
               transition={{ duration: 0.5 }}
             >
               <a
@@ -433,7 +421,7 @@ export default function HomePage() {
                   className={`border-l-2 ${borderClass} pl-4`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ amount: 0.1, margin: "-100px" }}
                   transition={{ duration: 0.6, delay: regionIndex * 0.2 }}
                 >
                   <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">

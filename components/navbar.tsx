@@ -58,7 +58,7 @@ export function Navbar() {
             <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden transition-transform group-hover:scale-105">
               <img src="/logo.png" alt="CET Mentor Hub Logo" className="h-full w-full object-cover" />
             </div>
-            <span className={`font-bold text-lg ${isScrolled ? "text-foreground" : "text-white"}`}>
+            <span className={`font-bold text-lg ${isScrolled || pathname !== "/" ? "text-foreground" : "text-white"}`}>
               CET Mentor Hub
             </span>
           </Link>
@@ -75,7 +75,7 @@ export function Navbar() {
                   isActive
                     ? "bg-white text-slate-900 rounded-full"
                     : `rounded-lg ${
-                        isScrolled
+                        isScrolled || pathname !== "/"
                           ? "text-muted-foreground hover:text-foreground hover:bg-muted"
                           : "text-white/80 hover:text-white hover:bg-white/10"
                       }`
@@ -96,7 +96,7 @@ export function Navbar() {
                 size="icon"
                 onClick={toggleTheme}
                 className={`rounded-lg transition-colors ${
-                  isScrolled
+                  isScrolled || pathname !== "/"
                     ? "text-foreground hover:bg-muted"
                     : "text-white hover:bg-white/10"
                 }`}
@@ -115,14 +115,14 @@ export function Navbar() {
               <>
                 <SignInButton mode="modal" forceRedirectUrl="/dashboard">
                   <Button
-                    variant="ghost"
-                    className={`${
-                      isScrolled
-                        ? "text-foreground hover:bg-muted"
-                        : "text-white hover:bg-white/10"
-                    }`}
+                    variant="outline"
+                    className={
+                      isScrolled || pathname !== "/"
+                        ? "border-primary text-primary hover:bg-primary/10"
+                        : "border-white/20 text-white hover:bg-white/10"
+                    }
                   >
-                    Sign In
+                    Login
                   </Button>
                 </SignInButton>
                 <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
@@ -145,7 +145,7 @@ export function Navbar() {
                 size="icon"
                 onClick={toggleTheme}
                 className={`rounded-lg ${
-                  isScrolled ? "text-foreground" : "text-white"
+                  isScrolled || pathname !== "/" ? "text-foreground" : "text-white"
                 }`}
               >
                 {theme === "dark" ? (
@@ -160,7 +160,9 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className={isScrolled ? "text-foreground" : "text-white"}
+                  className={`md:hidden ${
+                    isScrolled || pathname !== "/" ? "text-foreground" : "text-white"
+                  }`}
                 >
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
