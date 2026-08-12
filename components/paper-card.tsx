@@ -85,35 +85,13 @@ export function PaperCard({ paper, bestScore }: PaperCardProps) {
         </div>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-3 mt-auto">
-          {paper.pdf_url ? (
-            <Button
-              asChild
-              variant="outline"
-              className="w-full text-xs h-9"
-            >
-              <a
-                href={paper.pdf_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download className="h-3.5 w-3.5 mr-1.5" />
-                PDF
-              </a>
-            </Button>
-          ) : (
-            <Button variant="outline" className="w-full text-xs h-9" disabled>
-               <Download className="h-3.5 w-3.5 mr-1.5" />
-               No PDF
-            </Button>
-          )}
-
+        <div className="mt-auto pt-2">
           <Button
             asChild
-            className="w-full text-xs h-9 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-200"
+            className="w-full text-xs h-10 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-200"
           >
             <Link href={`/papers/${paper.id}/test`}>
-              <PlayCircle className="h-3.5 w-3.5 mr-1.5" />
+              <PlayCircle className="h-4 w-4 mr-2" />
               Take Test
             </Link>
           </Button>
