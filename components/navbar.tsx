@@ -44,6 +44,12 @@ export function Navbar() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  const isDarkHeroPage = ["/", "/practice", "/papers", "/leaderboard", "/about", "/blog", "/offline"].includes(pathname) || 
+                         pathname.startsWith("/colleges/") || 
+                         (pathname.startsWith("/blog/") && pathname.length > 6);
+                         
+  const needsDarkText = isScrolled || !isDarkHeroPage;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-300 ${
@@ -65,7 +71,7 @@ export function Navbar() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden transition-transform group-hover:scale-105">
               <img src="/logo.png" alt="CET Mentor Hub Logo" className="h-full w-full object-cover" />
             </div>
-            <span className={`font-bold text-lg ${isScrolled || pathname !== "/" ? "text-foreground" : "text-white"}`}>
+            <span className={`font-bold text-lg ${needsDarkText ? "text-foreground" : "text-white"}`}>
               CET Mentor Hub
             </span>
           </Link>
@@ -81,7 +87,7 @@ export function Navbar() {
                 className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-full z-10 ${
                   isActive
                     ? "text-slate-900"
-                    : isScrolled || pathname !== "/"
+                    : needsDarkText
                       ? "text-muted-foreground hover:text-foreground"
                       : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
@@ -108,7 +114,7 @@ export function Navbar() {
                 size="icon"
                 onClick={toggleTheme}
                 className={`rounded-full transition-colors ${
-                  isScrolled || pathname !== "/"
+                  needsDarkText
                     ? "text-foreground hover:bg-muted"
                     : "text-white hover:bg-white/10"
                 }`}
@@ -129,7 +135,7 @@ export function Navbar() {
                   <Button
                     variant="outline"
                     className={`rounded-full ${
-                      isScrolled || pathname !== "/"
+                      needsDarkText
                         ? "border-primary text-primary hover:bg-primary/10"
                         : "border-white/20 text-white hover:bg-white/10"
                     }`}
@@ -157,7 +163,7 @@ export function Navbar() {
                 size="icon"
                 onClick={toggleTheme}
                 className={`rounded-lg ${
-                  isScrolled || pathname !== "/" ? "text-foreground" : "text-white"
+                  needsDarkText ? "text-foreground" : "text-white"
                 }`}
               >
                 {theme === "dark" ? (
@@ -173,7 +179,7 @@ export function Navbar() {
                   variant="ghost"
                   size="icon"
                   className={`md:hidden ${
-                    isScrolled || pathname !== "/" ? "text-foreground" : "text-white"
+                    needsDarkText ? "text-foreground" : "text-white"
                   }`}
                 >
                   <Menu className="h-6 w-6" />
