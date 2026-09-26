@@ -94,8 +94,7 @@ async function scrapeQuestion(page, url, subject) {
         const label = labelDiv.textContent.trim();
         if (['A', 'B', 'C', 'D'].includes(label)) {
           // The option's actual formula/text is the .grow container, or the last child
-          const children = Array.from(node.children);
-          const contentDiv = children.find(child => (child.className || '').includes('grow')) || children[children.length - 1];
+          const contentDiv = node.querySelector('.option-content') || node.children[node.children.length - 1];
 
           options[label] = contentDiv ? getHTML(contentDiv) : '';
           
