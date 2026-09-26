@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import "katex/dist/katex.min.css";
 // @ts-ignore
-import renderMathInElement from "katex/dist/contrib/auto-render.js";
+import autoRender from "katex/dist/contrib/auto-render.mjs";
 
 interface MathRendererProps {
   html: string;
@@ -16,7 +16,8 @@ export function MathRenderer({ html, className = "" }: MathRendererProps) {
   useEffect(() => {
     if (containerRef.current) {
       try {
-        renderMathInElement(containerRef.current, {
+        const renderFunc = typeof autoRender === 'function' ? autoRender : (autoRender as any).default || autoRender;
+        renderFunc(containerRef.current, {
           delimiters: [
             { left: "$$", right: "$$", display: true },
             { left: "\\[", right: "\\]", display: true },
@@ -28,7 +29,7 @@ export function MathRenderer({ html, className = "" }: MathRendererProps) {
           strict: "ignore",
         });
       } catch (err) {
-        console.error("KaTeX rendering error:", err);
+        console.error("KaTeX rendering error:", err, "HTML:", html);
       }
     }
   }, [html]);
