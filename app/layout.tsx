@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ServiceWorkerRegistration } from '@/components/sw-register'
 import { ClerkProvider } from '@clerk/nextjs'
+import { MathJaxDefs } from '@/components/MathJaxDefs'
 import './globals.css'
 
 const plusJakarta = Plus_Jakarta_Sans({ 
@@ -55,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${plusJakarta.variable} ${geistMono.variable} font-sans antialiased`}>
+        <MathJaxDefs />
         <ClerkProvider>
           <ThemeProvider
             attribute="class"
